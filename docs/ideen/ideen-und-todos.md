@@ -83,6 +83,7 @@
 - [ ] Zusammenarbeit mit der Fachhochschule Kiel
 - [ ] ISO 14001: was das Umweltmanagement mit emulvent zu tun hat
 - [ ] Sensorik: die Entwicklung von der Idee zum Produkt
+- [ ] **„Jesus zuerst!“** Wie wir Ideen gesammelt, entwickelt und besprochen haben und dann entschieden haben, Jesus auch in der Firma an die erste Stelle zu setzen. Diesen Weg verfolgen wir bis heute und wollen ihn für immer beibehalten.
 
 ### Newsletter „Aktuelles“
 
