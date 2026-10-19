@@ -58,3 +58,7 @@
   - Wie oft sollte gemessen werden (TRGS 611 / DGUV-Empfehlungen)?
   - Woran erkennt man früh, dass ein Badwechsel droht?
   - Lässt sich die Sensorik an bestehende Maschinen nachrüsten?
+
+## 6. Sonstiges
+
+- [ ] **LinkedIn Business Account:** beim LinkedIn-Support nachfragen, dass das Business-Abo wieder storniert wird, und die Stornierung schriftlich bestätigen lassen
