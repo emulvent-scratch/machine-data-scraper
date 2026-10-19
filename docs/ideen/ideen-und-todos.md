@@ -62,3 +62,31 @@
 ## 6. Sonstiges
 
 - [ ] **LinkedIn Business Account:** beim LinkedIn-Support nachfragen, dass das Business-Abo wieder storniert wird, und die Stornierung schriftlich bestätigen lassen
+
+## 7. LinkedIn & Newsletter
+
+### Konzept: Posts vorbereiten und zeitgesteuert ausspielen
+
+- [ ] **Redaktionsplan** als Notion-Datenbank anlegen: Thema, Entwurf, Bild, geplantes Datum, Status (Idee, Entwurf, Freigegeben, Geplant, Veröffentlicht)
+- [ ] **Vorbereiten im Block:** einmal im Monat mehrere Posts mit Claude entwerfen, gegenlesen, freigeben
+- [ ] **Zeitgesteuert ausspielen:** LinkedIn kann Posts direkt im Editor einplanen (Uhrsymbol „Planen“), für das persönliche Profil und für die emulvent-Unternehmensseite. Alternativ ein Tool wie Buffer, falls mehrere Kanäle bedient werden
+- [ ] **Rhythmus festlegen,** z. B. ein Post pro Woche, fester Wochentag und Uhrzeit (Dienstag oder Mittwoch morgens)
+- [ ] **Nach der Veröffentlichung:** Reaktionen in den ersten Stunden beantworten, Ergebnisse im Redaktionsplan notieren
+
+### Story-Ideen für eine Serie „Die emulvent-Geschichte“
+
+- [ ] Wie Thilo zu emulvent gekommen ist
+- [ ] Von der ersten Frage von Björn bis heute
+- [ ] Vom ersten Gespräch an der Kaffeemaschine bis zur GmbH
+- [ ] Wie emulvent vom Hessischen Ministerium für Wirtschaft gefördert wurde
+- [ ] Wie sich emulvent aus Thilos Sicht mit Gottes Unterstützung entwickelt hat
+- [ ] Zusammenarbeit mit der Fachhochschule Kiel
+- [ ] ISO 14001: was das Umweltmanagement mit emulvent zu tun hat
+- [ ] Sensorik: die Entwicklung von der Idee zum Produkt
+
+### Newsletter „Aktuelles“
+
+- [ ] Newsletter mit Neuigkeiten an Interessierte, einmal im Monat oder alle zwei Monate
+- [ ] Inhalte aus den LinkedIn-Posts wiederverwenden (Geschichten, Projekte, Messetermine, Presse)
+- [ ] Anmeldung nur mit Double-Opt-in (DSGVO), Abmeldelink in jeder Ausgabe
+- [ ] Tool wählen, z. B. Brevo oder CleverReach (Server in der EU)
