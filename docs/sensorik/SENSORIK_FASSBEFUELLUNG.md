@@ -34,8 +34,8 @@ Begriffe vom Whiteboard:
 | **Leuchte** | Signalleuchte (Statusanzeige an der Maschine), optional. |
 | **Digi Modul** | Digitalmodul, macht aus der Split-Box eine Box Digital bzw. ergänzt digitale Signalverarbeitung, optional. |
 | **WLAN Modul** | Funkanbindung der Box, optional. |
-| **App automation** | Automatisierung über die App (z. B. Abschalten/Melden bei Füllstand erreicht), optional. |
-| **Magnetventil** | Elektrisch schaltbares Ventil, um die Befüllung automatisch zu stoppen, optional. |
+| **App automation** | Automatisierung über die App (z. B. Abschalten/Melden bei Füllstand erreicht), optional, gilt pro Maschine. |
+| **Magnetventil** | Elektrisch schaltbares Ventil, um die Befüllung automatisch zu stoppen, optional, gilt pro Maschine. |
 
 ---
 
@@ -95,10 +95,13 @@ Optionen je zusätzlicher Maschine (Spalte „2–9 Masch."):
 - Leuchte
 - Digi Modul
 - WLAN Modul
+- App automation (pro Maschine, siehe unten)
+- Magnetventil (pro Maschine, siehe unten)
 
-App automation und Magnetventil tauchen nur beim Grundpaket auf. Ob sie pro
-Anlage oder pro Maschine gelten, ist offen. Preise für Optionen sind am
-Whiteboard nicht vermerkt.
+App automation und Magnetventil stehen am Whiteboard nur beim Grundpaket,
+gelten aber **pro Maschine** (Klärung 08.11.2026). Sie sind damit auch für
+jede Zusatzmaschine wählbar. Preise für Optionen sind am Whiteboard nicht
+vermerkt.
 
 ### 2.4 Weitere Zahlen am Whiteboard (Interpretation offen)
 
@@ -145,7 +148,8 @@ Box Split (analog)                  Box Digital
 3. Braucht die Box Digital 230 V oder läuft sie über PoE / Netzteil der
    Combox? Am Whiteboard wurde 230 V weggewischt.
 4. Bedeutung der Zahlen 1450 / 250 und 1.080.000 / 950.000.
-5. Sind App automation und Magnetventil pro Anlage oder pro Maschine?
+
+Geklärt am 08.11.2026: App automation und Magnetventil gelten pro Maschine.
 
 ---
 
