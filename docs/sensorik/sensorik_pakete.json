@@ -1,0 +1,60 @@
+{
+  "produkt": "Sensorik Faßbefüllung",
+  "stand": "2026-11-08",
+  "status": "konzept",
+  "waehrung": "EUR",
+  "hinweis": "Preise sind Whiteboard-Stand und nicht freigegeben. Siehe SENSORIK_FASSBEFUELLUNG.md.",
+  "komponenten": {
+    "brix": { "name": "Brix-Sensor", "ebene": "anlage", "beschreibung": "Misst Zuckergehalt in °Brix" },
+    "combox": { "name": "Combox", "ebene": "anlage", "beschreibung": "Zentrale Sammelbox für Sensorsignale" },
+    "fuellstand": { "name": "Füllstandsensor", "ebene": "maschine" },
+    "kabel": { "name": "Kabel", "ebene": "stueck" },
+    "halterung": { "name": "Halterung", "ebene": "stueck" },
+    "netzteil_230v": { "name": "230 V Netzteil", "ebene": "stueck" },
+    "box_split": { "name": "Box Split (analog)", "ebene": "maschine", "anschluesse": ["Leuchte", "230V", "Sensor"] },
+    "box_digital": { "name": "Box Digital", "ebene": "maschine", "anschluesse": ["Leuchte", "Sensor", "RJ45", "WLAN"], "ergibt_sich_aus": ["digi_modul", "wlan_modul"] }
+  },
+  "pakete": {
+    "grundpaket_1_maschine": {
+      "preis": 1200,
+      "preis_alternativ": 1450,
+      "maschinen": 1,
+      "positionen": [
+        { "komponente": "brix", "menge": 1 },
+        { "komponente": "combox", "menge": 1 },
+        { "komponente": "fuellstand", "menge": 1 },
+        { "komponente": "kabel", "menge": 2 },
+        { "komponente": "halterung", "menge": 2 },
+        { "komponente": "netzteil_230v", "menge": 2 },
+        { "komponente": "box_split", "menge": 1 }
+      ],
+      "optionen": ["leuchte", "app_automation", "digi_modul", "wlan_modul", "magnetventil"]
+    },
+    "zusatzmaschine": {
+      "preis": 300,
+      "preis_alternativ": 250,
+      "gueltig_fuer_maschinen": { "von": 2, "bis": 9 },
+      "positionen": [
+        { "komponente": "netzteil_230v", "menge": 1 },
+        { "komponente": "box_split", "menge": 1 },
+        { "komponente": "halterung", "menge": 1 },
+        { "komponente": "fuellstand", "menge": 1 }
+      ],
+      "optionen": ["leuchte", "digi_modul", "wlan_modul"]
+    }
+  },
+  "optionen": {
+    "leuchte": { "name": "Signalleuchte", "preis": null },
+    "app_automation": { "name": "App automation", "preis": null },
+    "digi_modul": { "name": "Digi Modul", "preis": null },
+    "wlan_modul": { "name": "WLAN Modul", "preis": null },
+    "magnetventil": { "name": "Magnetventil", "preis": null }
+  },
+  "offene_punkte": [
+    "Optionspreise fehlen",
+    "Grenze 9 Maschinen (Combox-Eingänge?) und Verhalten ab 10",
+    "Stromversorgung Box Digital (230 V weggewischt)",
+    "Bedeutung 1.080.000 / 950.000",
+    "App automation und Magnetventil: pro Anlage oder pro Maschine"
+  ]
+}

@@ -59,6 +59,10 @@ machine-data-scraper/
 │   ├── dmg_mori.py                  # DMG MORI Scraper
 │   ├── haas.py                      # HAAS Scraper
 │   └── grob.py                      # GROB Scraper
+├── docs/sensorik/
+│   ├── SENSORIK_FASSBEFUELLUNG.md   # Fachwissen Sensorik (Whiteboard-Stand)
+│   ├── sensorik_pakete.json         # Paketstruktur für den Konfigurator
+│   └── whiteboard/                  # Whiteboard-Fotos
 ├── requirements.txt                  # Python Dependencies
 ├── .gitignore                        # Git-Ignore
 └── README.md                         # Diese Datei
