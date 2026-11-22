@@ -105,6 +105,24 @@ header{order:-1}
   nav a:hover{background:var(--accent-soft);color:var(--accent)}
   nav a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
 }
+
+/* Search: a large field that stays at the top while reading; results open as a panel below it and jump to the matching step, question, term or section. */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;order:-2;background:var(--bg);padding-block:10px;margin-block:-10px}
+.field{position:relative}
+.field svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.field input{width:100%;font:inherit;font-size:1.1rem;padding:16px 18px 16px 50px;border-radius:14px;border:2px solid var(--accent);background:var(--surface);color:var(--fg)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgb(0 0 0 / .2);max-height:min(62vh,540px);overflow:auto;padding:8px;display:flex;flex-direction:column;gap:2px}
+.res{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:2px 10px;text-align:left;font:inherit;background:none;border:0;border-radius:10px;padding:10px;color:var(--fg);cursor:pointer}
+.res:hover,.res:focus-visible{background:var(--accent-soft)}
+.typ{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:4px}
+.res b{font-weight:600}
+.res small{grid-column:2;color:var(--muted);font-size:.86rem}
+.results p{padding:8px 10px;color:var(--muted);font-size:.9rem}
+.results .chips{padding:0 10px 8px}
+.hit{outline:3px solid var(--accent);outline-offset:3px}
+section,.step,details,dt{scroll-margin-top:104px}
 </style>
 
 <div class="wrap">
@@ -115,6 +133,14 @@ header{order:-1}
   <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 von 17 Schritten erledigt</span></div>
 </aside>
 <div class="main">
+<div class="searchbar" id="searchbar">
+  <div class="field">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <label for="q" class="vh">Anleitung durchsuchen</label>
+    <input id="q" type="search" placeholder="Anleitung durchsuchen, z. B. Seed-Phrase" autocomplete="off" aria-controls="results">
+    <div class="results" id="results" hidden></div>
+  </div>
+</div>
 <header>
   <span class="eyebrow">Inoffizielle Anleitung · Stand 22. November 2026</span>
   <h1>Von null zu deiner Vow.id</h1>
@@ -290,20 +316,6 @@ header{order:-1}
 
 <section id="fragen">
   <h2>Häufige Fragen</h2>
-  <div class="ask">
-    <label for="q">Was möchtest du wissen?</label>
-    <input id="q" type="search" placeholder="z. B. Wie lese ich dann meine Mails?" autocomplete="off">
-    <small id="hits">Tippe eine Frage oder ein Stichwort. Die passenden Antworten erscheinen sofort.</small>
-    <div class="chips" id="chips">
-      <button type="button" data-q="Geld sparen verdienen">Was bringt es?</button>
-      <button type="button" data-q="Pending">Pending MR</button>
-      <button type="button" data-q="Mails lesen">Mails lesen</button>
-      <button type="button" data-q="Kosten">Kosten</button>
-      <button type="button" data-q="Bank">Bank</button>
-      <button type="button" data-q="Zweifel Risiko">Zweifel</button>
-      <button type="button" data-q="">Alle Fragen</button>
-    </div>
-  </div>
   <div id="faqlist"></div>
 </section>
 
@@ -464,24 +476,34 @@ const FIX=[
 ];
 const STOP=new Set("der die das den dem ein eine einen ich du mir mich mein meine ist sind kann muss soll wie was wo wer warum wann und oder aber für mit von bei auf in zu zur zum es man nicht auch noch schon dann wenn bitte habe hat".split(" "));
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
-const plain=h=>h.replace(/<[^>]+>/g," ").toLowerCase();
-function item(x){const d=el("details");d.appendChild(el("summary",null,x.q));d.appendChild(el("div","a",x.a));return d}
-function render(list,box,grouped,open){box.textContent="";let cat="";list.forEach(x=>{if(grouped&&x.c!==cat){cat=x.c;box.appendChild(el("div","cat",cat))}const d=item(x);if(open)d.open=true;box.appendChild(d)})}
-function score(x,toks){const q=x.q.toLowerCase(),k=x.k,a=x._a||(x._a=plain(x.a));let s=0;toks.forEach(t=>{if(q.includes(t))s+=3;if(k.includes(t))s+=2;if(a.includes(t))s+=1});return s}
-const faqBox=document.getElementById("faqlist"),fixBox=document.getElementById("fixlist"),hits=document.getElementById("hits"),input=document.getElementById("q");
-function search(){const toks=input.value.toLowerCase().split(/[^a-zäöüß0-9$@.]+/).filter(t=>t.length>1&&!STOP.has(t));
-  if(!toks.length){render(FAQ,faqBox,true);render(FIX,fixBox);hits.textContent="Tippe eine Frage oder ein Stichwort. Die passenden Antworten erscheinen sofort.";return}
-  const f=FAQ.map(x=>[score(x,toks),x]).filter(r=>r[0]>1).sort((a,b)=>b[0]-a[0]).map(r=>r[1]);
-  const g=FIX.map(x=>[score(x,toks),x]).filter(r=>r[0]>1).sort((a,b)=>b[0]-a[0]).map(r=>r[1]);
-  const n=f.length+g.length;
-  render(f.slice(0,8),faqBox,false,f.length===1);render(g.slice(0,4),fixBox);
-  if(!f.length)faqBox.appendChild(el("p",null,"Dazu steht hier noch nichts. Schreib deine Frage der Person, die dir diese Seite geschickt hat."));
-  if(!g.length)fixBox.appendChild(el("p",null,"Kein passender Eintrag."));
-  hits.textContent=n?n+(n===1?" passende Antwort":" passende Antworten")+" unter „Häufige Fragen“ und „Wenn etwas hakt“.":"Keine passende Antwort gefunden.";}
-input.addEventListener("input",search);
-document.getElementById("chips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;input.value=b.dataset.q;search();document.getElementById("faqlist").scrollIntoView({behavior:"smooth",block:"nearest"})});
-search();
-
+const txt=(t,c,s)=>{const e=document.createElement(t);if(c)e.className=c;e.textContent=s;return e};
+const plain=h=>h.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();
+function fill(list,box,pre,grouped){let cat="";list.forEach((x,i)=>{if(grouped&&x.c!==cat){cat=x.c;box.appendChild(el("div","cat",cat))}const d=el("details");d.id=pre+i;d.appendChild(el("summary",null,x.q));d.appendChild(el("div","a",x.a));box.appendChild(d);x._el=d})}
+fill(FAQ,document.getElementById("faqlist"),"faq-",true);fill(FIX,document.getElementById("fixlist"),"fix-",false);
+const INDEX=[];
+document.querySelectorAll(".step").forEach((st,i)=>{const h=st.querySelector("h3").textContent;const body=[...st.children].filter(c=>c.tagName!=="H3"&&c.tagName!=="LABEL").map(c=>c.textContent).join(" ");INDEX.push({t:"Schritt "+(i+1),q:h,k:"",a:body.replace(/\s+/g," ").trim(),el:st})});
+FAQ.forEach(x=>INDEX.push({t:"Frage",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
+FIX.forEach(x=>INDEX.push({t:"Hilfe",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
+document.querySelectorAll("#begriffe dt").forEach(dt=>INDEX.push({t:"Begriff",q:dt.textContent,k:"",a:dt.nextElementSibling.textContent,el:dt}));
+["kurz","freigaben","fehler","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Abschnitt",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
+INDEX.forEach(x=>{x._q=x.q.toLowerCase();x._a=x.a.toLowerCase()});
+const input=document.getElementById("q"),panel=document.getElementById("results"),bar0=document.getElementById("searchbar");
+const SUGGEST=["Seed-Phrase","BNB","Einladungslink","Mails lesen","Pending","Kosten","Bank","Token hinzufügen","Zweifel"];
+const tokens=v=>v.toLowerCase().split(/[^a-zäöüß0-9$@.€£-]+/).filter(t=>t.length>1&&!STOP.has(t));
+function snippet(x,toks){const a=x.a;let pos=-1;for(const t of toks){pos=x._a.indexOf(t);if(pos>=0)break}const from=Math.max(0,(pos<0?0:pos)-40);return (from>0?"… ":"")+a.slice(from,from+110).trim()+(a.length>from+110?" …":"")}
+function go(x){panel.hidden=true;const d=x.el;if(d.tagName==="DETAILS")d.open=true;const inner=d.closest("details");if(inner)inner.open=true;
+  const calm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;d.scrollIntoView({block:"start",behavior:calm?"auto":"smooth"});
+  d.classList.add("hit");setTimeout(()=>d.classList.remove("hit"),2200);input.blur()}
+function show(){const toks=tokens(input.value);panel.textContent="";
+  if(!toks.length){panel.appendChild(txt("p",null,"Häufig gesucht:"));const c=el("div","chips");SUGGEST.forEach(w=>{const b=txt("button",null,w);b.type="button";b.addEventListener("click",()=>{input.value=w;show();input.focus()});c.appendChild(b)});panel.appendChild(c);panel.hidden=false;return}
+  const hits=INDEX.map(x=>{let sc=0;toks.forEach(t=>{if(x._q.includes(t))sc+=3;if(x.k.includes(t))sc+=2;if(x._a.includes(t))sc+=1});return [sc,x]}).filter(r=>r[0]>0).sort((a,b)=>b[0]-a[0]);
+  if(!hits.length){panel.appendChild(txt("p",null,"Dazu steht in dieser Anleitung nichts. Schreib deine Frage der Person, die dir die Seite geschickt hat."));panel.hidden=false;return}
+  panel.appendChild(txt("p",null,hits.length+(hits.length===1?" Treffer":" Treffer")+(hits.length>12?", die besten 12:":":")));
+  hits.slice(0,12).forEach(([,x])=>{const b=el("button","res");b.type="button";b.appendChild(txt("span","typ",x.t));b.appendChild(txt("b",null,x.q));b.appendChild(txt("small",null,snippet(x,toks)));b.addEventListener("click",()=>go(x));panel.appendChild(b)});
+  panel.hidden=false;panel.scrollTop=0}
+input.addEventListener("input",show);input.addEventListener("focus",show);
+input.addEventListener("keydown",e=>{if(e.key==="Escape"){panel.hidden=true;input.blur()}if(e.key==="Enter"){const f=panel.querySelector(".res");if(f){e.preventDefault();f.click()}}});
+document.addEventListener("click",e=>{if(!bar0.contains(e.target))panel.hidden=true});
 const boxes=[...document.querySelectorAll(".step input")],bar=document.getElementById("bar"),count=document.getElementById("count");
 function update(){const n=boxes.filter(b=>b.checked).length;bar.style.width=(100*n/boxes.length)+"%";
   count.textContent=n===boxes.length?"Alle "+n+" Schritte erledigt. Willkommen bei Vow.id.":n+" von "+boxes.length+" Schritten erledigt";
