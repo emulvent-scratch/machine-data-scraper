@@ -1,0 +1,253 @@
+<title>Vow.id Starthilfe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one narrow reading column for phones; a question box on top, then start checklist, numbered registration route, searchable FAQ, fixes, glossary, risks. */
+:root{
+  --bg:#F2F5F4; --surface:#FFFFFF; --fg:#13222A; --muted:#55666E; --line:#D5DEDC;
+  --accent:#0A6B6B; --accent-soft:#DDEEEC; --warn:#9A5B00; --warn-soft:#FBEFD9; --ok:#1B7A4B;
+  --display:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.4rem;font-weight:600}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lead{font-size:1.06rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:12px}
+section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
+.ask{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ask label{font-family:var(--display);font-weight:600}
+.ask input{width:100%;font:inherit;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg)}
+.ask input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ask small{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fact{border-top:2px solid var(--accent);padding-top:8px}
+.fact b{display:block;font-family:var(--display);font-size:1.15rem}
+.fact span{font-size:.88rem;color:var(--muted)}
+.note{background:var(--warn-soft);color:var(--fg);border-radius:10px;padding:12px 14px;font-size:.94rem}
+.note b{color:var(--warn)}
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.check label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.check input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.check span{min-width:0}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;color:var(--accent);background:var(--accent-soft);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.steps div{min-width:0;display:flex;flex-direction:column;gap:4px}
+.steps .cp{font-size:.86rem;color:var(--ok);font-weight:500}
+.cat{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-family:var(--display);font-weight:700;flex:none}
+details[open] summary::after{content:"–"}
+details .a{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px;color:var(--fg)}
+details .a ul{margin:0;padding-left:20px}
+#faqlist,#fixlist{display:flex;flex-direction:column;gap:8px}
+#hits{font-size:.9rem;color:var(--muted)}
+dl{margin:0;display:grid;grid-template-columns:minmax(90px,max-content) 1fr;gap:8px 16px}
+dt{font-family:var(--display);font-weight:600}
+dd{margin:0;min-width:0;color:var(--muted)}
+footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:420px){ dl{grid-template-columns:1fr;gap:2px 0} dd{margin-bottom:8px} }
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Inoffizielle Starthilfe · Stand 22. November 2026</span>
+  <h1>Vow.id in Ruhe einrichten</h1>
+  <p class="lead">Du hast eine Einladung zu Vow.id bekommen und schon eine Krypto-Wallet. Hier findest du die Antworten auf die Fragen, die beim Start fast immer kommen, und den Weg durch die Registrierung.</p>
+  <div class="ask">
+    <label for="q">Was möchtest du wissen?</label>
+    <input id="q" type="search" placeholder="z. B. Wie viel BNB brauche ich?" autocomplete="off">
+    <small id="hits">Tippe eine Frage oder ein Stichwort. Die passenden Antworten erscheinen sofort.</small>
+    <div class="chips" id="chips">
+      <button type="button" data-q="Kosten">Was kostet es?</button>
+      <button type="button" data-q="Wallet ändern">Welche Wallet?</button>
+      <button type="button" data-q="BNB">BNB</button>
+      <button type="button" data-q="Empfehler">Empfehler</button>
+      <button type="button" data-q="Amazon">Amazon</button>
+      <button type="button" data-q="Bank">Bank</button>
+      <button type="button" data-q="Pending">Pending MR</button>
+      <button type="button" data-q="">Alle Fragen</button>
+    </div>
+  </div>
+</header>
+
+<section id="kurz">
+  <h2>Das Wichtigste vorab</h2>
+  <p>Vow.id ist eine Web-App, in die du dich mit deiner Wallet einloggst. Du weist echte Einkäufe nach, zum Beispiel bei Amazon, und bekommst dafür Member Rewards (MR) vorgeschlagen. Genehmigte MR kannst du mit einem Beitrag in VOW in v$ umwandeln, das sind digitale Rabatt-Gutscheine. Vow.id befindet sich in der Beta-Phase.</p>
+  <div class="facts">
+    <div class="fact"><b>0 €</b><span>kostet die Registrierung. Du zahlst nur eine kleine BNB-Netzwerkgebühr.</span></div>
+    <div class="fact"><b>0,002 BNB</b><span>müssen mindestens in der Wallet liegen (BNB Smart Chain).</span></div>
+    <div class="fact"><b>Für immer</b><span>sind Wallet, Empfehler und Handle festgelegt. Nichts davon lässt sich später ändern.</span></div>
+    <div class="fact"><b>Kein Cashback</b><span>MR sind kein Geld. Zum Einlösen brauchst du VOW im Wert von 50 %.</span></div>
+  </div>
+  <p class="note"><b>Sicherheit zuerst:</b> Niemand braucht deine Seed-Phrase, deinen privaten Schlüssel, deine E-Mail-PIN oder deinen Bank-Code. Auch nicht die Person, die dich eingeladen hat. Wer danach fragt, will dich betrügen.</p>
+</section>
+
+<section id="bereit">
+  <h2>Leg dir das bereit</h2>
+  <ul class="check" id="check">
+    <li><label><input type="checkbox" id="c1"><span>Die Wallet, die du <b>dauerhaft</b> behalten willst, mit sicher verwahrter Seed-Phrase.</span></label></li>
+    <li><label><input type="checkbox" id="c2"><span>Mindestens 0,002 BNB auf der BNB Smart Chain in dieser Wallet.</span></label></li>
+    <li><label><input type="checkbox" id="c3"><span>Den Einladungslink der Person, die dich eingeladen hat. Öffne Vow.id das erste Mal über diesen Link.</span></label></li>
+    <li><label><input type="checkbox" id="c4"><span>Dein normales E-Mail-Postfach, das du jetzt öffnen kannst.</span></label></li>
+    <li><label><input type="checkbox" id="c5"><span>Einen Wunschnamen für deinen Handle (wird zu name@vow.id).</span></label></li>
+  </ul>
+</section>
+
+<section id="schritte">
+  <h2>Registrierung in sieben Schritten</h2>
+  <p class="lead">Rechne mit etwa zehn Minuten. Lass währenddessen nur einen Vow.id-Tab offen.</p>
+  <ol class="steps">
+    <li><div><h3>Über den Einladungslink öffnen</h3><p>Öffne den Link aus deiner Einladung im Browser, lies den Risikohinweis oben und wähle „Create Vow.id“. Bei den Datenschutz-Einstellungen kannst du Werbung ablehnen.</p><span class="cp">Geschafft, wenn sich die Wallet-Auswahl öffnet.</span></div></li>
+    <li><div><h3>Wallet verbinden</h3><p>Wähle deine Wallet oder WalletConnect und bestätige die Verbindung in der Wallet-App. Am Handy springt der Browser eventuell in die Wallet-App. Geh danach in denselben Browser-Tab zurück.</p><span class="cp">Geschafft, wenn deine Adresse mit „Sign message to continue“ erscheint.</span></div></li>
+    <li><div><h3>Empfehler prüfen und Nachricht signieren</h3><p>Prüfe die grüne Zeile „Empfohlen von …“. Steht dort der richtige Name, signiere die Nachricht. Die Signatur kostet nichts und bewegt kein Guthaben.</p><span class="cp">Geschafft, wenn der Bildschirm „Join the Decentralised Affiliate Tree“ kommt.</span></div></li>
+    <li><div><h3>Dem Affiliate-Baum beitreten</h3><p>Wähle „Join and open wallet“, erlaube den Wechsel zur BNB Smart Chain und bestätige die Transaktion. Das ist die einzige Gebühr. Warte auf die Bestätigung und sende keine zweite Transaktion, drücke stattdessen „Check again“.</p><span class="cp">Geschafft, wenn sich dein Vault mit dem E-Mail-Fenster öffnet.</span></div></li>
+    <li><div><h3>E-Mail bestätigen</h3><p>Gib deine normale E-Mail-Adresse ein und tippe die vierstellige PIN aus deinem Postfach ein. Schau auch im Spam-Ordner nach.</p><span class="cp">Geschafft bei „E-Mail verifiziert – Willkommen bei Vow.id“.</span></div></li>
+    <li><div><h3>Handle sichern</h3><p>Gib deinen Wunschnamen ein (3–30 Kleinbuchstaben, Zahlen oder Bindestriche), drücke „Check“ und dann „Claim“. Der Handle bleibt für immer.</p><span class="cp">Geschafft, wenn name@vow.id in der Übersicht steht.</span></div></li>
+    <li><div><h3>Ersten Einkauf vorbereiten</h3><p>Öffne Member Rewards → Checklist, wähle dein Land und deine Dienste. Stimme unter „Receipts &amp; MR rights“ dem Sammeln von MR zu. Trage dann bei Amazon deine name@vow.id als Konto-E-Mail ein.</p><span class="cp">Geschafft, wenn nach deinem nächsten echten Kauf eine Transaktion unter MR erscheint.</span></div></li>
+  </ol>
+</section>
+
+<section id="fragen">
+  <h2>Häufige Fragen</h2>
+  <div id="faqlist"></div>
+</section>
+
+<section id="hilfe">
+  <h2>Wenn etwas hakt</h2>
+  <div id="fixlist"></div>
+</section>
+
+<section id="begriffe">
+  <h2>Begriffe</h2>
+  <dl>
+    <dt>MR</dt><dd>Member Rewards. Ein kostenloser, nicht übertragbarer Eintrag in einem Smart Contract, fest an deine Wallet gebunden.</dd>
+    <dt>Pending MR</dt><dd>Ein Vorschlag, noch kein genehmigter Reward. Kann abgelehnt werden.</dd>
+    <dt>Active MR</dt><dd>Von drei unabhängigen Prüfern genehmigt. 60 Tage lang einlösbar.</dd>
+    <dt>v$</dt><dd>Voucher Dollar. Ein übertragbares Recht, 1 $ Rabatt vorzuschlagen oder anzunehmen. Kein Geld und nicht in Geld einlösbar.</dd>
+    <dt>VOW</dt><dd>Der Token, den du beim Einlösen von MR beisteuerst.</dd>
+    <dt>BNB</dt><dd>Die Währung für Netzwerkgebühren auf der BNB Smart Chain.</dd>
+    <dt>Handle</dt><dd>Dein Name bei Vow.id, zugleich deine Beleg-Adresse name@vow.id.</dd>
+    <dt>Vault</dt><dd>Dein Datenbereich in Vow.id für Kontaktdaten, Adressen und Einstellungen.</dd>
+    <dt>Affiliate-Baum</dt><dd>Das Empfehlungsverzeichnis auf der Blockchain. Jedes Mitglied hat darin einen festen Platz.</dd>
+    <dt>Verifier</dt><dd>Unabhängige Prüfer, die MR-Vorschläge genehmigen oder anfechten (VV und QVV).</dd>
+    <dt>Plaid</dt><dd>Der Dienstleister, über den Premium-Mitglieder ihr Bankkonto lesend verbinden.</dd>
+  </dl>
+</section>
+
+<section id="risiken">
+  <h2>Was du wissen solltest, bevor du Geld einsetzt</h2>
+  <p>Die Registrierung und das Sammeln von MR kosten nichts. Geld setzt du erst ein, wenn du Premium kaufst oder MR mit VOW einlöst.</p>
+  <ul>
+    <li>Niemand garantiert, dass ein Vorschlag genehmigt wird, dass ein Händler v$ annimmt oder dass v$ einen bestimmten Wert behält.</li>
+    <li>VOW, das du beim Einlösen beisteuerst, ist endgültig weg. Es wird nicht zurückgezahlt.</li>
+    <li>VOW und v$ sind Kryptowerte. Ihr Kurs kann stark fallen, bis hin zum Totalverlust.</li>
+    <li>Transaktionen auf der Blockchain lassen sich nicht rückgängig machen.</li>
+    <li>Vow.id verwahrt keine Guthaben und gibt keine Anlageberatung. Diese Seite auch nicht.</li>
+  </ul>
+  <p>Den verbindlichen Wortlaut findest du auf <a href="https://vow.id" target="_blank" rel="noopener noreferrer">vow.id</a> oben unter „Read Legal &amp; Risk Disclosures“ sowie in den AGB und der Datenschutzerklärung.</p>
+</section>
+
+<footer>
+  <p>Diese Seite ist ein privater, inoffizieller Leitfaden und stammt nicht von Vow.id oder N888 LIMITED. Sie fasst die AGB und die Datenschutzerklärung von vow.id (Stand 20.11.2026) und die „New User Overview“ (Ausgabe 11 vom 21.11.2026) zusammen.</p>
+  <p>Vow.id ist in der Beta-Phase. Bildschirme, Preise und Verfügbarkeit können sich ändern. Im Zweifel gilt, was vow.id selbst anzeigt.</p>
+  <p>Deine Frage ist nicht dabei? Schreib der Person, die dir diese Seite geschickt hat. Für Probleme mit Bank oder Belegen gibt es in Vow.id unten den Punkt „Contact“.</p>
+</footer>
+</div>
+
+<script>
+const FAQ=[
+{c:"Grundlagen",q:"Was ist Vow.id?",k:"erklärung überblick projekt idee wozu",a:`<p>Eine Web-App mit vier Funktionen: ein Login über deine Wallet, ein Datenbereich (Vault) für deine Kontaktdaten, Rewards für nachgewiesene Einkäufe und ein Sicherheits-Scan für deine Wallet.</p><p>Der Kern sind die Member Rewards (MR): Du kaufst wie gewohnt ein, der Kauf wird über den Beleg oder dein Bankkonto nachgewiesen, und du bekommst MR vorgeschlagen.</p>`},
+{c:"Grundlagen",q:"Was kostet mich das?",k:"kosten preis gebühr gratis kostenlos free bezahlen",a:`<p>Die Registrierung ist kostenlos. Beim Beitritt zum Affiliate-Baum zahlst du einmal eine kleine BNB-Netzwerkgebühr. Dafür müssen mindestens 0,002 BNB in der Wallet liegen. Das ist ein Mindestguthaben, keine Zahlung an Vow.id.</p><p>Premium ist freiwillig und kostet 99 US$ pro Jahr, im ersten Jahr 49 US$ bei Abschluss bis 31.12.2026.</p>`},
+{c:"Grundlagen",q:"Ist das Cashback? Bekomme ich Geld zurück?",k:"cashback geld auszahlung euro verdienen rabatt",a:`<p>Nein. MR sind kein Geld und lassen sich nicht auszahlen, verkaufen oder übertragen.</p><p>Aus einem genehmigten MR kannst du 1 v$ machen, wenn du VOW im Wert von 50 % beisteuerst. Ein v$ ist das Recht, 1 $ Rabatt vorzuschlagen. Ob ein Händler den Rabatt annimmt, entscheidet er selbst.</p>`},
+{c:"Grundlagen",q:"Wer steckt hinter Vow.id?",k:"betreiber firma unternehmen seriös impressum n888 london",a:`<p>Betreiber ist die N888 LIMITED in London (Company No. 17434249, 20 Wenlock Road, N1 7GU). Sie ist beim britischen Datenschutz-Register ICO eingetragen. Eine Zulassung der britischen Finanzaufsicht FCA gibt es nicht, das sagt Vow.id selbst.</p><p>Die Smart Contracts für die Rewards hat laut Vow.id nicht N888 entwickelt. Sie sind unveränderlich und haben keine Admin-Schlüssel.</p>`},
+{c:"Grundlagen",q:"Ich halte schon VOW. Was ändert sich für mich?",k:"vow token liquidität bestand bestehend staking halten tn",a:`<p>Durch die Registrierung ändert sich an deinen Token nichts. Die Anmelde-Signatur bewegt kein Guthaben, und der Beitritt zum Baum kostet nur die BNB-Gebühr.</p><p>VOW brauchst du später, wenn du genehmigte MR einlösen willst: pro MR VOW im Wert von 50 % eines v$. Davon werden 20 % verbrannt, 80 % gehen an die Kasse des Contracts.</p><p>VOW nur zu halten erzeugt keine MR. Die Verifier-Rollen mit Staking stehen in der App noch auf „Coming soon“.</p>`},
+{c:"Grundlagen",q:"Ist das Projekt schon fertig?",k:"beta fertig live status stand test",a:`<p>Nein, Vow.id ist als Beta gekennzeichnet. Einiges ist live, anderes angekündigt: Die Verifier-Rollen und Rewards über Shopping-Links stehen auf „Coming soon“. Steht in der App „Awaiting contract“, ist die Prüfung oder das Einlösen an dieser Stelle noch nicht aktiv.</p>`},
+
+{c:"Wallet und Registrierung",q:"Welche Wallet kann ich benutzen?",k:"wallet trust metamask walletconnect unterstützt kompatibel ledger",a:`<p>Jede gängige Wallet, die mit der BNB Smart Chain umgehen kann. In der Auswahl stehen WalletConnect (QR-Code), Trust Wallet und über „All Wallets“ mehrere hundert weitere.</p><p>Erscheint deine Wallet nicht, nimm „All Wallets“ oder WalletConnect.</p>`},
+{c:"Wallet und Registrierung",q:"Kann ich die Wallet später wechseln?",k:"wallet ändern wechseln tauschen dauerhaft permanent verloren neue",a:`<p>Nein. Deine Vow.id bleibt für immer an die Wallet gebunden, mit der du dich registrierst. Nimm deshalb eine Wallet, die du langfristig behältst und deren Seed-Phrase sicher offline liegt.</p><p>Verlierst du den Zugang zur Wallet, verlierst du auch den Zugang zu deiner Vow.id und deinen MR.</p>`},
+{c:"Wallet und Registrierung",q:"Warum brauche ich BNB und wie viel?",k:"bnb gas gebühr netzwerk bsc binance smart chain pancakeswap wieviel",a:`<p>Vow.id arbeitet auf der BNB Smart Chain. Der Beitritt zum Affiliate-Baum ist eine Transaktion, und dafür fällt eine Netzwerkgebühr in BNB an.</p><p>Die App prüft, ob mindestens 0,002 BNB in der Wallet liegen. Achte darauf, dass dein BNB auf der BNB Smart Chain liegt und nicht auf einem anderen Netz.</p>`},
+{c:"Wallet und Registrierung",q:"Muss ich meine Seed-Phrase eingeben?",k:"seed phrase privater schlüssel private key passwort betrug sicher",a:`<p>Nein, niemals. Eine echte Wallet-Verbindung fragt nie nach der Seed-Phrase. Fragt eine Seite oder eine Person danach, brich sofort ab.</p>`},
+{c:"Wallet und Registrierung",q:"Was unterschreibe ich mit der Signatur?",k:"signatur signieren sign message nachricht unterschreiben gas",a:`<p>Du bestätigst nur, dass dir die Wallet gehört. Die Nachricht kostet kein Gas und bewegt kein Guthaben. Lies sie in der Wallet und bestätige nur, wenn es die erwartete Vow.id-Abfrage ist.</p><p>Wallet verbinden und signieren sind zwei getrennte Schritte. Ohne Signatur bist du nicht angemeldet.</p>`},
+{c:"Wallet und Registrierung",q:"Was ist der Affiliate-Baum und muss ich da rein?",k:"affiliate baum tree beitreten pflicht join dezentral",a:`<p>Ja, der Beitritt gehört zur Registrierung und lässt sich nicht überspringen. Der Baum ist ein Verzeichnis auf der Blockchain, in dem steht, wer wen eingeladen hat.</p><p>Die Mitgliedschaft selbst ist kostenlos, du zahlst nur die BNB-Netzwerkgebühr. Erst danach öffnen sich Vault, E-Mail-Bestätigung und Handle.</p>`},
+{c:"Wallet und Registrierung",q:"Kann ich meinen Empfehler später ändern?",k:"empfehler referrer sponsor einladung link ändern zufällig upline parent",a:`<p>Nein. Die Zuordnung ist dauerhaft. Öffne Vow.id deshalb beim ersten Mal über den Einladungslink und prüfe vor dem Signieren die grüne Zeile „Empfohlen von …“.</p><p>Kommst du ohne Link, weist Vow.id dir einmalig einen zufälligen Empfehler zu. Ein späterer Login über einen anderen Link ändert daran nichts.</p>`},
+{c:"Wallet und Registrierung",q:"Welche E-Mail-Adresse soll ich angeben?",k:"email e-mail adresse pin postfach verifizieren code vierstellig",a:`<p>Dein normales Postfach, auf das du gerade zugreifen kannst. Dorthin kommt eine vierstellige PIN, später auch weitergeleitete Belege und Sicherheitscodes.</p><p>Der Knopf heißt „Send link“, es kommt aber eine PIN. Fehlt die Mail, schau im Spam nach oder nutze „Resend PIN“.</p>`},
+{c:"Wallet und Registrierung",q:"Was ist ein Handle und kann ich ihn ändern?",k:"handle name benutzername adresse vow.id ändern claim",a:`<p>Der Handle ist dein Name bei Vow.id und wird zu deiner Beleg-Adresse name@vow.id. Erlaubt sind 3 bis 30 Kleinbuchstaben, Zahlen und Bindestriche.</p><p>Nach „Claim“ ist er dauerhaft. Überleg dir den Namen vorher.</p>`},
+{c:"Wallet und Registrierung",q:"Geht das am Handy?",k:"handy smartphone mobil app iphone android tab browser",a:`<p>Ja, im Browser. Beim Verbinden springt das Handy eventuell in die Wallet-App. Geh danach zurück in denselben Browser-Tab.</p><p>Öffne Vow.id nur in einem Tab. Mehrere Tabs unterbrechen die Anmeldung.</p>`},
+
+{c:"Rewards sammeln",q:"Wie komme ich zu meinen ersten MR?",k:"erste mr sammeln start amazon einkauf beleg anfangen",a:`<p>Der empfohlene Start ist Amazon:</p><ul><li>Bei Amazon unter „Anmelden &amp; Sicherheit“ die Konto-E-Mail auf deine name@vow.id ändern.</li><li>Den Bestätigungscode von Amazon bekommst du in dein normales Postfach weitergeleitet.</li><li>Einen Kauf machen, den du ohnehin geplant hattest.</li></ul><p>Der Beleg geht an Vow.id, wird geprüft und erscheint unter Member Rewards → MR.</p>`},
+{c:"Rewards sammeln",q:"Ist es sicher, meine Amazon-E-Mail zu ändern?",k:"amazon email ändern sicher risiko konto zugriff postfach weiterleitung",a:`<p>Die Adresse name@vow.id nimmt nur Mails von anerkannten Shops an. Belege werden verschlüsselt gespeichert und an dein normales Postfach weitergeleitet, Sicherheits-Mails ohne Auswertung durchgereicht. Links werden aus weitergeleiteten Mails entfernt.</p><p>Zwei Dinge solltest du wissen: Die Belegtexte wertet eine KI von OpenAI in den USA aus. Und wenn du dein Vow.id-Konto je schließt, musst du die Adresse vorher bei jedem Shop wieder ersetzen, sonst kommst du nicht mehr an diese Konten.</p>`},
+{c:"Rewards sammeln",q:"Was bedeuten Tracked, Pending und Active?",k:"pending tracked active status ausstehend warten genehmigt awaiting verification",a:`<ul><li><b>Tracked:</b> Der Kauf ist erfasst und wartet noch auf Umrechnung oder Prüfung.</li><li><b>Pending:</b> Ein MR-Vorschlag liegt vor, ist aber noch nicht genehmigt.</li><li><b>Active:</b> Drei unabhängige Verifier haben zugestimmt. Jetzt kannst du einlösen.</li></ul><p>Pending MR sind kein Guthaben. Sie können abgelehnt werden.</p>`},
+{c:"Rewards sammeln",q:"Wie viel MR bekomme ich für einen Einkauf?",k:"wieviel prozent rate höhe 10 40 100 berechnung beispiel",a:`<p>Das hängt vom Angebot und deinem Plan ab. Free: bis zu 10 %. Premium: je nach Händler 20 %, 40 % oder bis zu 100 % bei Energierechnungen. Die Sätze sind Höchstwerte, keine Zusagen.</p><p>Beispiel: Ein Kauf über 80 $ bei 10 % ergibt 8 Pending MR. Pro Kauf sind höchstens 500 MR möglich. Die echten Sätze stehen in deiner Checkliste beim jeweiligen Händler.</p>`},
+{c:"Rewards sammeln",q:"Wie mache ich aus MR v$?",k:"einlösen claim ausüben umwandeln prägen mint vow beitrag 50",a:`<p>Sobald MR „Active“ sind, wird „Claim MR“ anklickbar. Du bestätigst in deiner Wallet eine Transaktion und steuerst VOW im Wert von 50 % bei.</p><p>Beispiel: Für 8 MR bekommst du v$8 und gibst VOW im Wert von 4 $ ab. Dieser Beitrag ist endgültig. Dazu kommt die Netzwerkgebühr.</p>`},
+{c:"Rewards sammeln",q:"Verfallen meine MR?",k:"verfallen ablauf frist 60 tage gültig laufzeit",a:`<p>Ja. Genehmigte MR verfallen 60 Tage, nachdem sie verfügbar wurden. Verfallene MR lassen sich nicht zurückholen.</p>`},
+{c:"Rewards sammeln",q:"Was kann ich mit v$ anfangen?",k:"v$ voucher dollar verwenden ausgeben händler rabatt einkaufen wert",a:`<p>Ein v$ ist das Recht, 1 $ Rabatt auf Waren oder Dienstleistungen vorzuschlagen. Gedacht ist das für Händler, die v$ annehmen. Eine Pflicht zur Annahme gibt es nicht.</p><p>v$ sind übertragbar und können einen Marktpreis haben. Sie sind durch nichts gedeckt und nicht in Geld einlösbar.</p>`},
+{c:"Rewards sammeln",q:"Welche Händler gibt es in Deutschland?",k:"händler shops deutschland liste energie stadtwerke strom netflix vodafone ikea eon",a:`<p>Die aktuelle Liste siehst du unter Member Rewards → Checklist, nachdem du dein Land gewählt hast. Kategorien sind Shops, Energie, Mobilfunk, Internet, Streaming, Lieferdienste, Reisen und KI-Dienste.</p><p>Genannt werden zum Beispiel Amazon, IKEA, E.ON, Vodafone, Netflix und Spotify. Für Deutschland sind viele Energieversorger und Stadtwerke dazugekommen. Ein Eintrag in der Liste ist noch keine Zusage für MR.</p>`},
+{c:"Rewards sammeln",q:"Mein Beleg ist nicht angekommen. Was nun?",k:"beleg fehlt nicht angekommen foto nachreichen quittung",a:`<p>Prüfe zuerst, ob die Shop-E-Mail wirklich auf name@vow.id umgestellt ist und ob du unter „Receipts &amp; MR rights“ dem Sammeln zugestimmt hast.</p><p>Für fehlende Belege gibt es laut aktuellem Leitfaden eine private Foto-Einreichung, bei der du den Dienst auswählst. Ein Foto wird geprüft und nicht automatisch gutgeschrieben.</p>`},
+
+{c:"Premium und Bank",q:"Was bringt Premium und was kostet es?",k:"premium upgrade lohnt preis 99 49 jahr abo zahlung usdc usdt karte",a:`<p>Premium bringt höhere MR-Sätze (bis 40 % bei ausgewählten Händlern, bis 100 % bei Energierechnungen), die Bankverknüpfung und unbegrenzte Wallet-Scans.</p><p>Preis: 99 US$ pro Jahr, im ersten Jahr 49 US$ bei Abschluss bis 31.12.2026. Einen Monatsplan gibt es nicht. Zahlen kannst du per Karte (verlängert sich jährlich) oder mit USDC oder USDT (12 Monate, ohne Verlängerung).</p><p>Premium allein erzeugt keine MR. Ob es sich für dich rechnet, hängt von deinen Ausgaben bei den gelisteten Anbietern ab.</p>`},
+{c:"Premium und Bank",q:"Wie funktioniert die Bankverknüpfung?",k:"bank konto verbinden plaid bank feed verknüpfen code sechsstellig",a:`<p>Nur mit aktivem Premium: Member Rewards → MR → Bank Feed → „Add a bank account“. Du bekommst einen sechsstelligen Code per E-Mail, gibst ihn ein und meldest dich dann im Fenster von Plaid bei deiner Bank an.</p><p>Vow.id liest danach gebuchte Kartenzahlungen (Händler, Betrag, Währung, Datum) und schlägt für passende Käufe MR vor. Beim ersten Mal werden bis zu 30 Tage rückwirkend geladen.</p>`},
+{c:"Premium und Bank",q:"Sieht Vow.id mein Bank-Passwort? Kann Geld abgebucht werden?",k:"bank passwort zugangsdaten abbuchen sicher lesend read-only geld bewegen",a:`<p>Nein zu beidem. Du meldest dich direkt bei deiner Bank an, Vow.id bekommt die Zugangsdaten nicht. Die Verbindung ist nur lesend und kann kein Geld bewegen.</p><p>Deine Banktransaktionen gehen nicht an Partner-Shops. Die Prüfer sehen einen pseudonymen Auszug des einzelnen Kaufs, ohne Namen und ohne deine anderen Umsätze.</p>`},
+{c:"Premium und Bank",q:"Meine Bank wird nicht angeboten.",k:"bank fehlt nicht gefunden unterstützt sparkasse volksbank verfügbar",a:`<p>Welche Banken funktionieren, hängt von Plaid und vom Land ab. Eine Liste veröffentlicht Vow.id nicht. Fehlt deine Bank, melde das in Vow.id unten über „Contact“ als „unavailable bank“.</p><p>Bis dahin kannst du über den Beleg-Weg mit deiner @vow.id-Adresse sammeln.</p>`},
+{c:"Premium und Bank",q:"Kann ich die Bank wieder trennen?",k:"bank trennen entfernen löschen remove widerrufen",a:`<p>Ja, über „Remove“. Der Abgleich stoppt, Zugangsschlüssel und gespeicherte Transaktionen werden bei Vow.id gelöscht. Was Plaid und deine Bank selbst speichern, regeln deren eigene Bedingungen.</p>`},
+
+{c:"Sicherheit und Daten",q:"Wie sind meine Daten geschützt?",k:"daten datenschutz verschlüsselt vault sicher dsgvo privat",a:`<p>Sensible Felder im Vault und Belegtexte werden auf den Servern von Vow.id verschlüsselt gespeichert. Das ist keine Ende-zu-Ende-Verschlüsselung: Berechtigte Serverfunktionen und Mitarbeiter können die Daten entschlüsseln.</p><p>Partner-Seiten sehen deinen Vault nicht. Für eine Hotelbuchung bekommen sie deinen Namen, für eine Lieferung Name und Adresse.</p>`},
+{c:"Sicherheit und Daten",q:"Was macht der Wallet-Sicherheits-Scan?",k:"scan security sicherheit berechtigung approval freigabe widerrufen revoke",a:`<p>Er zeigt, welchen Apps deine Wallet früher erlaubt hat, Token zu bewegen, sortiert nach Risiko. Geprüft werden Ethereum und BNB Smart Chain, auf Wunsch auch Polygon, Arbitrum, Base und Optimism.</p><p>Der Scan liest nur und ändert nichts. Eine Freigabe widerrufst du selbst mit einer eigenen Transaktion. Free-Konten haben einen Scan insgesamt, Premium unbegrenzt.</p>`},
+{c:"Sicherheit und Daten",q:"Soll ich die Zwei-Schritt-Anmeldung einschalten?",k:"2fa zwei faktor authenticator google backup codes anmeldung",a:`<p>Sie ist freiwillig und sinnvoll: Vault → Details → „Two-step sign-in“. Danach braucht die Anmeldung deine Wallet und einen sechsstelligen Code aus einer Authenticator-App.</p><p>Bewahre die zehn Backup-Codes offline auf. Sie werden nur einmal angezeigt.</p>`},
+{c:"Sicherheit und Daten",q:"Kann ich mein Konto wieder löschen?",k:"konto löschen schließen kündigen austreten close account",a:`<p>Ja, unten über „Close account“. Die Schließung ist endgültig: Diese Wallet kann sich nie wieder registrieren, und alle MR gehen verloren.</p><p>Ersetze vorher deine @vow.id-Adresse bei jedem Shop. Einträge auf der Blockchain bleiben bestehen.</p>`},
+
+{c:"Weiterempfehlen",q:"Wie lade ich selbst jemanden ein?",k:"einladen empfehlen link qr affiliate teilen werben",a:`<p>Unter „Affiliates“ findest du deinen Link und QR-Code, sobald du einen Handle hast. Die eingeladene Person muss Vow.id beim ersten Mal über diesen Link öffnen.</p>`},
+{c:"Weiterempfehlen",q:"Was bekomme ich für eine Empfehlung?",k:"provision empfehlung verdienen bonus referral qualified affiliate downline",a:`<p>Für die reine Registrierung nichts. Ein MR-Vorschlag kann entstehen, wenn die eingeladene Person ihren ersten geprüften Kauf nachweist. Auch dieser Vorschlag muss von den Verifiern genehmigt werden.</p><p>Drei verschiedene qualifizierte Kunden machen dich zum „Qualified Affiliate“. Für Rewards aus tieferen Ebenen sind VOW-Staking und aktive Verifier-Teilnahme nötig. Diese Rollen stehen noch auf „Coming soon“.</p>`}
+];
+const FIX=[
+{q:"Wallet ist verbunden, aber ich bin nicht angemeldet.",k:"verbunden angemeldet login hängt",a:`<p>Verbinden allein reicht nicht. Geh zurück zu Vow.id und bestätige „Sign message to continue“. Lass nur einen Vow.id-Tab offen.</p>`},
+{q:"Die Signatur-Abfrage ist abgelaufen.",k:"signatur abgelaufen fehler ablehnen",a:`<p>Starte die Anmeldung im selben Tab neu, statt eine alte Abfrage erneut zu bestätigen.</p>`},
+{q:"Ich hänge bei „Join the Decentralised Affiliate Tree“.",k:"hängt baum join beitreten bnb zu wenig check again",a:`<p>Meist fehlt BNB auf der BNB Smart Chain. Lade auf mindestens 0,002 BNB auf und drücke „Check again“. Sende keine zweite Transaktion, nur weil die Seite langsam ist.</p>`},
+{q:"Die E-Mail mit der PIN kommt nicht.",k:"pin email kommt nicht spam resend",a:`<p>Schau im Spam-Ordner nach und prüfe die Schreibweise. „Resend PIN“ schickt eine neue, „Change email“ korrigiert die Adresse.</p>`},
+{q:"Mein Wunsch-Handle ist vergeben.",k:"handle vergeben reserviert nicht verfügbar",a:`<p>Probier einen anderen Namen und drücke jedes Mal zuerst „Check“, dann „Claim“.</p>`},
+{q:"Ich habe eingekauft, aber es erscheint keine Transaktion.",k:"keine transaktion kauf fehlt mr erscheint nicht",a:`<p>Prüfe drei Dinge: Ist die Shop-E-Mail wirklich auf name@vow.id umgestellt? Hast du unter „Receipts &amp; MR rights“ das Sammeln aktiviert? Gilt für den Händler ein Angebot in deinem Plan? Ein Häkchen bei „Done“ in der Checkliste erzeugt noch keine MR.</p>`},
+{q:"Premium wird nach der Zahlung nicht angezeigt.",k:"premium zahlung nicht aktiv bestätigung doppelt",a:`<p>Warte auf die Zahlungsbestätigung und prüfe den angezeigten Plan. Zahle nicht doppelt, nur weil eine Seite langsam lädt.</p>`},
+{q:"Die Bank lässt sich nicht verbinden.",k:"bank verbinden fehler code abgelaufen",a:`<p>Prüfe, ob Premium aktiv ist und ob du den neuesten Code benutzt. Der Code gilt 10 Minuten und nur einmal. Wird deine Bank nicht angeboten, melde das über „Contact“.</p>`},
+{q:"Meine MR bleiben auf Pending.",k:"pending bleibt lange warten verifier",a:`<p>Dann haben noch keine drei Verifier zugestimmt. Du kannst das nicht beschleunigen. Rechne Pending MR nicht als Guthaben.</p>`}
+];
+const STOP=new Set("der die das den dem ein eine einen ich du mir mich mein meine ist sind kann muss soll wie was wo wer warum wann und oder aber für mit von bei auf in zu zur zum es man nicht auch noch schon dann wenn bitte habe hat".split(" "));
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const plain=h=>h.replace(/<[^>]+>/g," ").toLowerCase();
+function item(x){const d=el("details");d.appendChild(el("summary",null,x.q));d.appendChild(el("div","a",x.a));return d}
+function render(list,box,grouped,open){box.textContent="";let cat="";list.forEach(x=>{if(grouped&&x.c!==cat){cat=x.c;box.appendChild(el("div","cat",cat))}const d=item(x);if(open)d.open=true;box.appendChild(d)})}
+function score(x,toks){const q=x.q.toLowerCase(),k=x.k,a=x._a||(x._a=plain(x.a));let s=0;toks.forEach(t=>{if(q.includes(t))s+=3;if(k.includes(t))s+=2;if(a.includes(t))s+=1});return s}
+const faqBox=document.getElementById("faqlist"),fixBox=document.getElementById("fixlist"),hits=document.getElementById("hits"),input=document.getElementById("q");
+function search(){const toks=input.value.toLowerCase().split(/[^a-zäöüß0-9$@.]+/).filter(t=>t.length>1&&!STOP.has(t));
+  if(!toks.length){render(FAQ,faqBox,true);render(FIX,fixBox);hits.textContent="Tippe eine Frage oder ein Stichwort. Die passenden Antworten erscheinen sofort.";return}
+  const f=FAQ.map(x=>[score(x,toks),x]).filter(r=>r[0]>1).sort((a,b)=>b[0]-a[0]).map(r=>r[1]);
+  const g=FIX.map(x=>[score(x,toks),x]).filter(r=>r[0]>1).sort((a,b)=>b[0]-a[0]).map(r=>r[1]);
+  const n=f.length+g.length;
+  render(f.slice(0,8),faqBox,false,f.length===1);render(g.slice(0,4),fixBox);
+  if(!f.length)faqBox.appendChild(el("p",null,"Dazu steht hier noch nichts. Schreib deine Frage der Person, die dir diese Seite geschickt hat."));
+  if(!g.length)fixBox.appendChild(el("p",null,"Kein passender Eintrag."));
+  hits.textContent=n?n+(n===1?" passende Antwort":" passende Antworten")+" unter „Häufige Fragen“ und „Wenn etwas hakt“.":"Keine passende Antwort gefunden.";}
+input.addEventListener("input",search);
+document.getElementById("chips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;input.value=b.dataset.q;search();document.getElementById("fragen").scrollIntoView({behavior:"smooth"})});
+search();
+document.querySelectorAll("#check input").forEach(c=>{try{c.checked=localStorage.getItem("vowstart-"+c.id)==="1"}catch(e){}
+  c.addEventListener("change",()=>{try{localStorage.setItem("vowstart-"+c.id,c.checked?"1":"0")}catch(e){}})});
+</script>
