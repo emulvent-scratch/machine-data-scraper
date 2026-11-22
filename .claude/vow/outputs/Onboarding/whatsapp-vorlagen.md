@@ -55,6 +55,9 @@ Nur bei Shops aus deiner Checkliste. Bitte nicht bei Google/YouTube, Apple oder 
 **„Wie spart man oder verdient Geld?"**
 Geld verdient man damit nicht. Für nachgewiesene Einkäufe bekommst du Member Rewards vorgeschlagen. Die kannst du später in Rabatt-Gutscheine (v$) umwandeln, wenn du VOW im Wert von 50 % dazugibst. Sparen kannst du, wenn ein Händler die v$ als Rabatt annimmt.
 
+**„Und was mache ich dann mit den v$?"**
+Zwei Möglichkeiten: als Rabatt einsetzen, zum Beispiel bei Hotelbuchungen über vowhotels.com oder bei vowchers.com. Oder halten und später in VOW tauschen. Das rechnet sich erst, wenn der v$-Kurs über den rund 0,50 $ liegt, die du beim Einlösen dazugibst. Garantiert ist beides nicht.
+
 **„Warum steht bei mir alles auf Pending?"**
 Das ist bei allen so. Die Prüfung der Vorschläge ist angekündigt, läuft aber noch nicht. Du hast nichts falsch gemacht.
 
