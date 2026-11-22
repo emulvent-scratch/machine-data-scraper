@@ -23,3 +23,8 @@ Token-Adressen aus dem Code von vow.market (offizielle Quelle des Betreibers):
 - vkr (Dänemark) nur ETH 0x40a07abd0da20d9ec859c564727c10ce5cb7600e
 - v₹ ETH 0x047128bf54f643403864cb37a5df134e3ecf1bf4 | v$ Australien ETH 0x547649976443cd3b6ad8c9781f17f8ad6f061f2f | vR ETH 0xc669b1920bb901292c11020d27d1bf7168e49eac
 VOW-Token selbst steht dort nicht.
+
+## Kurse laut Screenshot des Nutzers (22.11.2026, 23:27, BSC)
+VOW 0,03089 $ (Liq. 2,3 Mio., 24h-Vol. 219 Tsd.) | v$ 0,2065 $ (Liq. 1,1 Mio., Vol. 52 Tsd.) | v£ 0,2196 $ (Vol. 674 $).
+Folge: Einlösen kostet laut AGB VOW im Wert von 50 % des Marktwerts von v$1 (Chainlink), also derzeit ca. 0,10 $ je MR, nicht 0,50 $. 10 % MR auf 80 $ Einkauf = 8 MR -> 8 v$ ~1,65 $ Marktwert, Beitrag ~0,83 $, netto ~0,8 $ (~1 % des Einkaufs) bei Verkauf; 8 $ Rabatt bei Vow.Market.
+Offen: Ob die Chainlink-Bewertung dem Börsenkurs entspricht. Im Code von vow.market gibt es eine Funktion, die Preise bestimmter Lieferantenprodukte verdoppelt (nicht verifiziert, wofür genau).
