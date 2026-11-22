@@ -371,6 +371,11 @@ section,.step,details,dt{scroll-margin-top:104px}
     <dt>Freigabe</dt><dd>Die Erlaubnis für eine App, Token aus deiner Wallet zu bewegen. Englisch „Approval".</dd>
     <dt>Transaktion</dt><dd>Ein Vorgang auf der Blockchain. Kostet Gebühr und lässt sich nicht rückgängig machen.</dd>
     <dt>Stablecoin</dt><dd>Ein Token, der an den Dollar gekoppelt ist, etwa USDT oder USDC.</dd>
+    <dt>BSC</dt><dd>Kurz für BNB Smart Chain, das Netzwerk von Vow.id. In manchen Apps auch „BEP20" genannt.</dd>
+    <dt>KYC</dt><dd>Identitätsprüfung mit Ausweis, die Kaufdienste und Börsen verlangen.</dd>
+    <dt>DEX</dt><dd>Dezentrale Tauschbörse wie PancakeSwap, an der man Token direkt aus der Wallet tauscht.</dd>
+    <dt>2FA</dt><dd>Zwei-Schritt-Anmeldung: zusätzlich zur Wallet ein Code aus einer Authenticator-App.</dd>
+    <dt>AGB</dt><dd>Die Geschäftsbedingungen von Vow.id, auf der Seite „Terms and conditions" genannt.</dd>
     <dt>MR</dt><dd>Member Rewards. Ein kostenloser, nicht übertragbarer Eintrag in einem Smart Contract, fest an deine Wallet gebunden.</dd>
     <dt>Pending MR</dt><dd>Deutsch „Ausstehend". Ein Vorschlag, noch kein genehmigter Reward. Kann abgelehnt werden.</dd>
     <dt>Active MR</dt><dd>Von drei unabhängigen Prüfern genehmigt. 60 Tage lang einlösbar.</dd>
@@ -490,13 +495,50 @@ INDEX.forEach(x=>{x._q=x.q.toLowerCase();x._a=x.a.toLowerCase()});
 const input=document.getElementById("q"),panel=document.getElementById("results"),bar0=document.getElementById("searchbar");
 const SUGGEST=["Seed-Phrase","BNB","Einladungslink","Mails lesen","Pending","Kosten","Bank","Token hinzufügen","Zweifel"];
 const tokens=v=>v.toLowerCase().split(/[^a-zäöüß0-9$@.€£-]+/).filter(t=>t.length>1&&!STOP.has(t));
+const SYN=[
+["mr","member rewards","member reward","rewards","prämien","prämiengutschrift"],
+["bsc","bnb smart chain","bep20","bep-20","binance smart chain","bnb chain"],
+["bnb","binance coin"],
+["eth","ethereum"],
+["2fa","zwei-schritt-anmeldung","zwei-faktor","zweifaktor","two-step","authenticator"],
+["vv","qvv","vow verifier","verifier","prüfer"],
+["kyc","identitätsprüfung","ausweis","identität prüfen"],
+["v$","voucher dollar","vow dollar","voucher","rabatt-gutschein","gutschein"],
+["agb","geschäftsbedingungen","nutzungsbedingungen","terms"],
+["dex","tauschbörse","pancakeswap","swap","börse"],
+["approval","freigabe","berechtigung","allowance","erlaubnis"],
+["gas","netzwerkgebühr","transaktionsgebühr","gas fee","gebühr"],
+["seed","seed-phrase","seedphrase","recovery phrase","wiederherstellungsphrase","wiederherstellungswörter","geheimphrase","mnemonic","12 wörter"],
+["usdt","tether","stablecoin"],
+["usdc","usd coin","stablecoin"],
+["vault","tresor","datentresor","datenbereich"],
+["handle","benutzername","nutzername","username"],
+["einladungslink","empfehlungslink","ref-link","reflink","referral link","affiliate-link","affiliate link"],
+["empfehler","sponsor","referrer","upline"],
+["pin","code","sicherheitscode"],
+["premium","abo","mitgliedschaft","upgrade"],
+["wallet","geldbörse","krypto-wallet"],
+["pending","ausstehend"],
+["claim","beanspruchen","einlösen","umwandeln","exercise"],
+["plaid","bankverknüpfung","bank verbinden","bank feed"],
+["dat","affiliate-baum","affiliate tree","empfehlungsbaum"],
+["ki","künstliche intelligenz","openai"],
+["token hinzufügen","add tokens","token importieren","custom token"],
+["betrug","scam","phishing","fälschung"],
+["vkr","vdk","vow kroner","krone"]
+];
+const esc=t=>t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+const RX={};
+const has=(text,term)=>{if(term.length>4&&!term.includes(" "))return text.includes(term);const r=RX[term]||(RX[term]=new RegExp("(^|[^a-zäöüß0-9$€£])"+esc(term)+"($|[^a-zäöüß0-9$€£])"));return r.test(text)};
+function concepts(v){const q=" "+v.toLowerCase().trim()+" ";const cs=tokens(v).map(t=>[t]);SYN.forEach(g=>{if(g.some(t=>has(q,t)))cs.push(g)});return cs}
+function scoreOf(x,cs){let sc=0;for(const c of cs){let best=0;for(const t of c){let v=0;if(has(x._q,t))v+=3;if(has(x.k,t))v+=2;if(has(x._a,t))v+=1;if(x.t==="Begriff"&&x._q===t)v+=6;if(v>best)best=v}sc+=best}return sc}
 function snippet(x,toks){const a=x.a;let pos=-1;for(const t of toks){pos=x._a.indexOf(t);if(pos>=0)break}const from=Math.max(0,(pos<0?0:pos)-40);return (from>0?"… ":"")+a.slice(from,from+110).trim()+(a.length>from+110?" …":"")}
 function go(x){panel.hidden=true;const d=x.el;if(d.tagName==="DETAILS")d.open=true;const inner=d.closest("details");if(inner)inner.open=true;
   const calm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;d.scrollIntoView({block:"start",behavior:calm?"auto":"smooth"});
   d.classList.add("hit");setTimeout(()=>d.classList.remove("hit"),2200);input.blur()}
-function show(){const toks=tokens(input.value);panel.textContent="";
+function show(){const cs=concepts(input.value),toks=[...new Set(cs.flat())];panel.textContent="";
   if(!toks.length){panel.appendChild(txt("p",null,"Häufig gesucht:"));const c=el("div","chips");SUGGEST.forEach(w=>{const b=txt("button",null,w);b.type="button";b.addEventListener("click",()=>{input.value=w;show();input.focus()});c.appendChild(b)});panel.appendChild(c);panel.hidden=false;return}
-  const hits=INDEX.map(x=>{let sc=0;toks.forEach(t=>{if(x._q.includes(t))sc+=3;if(x.k.includes(t))sc+=2;if(x._a.includes(t))sc+=1});return [sc,x]}).filter(r=>r[0]>0).sort((a,b)=>b[0]-a[0]);
+  const hits=INDEX.map(x=>[scoreOf(x,cs),x]).filter(r=>r[0]>0).sort((a,b)=>b[0]-a[0]);
   if(!hits.length){panel.appendChild(txt("p",null,"Dazu steht in dieser Anleitung nichts. Schreib deine Frage der Person, die dir die Seite geschickt hat."));panel.hidden=false;return}
   panel.appendChild(txt("p",null,hits.length+(hits.length===1?" Treffer":" Treffer")+(hits.length>12?", die besten 12:":":")));
   hits.slice(0,12).forEach(([,x])=>{const b=el("button","res");b.type="button";b.appendChild(txt("span","typ",x.t));b.appendChild(txt("b",null,x.q));b.appendChild(txt("small",null,snippet(x,toks)));b.addEventListener("click",()=>go(x));panel.appendChild(b)});
