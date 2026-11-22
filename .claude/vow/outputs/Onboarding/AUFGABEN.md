@@ -1,6 +1,8 @@
 # Offene Aufgaben – Vow.id-Onboarding
 
-## Nächstes Projekt: Starthilfe für Krypto-Neulinge
+## Starthilfe für Krypto-Neulinge – erste Fassung fertig (22.11.2026)
+
+Datei: vow-id-einsteiger.html (14 Schritte in 5 Teilen). Noch offen: Vertragsadressen und konkrete Empfehlungen, siehe unten.
 
 Angefragt am 22.11.2026. Ziel: Kontakte ohne Krypto-Erfahrung so weit bringen, dass sie die Vow.id-Starthilfe nutzen können. Gleiche Machart wie die Vow.id-Starthilfe (durchsuchbare Seite, sachlicher Ton, fürs Handy).
 
