@@ -29,6 +29,7 @@ ul{margin:0;padding-left:20px}
 .lead{font-size:1.06rem;color:var(--muted)}
 header,section{display:flex;flex-direction:column;gap:14px}
 section{scroll-margin-top:16px}
+section>h3{margin-top:6px}
 nav{display:flex;flex-wrap:wrap;gap:8px}
 nav a{font-size:.88rem;text-decoration:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
 nav a:hover{border-color:var(--accent);color:var(--accent)}
@@ -128,7 +129,7 @@ section,.step,details,dt{scroll-margin-top:104px}
 <div class="wrap">
 <aside class="side">
   <nav aria-label="Inhalt">
-    <a href="#kurz">Was ist Vow.id?</a><a href="#teil1">Wallet</a><a href="#teil2">BNB</a><a href="#teil3">Registrieren</a><a href="#teil4">Erster Einkauf</a><a href="#teil5">Token</a><a href="#teil6">Krypto kaufen</a><a href="#fragen">Fragen</a><a href="#hilfe">Hilfe</a><a href="#begriffe">Begriffe</a>
+    <a href="#kurz">Was ist Vow.id?</a><a href="#nutzen">Was habe ich davon?</a><a href="#teil1">Wallet</a><a href="#teil2">BNB</a><a href="#teil3">Registrieren</a><a href="#teil4">Erster Einkauf</a><a href="#teil5">Token</a><a href="#teil6">Krypto kaufen</a><a href="#fragen">Fragen</a><a href="#hilfe">Hilfe</a><a href="#begriffe">Begriffe</a>
   </nav>
   <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 von 17 Schritten erledigt</span></div>
 </aside>
@@ -168,6 +169,32 @@ section,.step,details,dt{scroll-margin-top:104px}
     <p><b>Was noch nicht läuft:</b> Die Prüfung der Vorschläge durch unabhängige Verifier. Laut einer Mitteilung von Vow.id wartet sie auf einen Smart Contract, der „in Kürze" bereitgestellt werden soll. Bis dahin bleiben MR auf „Pending" (deutsch: „Ausstehend") und lassen sich nicht einlösen.</p>
     <p>Vow.id ist als Beta gekennzeichnet. Nicht jeder Beleg und nicht jede Bank wird schon erkannt.</p>
   </div>
+</section>
+
+<section id="nutzen">
+  <h2>Was habe ich davon?</h2>
+  <p>Eine ehrliche Aufstellung, getrennt nach dem, was du sofort hast, und dem, was sich erst mit der Zeit zeigen muss.</p>
+  <h3>Sofort, wenn du die Anleitung durcharbeitest</h3>
+  <ul>
+    <li>Eine eigene, abgesicherte Wallet und das Wissen, wie du Betrug und teure Anfängerfehler vermeidest. Das nützt dir bei jedem Krypto-Thema.</li>
+    <li>Eine fertige Vow.id mit bewusst gewählter Wallet, richtigem Empfehler und eigenem Handle.</li>
+    <li>Deine Einkäufe werden ab jetzt erfasst und als Member Rewards vorgeschlagen.</li>
+  </ul>
+  <h3>Langfristig: bei regelmäßigen Ausgaben sparen</h3>
+  <ul>
+    <li>Für Einkäufe, die du ohnehin machst, sammelst du MR: im kostenlosen Konto bis zu 10 %, mit Premium bei ausgewählten Anbietern bis zu 40 % und bei Energierechnungen bis zu 100 %.</li>
+    <li>Genehmigte MR wandelst du in v$ um und setzt sie als Rabatt ein, heute bei Vow.Market, später laut Ankündigung auch bei Hotelbuchungen und Gutscheinen.</li>
+    <li>Rechenbeispiel mit den Kursen vom 22.11.2026: 100 $ Einkauf bei 10 % ergeben 10 MR. Das Einlösen kostet VOW im Wert von etwa 1 $. Die 10 v$ zählen bei Vow.Market als 10 $ Rabatt oder sind an der Börse etwa 2 $ wert.</li>
+    <li>Voraussetzung: Das Einlösen muss starten, und du musst bei den Händlern, die v$ annehmen, etwas finden, das du zu diesem Preis kaufen würdest.</li>
+  </ul>
+  <h3>Langfristig: weiterempfehlen</h3>
+  <ul>
+    <li>Für jede Person, die sich über deinen Link registriert und ihren ersten geprüften Einkauf nachweist, kann ein MR-Vorschlag für dich entstehen.</li>
+    <li>An den laufenden Einkäufen deines Netzwerks kannst du mit MR beteiligt werden. Der Richtwert sind 0,5 % des Einkaufswerts, verteilt auf zehn Ebenen, also ein Zwanzigstel Prozent je Ebene.</li>
+    <li>Dafür gelten Bedingungen: Für die Ebenen 1 bis 3 musst du VOW im Wert von mindestens 500 $ für 1.000 Tage fest anlegen, für die Ebenen 4 bis 10 genau 10.000 $. Außerdem musst du alle 30 Tage selbst als Prüfer mitarbeiten. Diese Rollen sind noch nicht freigeschaltet.</li>
+    <li>Zur Größenordnung: Zehn direkt geworbene Personen, die zusammen 5.000 $ im Monat bei gelisteten Anbietern ausgeben, bringen dir auf der ersten Ebene rund 2,5 MR im Monat.</li>
+  </ul>
+  <p class="note"><b>Zur Einordnung:</b> MR sind kein Geld und kein Einkommen. Sie sind Rabattrechte, die erst genehmigt und dann mit VOW eingelöst werden müssen. Vow.id garantiert ausdrücklich kein Einkommen. Weiterempfehlen ist ein möglicher Zusatz für Menschen mit großem Netzwerk, die das System selbst nutzen, und kein Ersatz für ein Gehalt.</p>
 </section>
 
 <section id="weg">
@@ -490,7 +517,7 @@ document.querySelectorAll(".step").forEach((st,i)=>{const h=st.querySelector("h3
 FAQ.forEach(x=>INDEX.push({t:"Frage",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 FIX.forEach(x=>INDEX.push({t:"Hilfe",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 document.querySelectorAll("#begriffe dt").forEach(dt=>INDEX.push({t:"Begriff",q:dt.textContent,k:"",a:dt.nextElementSibling.textContent,el:dt}));
-["kurz","freigaben","fehler","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Abschnitt",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
+["kurz","nutzen","freigaben","fehler","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Abschnitt",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
 INDEX.forEach(x=>{x._q=x.q.toLowerCase();x._a=x.a.toLowerCase()});
 const input=document.getElementById("q"),panel=document.getElementById("results"),bar0=document.getElementById("searchbar");
 const SUGGEST=["Seed-Phrase","BNB","Einladungslink","Mails lesen","Pending","Kosten","Bank","Token hinzufügen","Zweifel"];
