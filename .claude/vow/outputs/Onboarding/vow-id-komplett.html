@@ -83,9 +83,38 @@ dt{font-family:var(--display);font-weight:600}
 dd{margin:0;min-width:0;color:var(--muted)}
 footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
 @media (max-width:420px){ dl{grid-template-columns:1fr;gap:2px 0} dd{margin-bottom:8px} }
+
+/* Layout by width: phone = one column; tablet (from 760px) = wider column, larger type; desktop (from 1000px) = sticky contents rail left, reading column right. */
+.side{display:flex;flex-direction:column;gap:12px}
+.main{display:contents}
+header{order:-1}
+@media (min-width:760px){
+  body{font-size:17px;padding-block:40px 72px}
+  .wrap{max-width:760px;gap:44px}
+  h2{font-size:1.55rem}
+  .need,.facts{grid-template-columns:repeat(4,1fr)}
+  .step{padding:18px 20px}
+}
+@media (min-width:1000px){
+  .wrap{max-width:1080px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:56px;align-items:start}
+  .main{display:flex;flex-direction:column;gap:44px;min-width:0}
+  header{order:0}
+  .side{position:sticky;top:calc(24px + env(safe-area-inset-top,0px));max-height:calc(100vh - 48px);overflow:auto;gap:16px}
+  nav{flex-direction:column;flex-wrap:nowrap;gap:2px}
+  nav a{border:0;background:none;border-radius:8px;padding:7px 10px;font-size:.92rem;color:var(--muted)}
+  nav a:hover{background:var(--accent-soft);color:var(--accent)}
+  nav a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+}
 </style>
 
 <div class="wrap">
+<aside class="side">
+  <nav aria-label="Inhalt">
+    <a href="#kurz">Was ist Vow.id?</a><a href="#teil1">Wallet</a><a href="#teil2">BNB</a><a href="#teil3">Registrieren</a><a href="#teil4">Erster Einkauf</a><a href="#teil5">Token</a><a href="#teil6">Krypto kaufen</a><a href="#fragen">Fragen</a><a href="#hilfe">Hilfe</a><a href="#begriffe">Begriffe</a>
+  </nav>
+  <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 von 17 Schritten erledigt</span></div>
+</aside>
+<div class="main">
 <header>
   <span class="eyebrow">Inoffizielle Anleitung · Stand 22. November 2026</span>
   <h1>Von null zu deiner Vow.id</h1>
@@ -96,9 +125,6 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
     <div><b>Stift und Papier</b>für deine Seed-Phrase</div>
     <div><b>Ein paar Euro</b>für die Netzwerkgebühr in BNB</div>
   </div>
-  <nav aria-label="Inhalt">
-    <a href="#kurz">Was ist Vow.id?</a><a href="#teil1">Wallet</a><a href="#teil2">BNB</a><a href="#teil3">Registrieren</a><a href="#teil4">Erster Einkauf</a><a href="#teil5">Token</a><a href="#teil6">Krypto kaufen</a><a href="#fragen">Fragen</a><a href="#hilfe">Hilfe</a><a href="#begriffe">Begriffe</a>
-  </nav>
   <p class="note"><b>Die eine Regel, die alles schützt:</b> Deine Seed-Phrase gibst du niemals weiter und tippst sie nirgends ein, außer beim Wiederherstellen in deiner eigenen Wallet-App. Kein Support, keine Website und kein Bekannter braucht sie. Das gilt auch für deine E-Mail-PIN und deinen Bank-Code.</p>
 </header>
 
@@ -109,7 +135,7 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
     <div class="fact"><b>0 €</b><span>kostet die Registrierung. Du zahlst nur eine kleine BNB-Netzwerkgebühr.</span></div>
     <div class="fact"><b>0,002 BNB</b><span>müssen mindestens in der Wallet liegen (BNB Smart Chain).</span></div>
     <div class="fact"><b>Für immer</b><span>sind Wallet, Empfehler und Handle festgelegt. Nichts davon lässt sich später ändern.</span></div>
-    <div class="fact"><b>Kein Cashback</b><span>MR sind kein Geld. Zum Einlösen brauchst du VOW im Wert von 50 %.</span></div>
+    <div class="fact"><b>Kein Cashback</b><span>MR sind kein Geld. Zum Einlösen gibst du VOW im halben Marktwert eines v$ dazu.</span></div>
   </div>
   <div class="status">
     <p><b>Was heute funktioniert:</b> Registrierung, Beleg-Adresse, Bankverknüpfung für Premium und der Wallet-Scan. Einkäufe werden erfasst und als MR-Vorschläge angezeigt.</p>
@@ -120,8 +146,7 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
 
 <section id="weg">
   <h2>Dein Weg in 17 Schritten</h2>
-  <p>Hak ab, was erledigt ist. Dein Fortschritt bleibt auf diesem Gerät gespeichert. Hast du schon eine Wallet mit etwas BNB, beginne bei Teil 3.</p>
-  <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 von 17 Schritten erledigt</span></div>
+  <p>Hak ab, was erledigt ist. Der Balken zeigt deinen Fortschritt und bleibt auf diesem Gerät gespeichert. Hast du schon eine Wallet mit etwas BNB, beginne bei Teil 3.</p>
 </section>
 
 <section id="teil1">
@@ -365,6 +390,7 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
   <p>Wenn du nicht weiterkommst, schreib der Person, die dir diese Seite geschickt hat. Schick dabei nie deine Seed-Phrase, deine PIN oder einen Code mit.</p>
 </footer>
 </div>
+</div>
 
 <script>
 const FAQ=[
@@ -463,4 +489,7 @@ function update(){const n=boxes.filter(b=>b.checked).length;bar.style.width=(100
 boxes.forEach(b=>{try{b.checked=localStorage.getItem("vowkomplett-"+b.id)==="1"}catch(e){}
   b.addEventListener("change",()=>{try{localStorage.setItem("vowkomplett-"+b.id,b.checked?"1":"0")}catch(e){}update()})});
 update();
+
+const navLinks=[...document.querySelectorAll("nav a")],navSecs=navLinks.map(a=>document.getElementById(a.getAttribute("href").slice(1)));
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;navLinks.forEach(l=>l.removeAttribute("aria-current"));navLinks[navSecs.indexOf(e.target)].setAttribute("aria-current","true")})},{rootMargin:"-8% 0px -80% 0px"});navSecs.forEach(x=>x&&io.observe(x))}
 </script>
