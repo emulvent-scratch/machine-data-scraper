@@ -1,6 +1,6 @@
 # WhatsApp-Vorlagen für die Vow.id-Einladung
 
-Platzhalter in eckigen Klammern ersetzen: [Name], [DEIN EINLADUNGSLINK], [LINK ZUR STARTHILFE].
+Platzhalter in eckigen Klammern ersetzen: [Name] und [LINK ZUR STARTHILFE] (am besten die Komplettanleitung). Der Einladungslink ist schon eingetragen.
 
 Grundsätze für alle Nachrichten:
 - Sachlich und verständnisvoll. Zweifel sind berechtigt und bekommen eine klare Antwort.
@@ -18,7 +18,7 @@ Die Registrierung kostet nichts außer einer kleinen BNB-Gebühr. Wallet und Emp
 
 Ich habe die häufigsten Fragen, den Ablauf und die offenen Punkte hier zusammengestellt: [LINK ZUR STARTHILFE]
 
-Schau es dir in Ruhe an. Wenn du es testen willst, nimm bitte diesen Link: [DEIN EINLADUNGSLINK]
+Schau es dir in Ruhe an. Wenn du es testen willst, nimm bitte diesen Link: https://vow.id/?ref=thilo24@vow.id
 
 ## 2. Kontakte aus Lavylights
 

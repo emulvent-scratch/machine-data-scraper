@@ -41,6 +41,7 @@ nav a:hover{border-color:var(--accent);color:var(--accent)}
 .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
 @media (prefers-reduced-motion: reduce){.bar i{transition:none}}
 .progress span{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.invite{background:var(--accent-soft);border-radius:10px;padding:12px 14px;font-weight:600;overflow-wrap:anywhere}
 .part{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .step{counter-increment:st;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
@@ -174,13 +175,15 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
 <section id="teil3">
   <span class="part">Teil 3</span>
   <h2>Bei Vow.id registrieren</h2>
-  <p>Jetzt kommt der eigentliche Schritt. Öffne Vow.id das erste Mal über den Einladungslink der Person, die dich eingeladen hat. Dein Empfehler lässt sich später nicht mehr ändern.</p>
+  <p>Jetzt kommt der eigentliche Schritt. Öffne Vow.id das erste Mal über diesen Einladungslink:</p>
+  <p class="invite"><a href="https://vow.id/?ref=thilo24@vow.id" target="_blank" rel="noopener noreferrer">https://vow.id/?ref=thilo24@vow.id</a></p>
+  <p>Dein Empfehler wird beim ersten Öffnen festgelegt und lässt sich später nicht mehr ändern.</p>
   <ol class="steps">
     <li class="step"><h3>Einladungslink öffnen und Wallet verbinden</h3>
-      <p>Öffne den Link im Browser deines Handys und tippe auf „Create Vow.id". Wähle deine Wallet oder „WalletConnect". Das Handy wechselt in die Wallet-App und fragt, ob du die Verbindung erlaubst. Bestätige und geh in denselben Browser-Tab zurück.</p>
+      <p>Öffne den Einladungslink oben im Browser deines Handys und tippe auf „Create Vow.id". Wähle deine Wallet oder „WalletConnect". Das Handy wechselt in die Wallet-App und fragt, ob du die Verbindung erlaubst. Bestätige und geh in denselben Browser-Tab zurück.</p>
       <label><input type="checkbox" id="s8"> Erledigt</label></li>
     <li class="step"><h3>Nachricht signieren</h3>
-      <p>Prüfe die Zeile „Empfohlen von …" und tippe auf „Sign message". Deine Wallet zeigt einen Text und fragt nach deiner Unterschrift. Diese Signatur kostet nichts und bewegt kein Guthaben. Sie beweist nur, dass die Wallet dir gehört.</p>
+      <p>Prüfe die grüne Zeile „Empfohlen von …". Dort muss <b>thilo24</b> stehen. Tippe dann auf „Sign message". Deine Wallet zeigt einen Text und fragt nach deiner Unterschrift. Diese Signatur kostet nichts und bewegt kein Guthaben. Sie beweist nur, dass die Wallet dir gehört.</p>
       <label><input type="checkbox" id="s9"> Erledigt</label></li>
     <li class="step"><h3>Dem Affiliate-Baum beitreten</h3>
       <p>Tippe auf „Join and open wallet". Jetzt kommt deine erste echte Transaktion: Die Wallet zeigt die Netzwerkgebühr in BNB. Bestätige sie einmal und warte. Tippe nicht mehrfach, auch wenn es einen Moment dauert.</p>
@@ -393,7 +396,7 @@ const FAQ=[
 {c:"Wallet und Registrierung",q:"Muss ich meine Seed-Phrase eingeben?",k:"seed phrase privater schlüssel private key passwort betrug sicher",a:`<p>Nein, niemals. Eine echte Wallet-Verbindung fragt nie nach der Seed-Phrase. Fragt eine Seite oder eine Person danach, brich sofort ab.</p>`},
 {c:"Wallet und Registrierung",q:"Was unterschreibe ich mit der Signatur?",k:"signatur signieren sign message nachricht unterschreiben gas",a:`<p>Du bestätigst nur, dass dir die Wallet gehört. Die Nachricht kostet kein Gas und bewegt kein Guthaben. Wallet verbinden und signieren sind zwei getrennte Schritte; ohne Signatur bist du nicht angemeldet.</p>`},
 {c:"Wallet und Registrierung",q:"Was ist der Affiliate-Baum und muss ich da rein?",k:"affiliate baum tree beitreten pflicht join dezentral",a:`<p>Ja, der Beitritt gehört zur Registrierung. Der Baum ist ein Verzeichnis auf der Blockchain, in dem steht, wer wen eingeladen hat. Die Mitgliedschaft ist kostenlos, du zahlst nur die BNB-Netzwerkgebühr.</p>`},
-{c:"Wallet und Registrierung",q:"Kann ich meinen Empfehler später ändern?",k:"empfehler referrer sponsor einladung link ändern zufällig upline",a:`<p>Nein. Die Zuordnung ist dauerhaft. Öffne Vow.id beim ersten Mal über den Einladungslink und prüfe vor dem Signieren die grüne Zeile „Empfohlen von …".</p><p>Kommst du ohne Link, weist Vow.id dir einmalig einen zufälligen Empfehler zu.</p>`},
+{c:"Wallet und Registrierung",q:"Kann ich meinen Empfehler später ändern?",k:"empfehler referrer sponsor einladung link ändern zufällig upline",a:`<p>Nein. Die Zuordnung ist dauerhaft. Öffne Vow.id beim ersten Mal über den Einladungslink aus Teil 3 und prüfe vor dem Signieren die grüne Zeile „Empfohlen von …".</p><p>Kommst du ohne Link, weist Vow.id dir einmalig einen zufälligen Empfehler zu.</p>`},
 {c:"Wallet und Registrierung",q:"Welche E-Mail-Adresse soll ich angeben?",k:"email e-mail adresse pin postfach verifizieren code vierstellig",a:`<p>Dein normales Postfach, auf das du gerade zugreifen kannst. Dorthin kommt eine vierstellige PIN, später auch weitergeleitete Belege und Sicherheitscodes.</p>`},
 {c:"Wallet und Registrierung",q:"Soll mein Handle mein echter Name sein oder ein Fantasiename?",k:"handle name echter vorname nachname fantasiename anonym benutzername ändern claim",a:`<p>Das hängt davon ab, wie anonym du sein willst. Der Handle wird zu deiner Adresse name@vow.id. Shops, bei denen du sie einträgst, sehen ihn, und er steht in deinem Empfehlungslink.</p><p>Erlaubt sind 3 bis 30 Kleinbuchstaben, Zahlen und Bindestriche. Nach „Claim" ist der Handle dauerhaft.</p>`},
 {c:"Wallet und Registrierung",q:"Geht das am Handy?",k:"handy smartphone mobil app iphone android tab browser",a:`<p>Ja, im Browser. Beim Verbinden springt das Handy eventuell in die Wallet-App. Geh danach zurück in denselben Browser-Tab und öffne Vow.id nur in einem Tab.</p>`},
