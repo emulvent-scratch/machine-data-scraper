@@ -5,6 +5,7 @@ Platzhalter in eckigen Klammern ersetzen: [Name] und [LINK ZUR STARTHILFE] (am b
 Grundsätze für alle Nachrichten:
 - Sachlich und verständnisvoll. Zweifel sind berechtigt und bekommen eine klare Antwort.
 - Kein Gewinnversprechen. MR sind kein Geld, und nichts ist garantiert.
+- Weiterempfehlen nur als Möglichkeit nennen, nie als Einkommen bewerben.
 - Offen sagen, was noch nicht läuft: MR bleiben derzeit auf „Pending", das Einlösen ist noch nicht möglich.
 - Keine Screenshots mit hohen Pending-Beträgen verschicken. Das sind unbestätigte Vorschläge.
 
@@ -66,6 +67,9 @@ Stand heute nein, das kann noch niemand zeigen. Deshalb mein Vorschlag: kostenlo
 
 **„Soll ich gleich Premium nehmen?"**
 Das musst du nicht. Teste erst kostenlos. Premium lohnt sich vor allem, wenn deine Bank und dein Energieversorger schon erkannt werden, und das siehst du erst beim Ausprobieren.
+
+**„Kann ich das auch weiterempfehlen?"**
+Ja. Wer Vow.id selbst nutzt, kann es auch weiterempfehlen und wird dafür mit Member Rewards beteiligt. Das ist eine Möglichkeit, kein zugesagtes Einkommen. Die Bedingungen dazu stehen in der Anleitung unter „Was habe ich davon?".
 
 **Für alles Weitere:**
 Die Antwort steht wahrscheinlich in der Starthilfe: [LINK ZUR STARTHILFE]
