@@ -51,6 +51,12 @@ section{scroll-margin-top:16px}
 .dodont div{border-radius:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--line);min-width:0}
 .dodont b{display:block;margin-bottom:4px}
 .yes b{color:var(--ok)} .no b{color:var(--bad)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+summary{cursor:pointer;padding:10px 12px;font-weight:600;font-size:.94rem}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details .a{padding:0 12px 12px;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.addr{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;overflow-wrap:anywhere;user-select:all}
 dl{margin:0;display:grid;grid-template-columns:minmax(100px,max-content) 1fr;gap:8px 16px}
 dt{font-family:var(--display);font-weight:600}
 dd{margin:0;min-width:0;color:var(--muted)}
@@ -148,8 +154,26 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
   <p>Deine Wallet zeigt von sich aus nur bekannte Token. VOW und die Gutschein-Token (v$, v€, v£ und weitere) musst du einmal hinzufügen, damit sie sichtbar werden. Hinzufügen heißt nur „anzeigen". Du kaufst damit nichts und bekommst nichts.</p>
   <ol class="steps">
     <li class="step"><h3>12. Token über Vow.id hinzufügen</h3>
-      <p>Öffne in Vow.id den Bereich Member Rewards und dort „Add tokens". Die Liste enthält v$, v£, v€, USDT und USDC mit dem richtigen Netzwerk und den offiziellen Token-Daten. Füge von dort aus hinzu und bestätige in deiner Wallet.</p>
-      <p>Weitere Token wie VOW oder vDK fügst du nur hinzu, wenn Vow.id oder eine andere offizielle Seite des VOW-Ökosystems dir die Daten anzeigt.</p>
+      <p>Öffne in Vow.id den Bereich Member Rewards und dort „Add tokens" (deutsch „Token hinzufügen"). Tippe neben dem gewünschten Token auf „Hinzufügen" und bestätige in deiner Wallet.</p>
+      <p>Jeder Token steht dort mit seinem Netzwerk. Für den Start reichen diese drei, alle auf der <b>BNB Smart Chain</b>:</p>
+      <ul>
+        <li>Vow Dollar (v$)</li>
+        <li>Vow Euro (v€)</li>
+        <li>Vow Pound (v£)</li>
+      </ul>
+      <p>Dieselben drei gibt es auch auf Ethereum. Nur auf Ethereum gibt es Vow Kroner (vkr, Dänemark), Vow Rupee (v₹), Vow Rand (vR) und den australischen Vow Dollar. Dazu kommen USDT und USDC auf beiden Netzwerken. Der VOW-Token selbst steht nicht in dieser Liste.</p>
+      <details><summary>Der Knopf „Hinzufügen" tut bei mir nichts</summary>
+        <div class="a">
+          <p>Vow.id weist selbst darauf hin: Einige mobile Wallets unterstützen das Hinzufügen per Knopf nicht. Dann fügst du den Token in deiner Wallet von Hand hinzu („Token hinzufügen" oder „Custom Token", Netzwerk BNB Smart Chain) und trägst die Vertragsadresse ein.</p>
+          <p>Adressen auf der BNB Smart Chain, übernommen von vow.market, dem Marktplatz desselben Betreibers (Stand 22.11.2026):</p>
+          <ul class="addr">
+            <li>v$ <code>0x9C23942Ca2C35e06d1d20747F33705983A18d2AB</code></li>
+            <li>v€ <code>0x3745e245612f130B57589688060454A8ae43276C</code></li>
+            <li>v£ <code>0x6eA1734DF1627453DaA6834776CB0403ABC401b1</code></li>
+          </ul>
+          <p>Kopiere die Adresse, tippe sie nicht ab, und vergleiche danach die ersten und letzten vier Zeichen. Dezimalstellen: 18.</p>
+        </div>
+      </details>
       <label><input type="checkbox" id="s12"> Erledigt</label></li>
     <li class="step"><h3>13. Nie eine Token-Adresse aus einem Chat übernehmen</h3>
       <p>Jeder kann einen Token mit dem Namen „VOW" oder „v$" erstellen. Echt ist nur der mit der richtigen Vertragsadresse. Übernimm Adressen deshalb nie aus WhatsApp, Telegram oder von einer Seite, die dir jemand schickt. Taucht in deiner Wallet ein Token auf, den du nicht kennst, lass ihn einfach liegen und klick auf keine Links darin.</p>
@@ -172,6 +196,17 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
       <p>Welche Dienste Mitglieder dafür nutzen, steht in der Starthilfe unter „Woher bekomme ich VOW zum Einlösen?".</p>
       <label><input type="checkbox" id="s14"> Verstanden</label></li>
   </ol>
+</section>
+
+<section id="freigaben">
+  <h2>Freigaben verstehen</h2>
+  <p>Früher oder später fragt dich eine App nach einer „Freigabe" (englisch „Approval"). Das ist etwas anderes als die kostenlose Signatur bei der Anmeldung. Vow.id erklärt die Begriffe in seinem Sicherheitsbereich so:</p>
+  <ul>
+    <li><b>Token-Freigabe:</b> Du erlaubst einer anderen Adresse oder einem Smart Contract, eine bestimmte Menge eines Tokens aus deiner Wallet auszugeben. Tausch-Apps brauchen das, bevor sie für dich handeln können.</li>
+    <li><b>Unbegrenzte Freigabe:</b> Die App darf weit mehr bewegen, als für den einen Vorgang nötig ist, oft dein gesamtes Guthaben dieses Tokens, jetzt und in Zukunft. Viele Apps fragen danach, um dir eine zweite Transaktion zu ersparen. Wenn deine Wallet es anbietet, trag lieber nur den Betrag ein, den du gerade brauchst.</li>
+    <li><b>Widerruf:</b> Eine Freigabe kannst du später entfernen. Das kostet eine kleine Netzwerkgebühr. Die App fragt bei der nächsten Nutzung einfach neu.</li>
+  </ul>
+  <p>Der Wallet-Scan in Vow.id (Bereich „Security") zeigt dir deine bestehenden Freigaben. Er findet nicht alles: Manche Unterschriften existieren nur außerhalb der Blockchain und tauchen in keinem Scan auf. Ein Widerruf holt auch nichts zurück, was schon weg ist. Er ist ein Baustein, kein Rundumschutz.</p>
 </section>
 
 <section id="fehler">
@@ -197,6 +232,7 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
     <dt>Gas</dt><dd>Ein anderes Wort für die Netzwerkgebühr einer Transaktion.</dd>
     <dt>Token</dt><dd>Ein Wert auf einer Blockchain, zum Beispiel VOW, v$ oder USDT.</dd>
     <dt>Signatur</dt><dd>Eine kostenlose Unterschrift, die beweist, dass dir die Wallet gehört.</dd>
+    <dt>Freigabe</dt><dd>Die Erlaubnis für eine App, Token aus deiner Wallet zu bewegen. Englisch „Approval".</dd>
     <dt>Transaktion</dt><dd>Ein Vorgang auf der Blockchain. Kostet Gebühr und lässt sich nicht rückgängig machen.</dd>
     <dt>Stablecoin</dt><dd>Ein Token, der an den Dollar gekoppelt ist, etwa USDT oder USDC.</dd>
   </dl>
