@@ -205,7 +205,9 @@ Kurse laut Screenshot einer Kurs-App: VOW 0,0309 $ · v$ 0,2065 $ · v£ 0,2196 
 | v$ Australien | – | `0x547649976443cd3b6ad8c9781f17f8ad6f061f2f` |
 | vR (Vow Rand) | – | `0xc669b1920bb901292c11020d27d1bf7168e49eac` |
 
-Der VOW-Token selbst steht in keiner der beiden Listen. Ungeprüft und ohne Zuordnung aus einer Betreiberquelle: `0xF585B5b4f22816BAf7629AEA55B701662630397b` (vermutlich VOW auf BSC), `0x6B27bB584F44f55E865432dCeb9eBBE9A17fd4A8`, `0x8B0B4C7878623DB8e5E6cB9bd0FA85C07C3B85f1`.
+Der VOW-Token selbst steht in keiner der beiden Listen. Seine Adresse auf der BNB Smart Chain ist laut Angabe des Nutzers (23.11.2026) `0xF585B5b4f22816BAf7629AEA55B701662630397b`. Sie ist nicht aus einer Betreiberquelle belegt und konnte nicht über BscScan geprüft werden (Bot-Sperre).
+
+Weiterhin ohne Zuordnung: `0x6B27bB584F44f55E865432dCeb9eBBE9A17fd4A8`, `0x8B0B4C7878623DB8e5E6cB9bd0FA85C07C3B85f1`.
 
 ## Aufklärung für Premium-Mitglieder (Ausgabe 2026-11-22.2)
 
