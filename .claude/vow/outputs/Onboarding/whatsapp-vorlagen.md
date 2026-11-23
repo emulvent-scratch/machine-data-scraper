@@ -5,6 +5,7 @@ Platzhalter in eckigen Klammern ersetzen: [Name] und [LINK ZUR STARTHILFE] (am b
 Grundsätze für alle Nachrichten:
 - Sachlich und verständnisvoll. Zweifel sind berechtigt und bekommen eine klare Antwort.
 - Kein Gewinnversprechen. MR sind kein Geld, und nichts ist garantiert.
+- Nie „Cashback" sagen, auch nicht „100 % Cashback". Es sind MR, also Rechte auf Rabatt-Gutscheine. Das Wort Cashback löst den Einwand „unrealistisch" aus, und der wäre dann berechtigt.
 - Weiterempfehlen nur als Möglichkeit nennen, nie als Einkommen bewerben.
 - Regel von Vow.id fürs Weiterempfehlen: keine Logos oder Markenbilder fremder Unternehmen verwenden. Händler beim Namen nennen und eigene Erfahrungen schildern ist erlaubt, eine Partnerschaft andeuten nicht.
 - Offen sagen, was noch nicht läuft: MR bleiben derzeit auf „Pending", das Einlösen ist noch nicht möglich.
@@ -68,6 +69,18 @@ Stand heute nein, das kann noch niemand zeigen. Deshalb mein Vorschlag: kostenlo
 
 **„Soll ich gleich Premium nehmen?"**
 Das musst du nicht. Teste erst kostenlos. Premium lohnt sich vor allem, wenn deine Bank und dein Energieversorger schon erkannt werden, und das siehst du erst beim Ausprobieren.
+
+**„Woher kommt das Geld? Niemand hat etwas zu verschenken."**
+Stimmt, und es wird auch kein Geld verschenkt. Du bekommst Rechte auf Rabatt-Gutscheine (v$). Die sind nur etwas wert, wenn ein Händler sie als Rabatt annimmt oder jemand sie kauft. Den Rabatt trägt der Händler. Vow nennt das selbst ein wirtschaftliches Experiment.
+
+**„100 % bei Strom, das ist doch unrealistisch."**
+Als Geld wäre es das. Es sind 100 % in MR. Für 100 $ Strom bleiben nach heutigem Kurs beim Tausch rund 11 $, oder es sind 100 $ Rabatt bei einem Händler, der v$ annimmt. Dein Stromanbieter ist daran nicht beteiligt.
+
+**„Das ist doch ein Schneeballsystem."**
+Ich kann dir das nicht beweisen und will es auch nicht schönreden. Es wird keine Rendite versprochen, und das kostenlose Konto kostet nichts. Der Wert hängt aber davon ab, dass die Gutscheine angenommen werden. Deshalb: kostenlos testen und nichts einsetzen, was du nicht verlieren kannst.
+
+**„Die fischen meine Bankdaten ab."**
+Die Bankverbindung ist freiwillig, nur lesend und nur für Premium. Du wählst selbst aus, welche Konten verbunden werden. Ohne Bank geht es auch, über die Belege per E-Mail.
 
 **„Kann ich das auch weiterempfehlen?"**
 Ja. Wer Vow.id selbst nutzt, kann es auch weiterempfehlen und wird dafür mit Member Rewards beteiligt. Das ist eine Möglichkeit, kein zugesagtes Einkommen. Die Bedingungen dazu stehen in der Anleitung unter „Was habe ich davon?".
