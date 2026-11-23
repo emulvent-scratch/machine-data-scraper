@@ -6,6 +6,7 @@ Grundsätze für alle Nachrichten:
 - Sachlich und verständnisvoll. Zweifel sind berechtigt und bekommen eine klare Antwort.
 - Kein Gewinnversprechen. MR sind kein Geld, und nichts ist garantiert.
 - Weiterempfehlen nur als Möglichkeit nennen, nie als Einkommen bewerben.
+- Regel von Vow.id fürs Weiterempfehlen: keine Logos oder Markenbilder fremder Unternehmen verwenden. Händler beim Namen nennen und eigene Erfahrungen schildern ist erlaubt, eine Partnerschaft andeuten nicht.
 - Offen sagen, was noch nicht läuft: MR bleiben derzeit auf „Pending", das Einlösen ist noch nicht möglich.
 - Keine Screenshots mit hohen Pending-Beträgen verschicken. Das sind unbestätigte Vorschläge.
 
