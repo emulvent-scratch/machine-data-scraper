@@ -87,6 +87,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .results .chips{padding:0 10px 8px}
 .hit{outline:3px solid var(--accent);outline-offset:3px}
 section,.steps li,details,dt{scroll-margin-top:104px}
+
+/* Wallet switch: two large buttons; the chosen one opens a panel with the next steps. Nothing is hidden for readers who skip it. */
+.choice{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.choice .lead{font-size:1rem}
+.yn{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.yn button{font:inherit;font-weight:600;padding:14px 16px;border-radius:12px;border:2px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;text-align:center}
+.yn button:hover{background:var(--accent-soft)}
+.yn button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.panel{background:var(--accent-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.panel ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
 </style>
 
 <div class="wrap">
@@ -101,8 +111,36 @@ section,.steps li,details,dt{scroll-margin-top:104px}
 <header>
   <span class="eyebrow">Inoffizielle Starthilfe · Stand 23. November 2026</span>
   <h1>Vow.id in Ruhe einrichten</h1>
-  <p class="lead">Du hast eine Einladung zu Vow.id bekommen und schon eine Krypto-Wallet. Hier findest du die Antworten auf die Fragen, die beim Start fast immer kommen, den Weg durch die Registrierung und eine offene Einschätzung, was heute schon funktioniert und was noch nicht.</p>
+  <p class="lead">Du hast eine Einladung zu Vow.id bekommen. Hier findest du die Antworten auf die Fragen, die beim Start fast immer kommen, den Weg durch die Registrierung und eine offene Einschätzung, was heute schon funktioniert und was noch nicht.</p>
 </header>
+
+<section id="wahl" class="choice">
+  <h2>Hast du schon eine Krypto-Wallet?</h2>
+  <p class="lead">Tippe an, was auf dich zutrifft, dann zeige ich dir den passenden Einstieg. Du kannst auch einfach weiterlesen.</p>
+  <div class="yn" role="group" aria-label="Hast du schon eine Krypto-Wallet?">
+    <button type="button" id="w-ja" aria-pressed="false" aria-controls="p-ja">Ja, ich habe eine Wallet</button>
+    <button type="button" id="w-nein" aria-pressed="false" aria-controls="p-nein">Nein, noch nicht</button>
+  </div>
+  <div class="panel" id="p-ja" hidden>
+    <p><b>Gut, dann kannst du direkt starten.</b> Das sind deine nächsten Punkte:</p>
+    <ol>
+      <li><a href="#bereit">Leg dir das bereit</a>: Wallet, etwas BNB, Einladungslink, E-Mail-Postfach.</li>
+      <li><a href="#schritte">Registrierung in sieben Schritten</a>, etwa zehn Minuten.</li>
+      <li><a href="#fragen">Häufige Fragen</a>, beginnend mit „Ich bin registriert. Wie geht es jetzt weiter?".</li>
+    </ol>
+    <p>Prüfe vorher zwei Dinge: Deine Wallet kann mit der BNB Smart Chain umgehen, und es ist die Wallet, die du dauerhaft behalten willst. Deine Vow.id bleibt für immer an sie gebunden.</p>
+  </div>
+  <div class="panel" id="p-nein" hidden>
+    <p><b>Dann kommt zuerst die Wallet.</b> Plane dafür etwa eine halbe Stunde ein. In Kürze:</p>
+    <ol>
+      <li>Eine Wallet-App aus der offiziellen Quelle installieren, zum Beispiel Trust Wallet oder MetaMask.</li>
+      <li>Eine neue Wallet erstellen und die Seed-Phrase von Hand auf Papier schreiben. Nie fotografieren, nie weitergeben.</li>
+      <li>Einen kleinen Betrag BNB auf die Wallet bringen, im Netzwerk BNB Smart Chain.</li>
+    </ol>
+    <p>Jeden dieser Schritte einzeln erklärt die <a href="https://claude.ai/artifact/BDGWXE8qv2UzgfrJs84TTp#teil1" target="_blank" rel="noopener noreferrer">Vow.id Komplettanleitung</a>. Sie führt dich von der ersten Wallet bis zur fertigen Registrierung.</p>
+    <p>Wenn deine Wallet steht, geht es hier bei <a href="#bereit">Leg dir das bereit</a> weiter.</p>
+  </div>
+</section>
 
 <section id="kurz">
   <h2>Das Wichtigste vorab</h2>
@@ -307,7 +345,7 @@ document.querySelectorAll(".steps li").forEach((st,i)=>{const h=st.querySelector
 FAQ.forEach(x=>INDEX.push({t:"Frage",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 FIX.forEach(x=>INDEX.push({t:"Hilfe",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 document.querySelectorAll("#begriffe dt").forEach(dt=>INDEX.push({t:"Begriff",q:dt.textContent,k:"",a:dt.nextElementSibling.textContent,el:dt}));
-["kurz","bereit","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Abschnitt",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
+["wahl","kurz","bereit","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Abschnitt",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
 INDEX.forEach(x=>{x._q=x.q.toLowerCase();x._a=x.a.toLowerCase()});
 const input=document.getElementById("q"),panel=document.getElementById("results"),bar0=document.getElementById("searchbar");
 const SUGGEST=["Wie geht es weiter","Mails lesen","Pending","Kosten","BNB","Bank","Premium","v$ einsetzen","Zweifel"];
@@ -366,4 +404,10 @@ input.addEventListener("keydown",e=>{if(e.key==="Escape"){panel.hidden=true;inpu
 document.addEventListener("click",e=>{if(!bar0.contains(e.target))panel.hidden=true});
 document.querySelectorAll("#check input").forEach(c=>{try{c.checked=localStorage.getItem("vowstart-"+c.id)==="1"}catch(e){}
   c.addEventListener("change",()=>{try{localStorage.setItem("vowstart-"+c.id,c.checked?"1":"0")}catch(e){}})});
+
+const YN={ja:[document.getElementById("w-ja"),document.getElementById("p-ja")],nein:[document.getElementById("w-nein"),document.getElementById("p-nein")]};
+function pick(v,save){for(const key in YN){const on=key===v;YN[key][0].setAttribute("aria-pressed",on?"true":"false");YN[key][1].hidden=!on}
+  if(save){try{if(v)localStorage.setItem("vowstart-wallet",v);else localStorage.removeItem("vowstart-wallet")}catch(e){}}}
+for(const key in YN)YN[key][0].addEventListener("click",()=>pick(YN[key][0].getAttribute("aria-pressed")==="true"?null:key,true));
+try{const v=localStorage.getItem("vowstart-wallet");if(v==="ja"||v==="nein")pick(v,false)}catch(e){}
 </script>

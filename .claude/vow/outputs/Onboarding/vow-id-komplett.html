@@ -603,4 +603,7 @@ update();
 
 const navLinks=[...document.querySelectorAll("nav a")],navSecs=navLinks.map(a=>document.getElementById(a.getAttribute("href").slice(1)));
 if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;navLinks.forEach(l=>l.removeAttribute("aria-current"));navLinks[navSecs.indexOf(e.target)].setAttribute("aria-current","true")})},{rootMargin:"-8% 0px -80% 0px"});navSecs.forEach(x=>x&&io.observe(x))}
+
+function toHash(){const id=location.hash.slice(1);const t=id&&document.getElementById(id);if(t)t.scrollIntoView()}
+window.addEventListener("hashchange",toHash);setTimeout(toHash,300);
 </script>
