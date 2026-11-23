@@ -1,8 +1,10 @@
 # Vow.id
 
-> Stand: 22.11.2026. Quellen: Website https://vow.id (Startseite, `/documentation`, `/terms`, `/privacy`; AGB und Datenschutzerklärung jeweils „Last updated · 20 November 2026“). Die Seite ist eine Single-Page-App; die Texte stammen aus den ausgelieferten JS-Bundles der Seite. Die Website führt Vow.id als **Beta**.
+> Stand: 23.11.2026 (Erstfassung 22.11.2026). Quellen: Website https://vow.id (Startseite, `/documentation`, `/terms`, `/privacy`; AGB und Datenschutzerklärung jeweils „Last updated · 20 November 2026“). Die Seite ist eine Single-Page-App; die Texte stammen aus den ausgelieferten JS-Bundles der Seite. Die Website führt Vow.id als **Beta**.
 >
-> Details zur Bankanbindung: siehe [Plaid-Bankverknüpfung](./vow-id-plaid-bankverknuepfung.md).
+> Weitere Quellen seit der Erstfassung: „New User Overview" (Ausgabe 11 vom 21.11.2026), die Aufklärung für Premium-Mitglieder (Ausgabe 2026-11-22.2), die Seite vow.market und Beobachtungen aus der Community. Was nur auf Beobachtungen beruht, ist so gekennzeichnet.
+>
+> Weitere Seiten: [Plaid-Bankverknüpfung](./vow-id-plaid-bankverknuepfung.md) · [Wirtschaftliche Einordnung und häufige Einwände](./vow-id-wirtschaft-und-einwaende.md)
 
 ## Kurzüberblick
 
@@ -38,10 +40,11 @@ Vow.id ist eine an eine Krypto-Wallet gebundene Identitäts- und Reward-Plattfor
 - Typischer Einsatz laut Startseite: die Adresse als **Amazon-E-Mail** hinterlegen.
 - Angenommene Belege werden verschlüsselt gespeichert, klassifiziert und bereinigt (Links und unsicheres HTML entfernt) an die private E-Mail weitergeleitet.
 - **KI-Extraktion:** Absender, Betreff und Text gehen an OpenAI (USA). Das läuft direkt über N888s OpenAI-Projekt oder über das Lovable AI Gateway. Anhänge, Bankdaten, Vault-Felder und Wallet-Keys werden laut Vow.id **nicht** übertragen.
-- Manuelle Beleg-Uploads sind nicht möglich.
+- Manuelle Beleg-Uploads sind laut AGB nicht möglich. Die „New User Overview" (Ausgabe 11) nennt dagegen eine private Foto-Einreichung für fehlende Belege, bei der man den Dienst auswählt; ein Foto wird geprüft und nicht automatisch gutgeschrieben. Die beiden Quellen widersprechen sich hier.
+- Die Adresse ist laut Vow.id **keine verlässliche Adresse für Passwort-Rücksetzungen**. Erkannte Sicherheits-Mails anerkannter Shops werden weitergeleitet, andere Absender abgewiesen. Deshalb nie bei Google, Apple, Microsoft oder der Bank eintragen.
 
 ### 4. Wallet Security (Permission-Scanner)
-- Scannt **Ethereum, BNB Smart Chain, Polygon, Arbitrum, Base und Optimism**. Standardmäßig laufen ETH und BSC, die vier anderen Netze sind „einen Tap entfernt“.
+- Scannt **Ethereum, BNB Smart Chain, Polygon, Arbitrum, Base und Optimism**. Standardmäßig laufen ETH und BSC, die vier anderen Netze sind „einen Tap entfernt“. Solana wird nur geprüft, wenn man eine Solana-Adresse angibt.
 - Zeigt Token-Approvals, unbegrenzte Allowances, NFT-Operator-Rechte und Delegation-Contracts, sortiert nach Risiko (Critical/High/Low).
 - Der Scan ist nur lesend, wird nicht gespeichert und dauert bis zu 3 Minuten. Approvals widerruft der Nutzer selbst über seine Wallet.
 - Datenquellen: Moralis, QuickNode und Blockchain-Nodes.
@@ -110,7 +113,9 @@ Alle Prozentsätze sind Höchstwerte und keine Garantie. Pro Kauf gilt ein Cap v
 | **Premium** | **99 US$/Jahr**; Launch-Angebot: **49 US$ im ersten Jahr** bei Beitritt bis 31.12.2026 | Bankverknüpfung via Plaid, bis 40 %/100 % MR, unbegrenzte Wallet-Scans |
 
 - Kartenzahlung über **Stripe** mit automatischer jährlicher Verlängerung. Kündigung über das Billing-Portal.
-- Alternativ **USDC**: 12 Monate ohne automatische Verlängerung.
+- Alternativ **USDC oder USDT**: 12 Monate ohne automatische Verlängerung. (USDT nennt die „New User Overview", Ausgabe 11.)
+- Ein befristetes Angebot, Premium mit v$ zu bezahlen, endete am 22.11.2026 um 23:59 Uhr.
+- Einen Monatsplan gibt es nicht. Laut Premium-Aufklärung „können" Beta-Einführungspreise für berechtigte Mitglieder verfügbar sein; maßgeblich ist der Preis im Checkout.
 - v$, v€, v£ und VOW werden als Zahlungsmittel **nicht** akzeptiert.
 - Laut Vow.id ist die Premium-Gebühr „kein Preis für MR“.
 
@@ -145,6 +150,90 @@ Lovable Cloud (Hosting), Resend (E-Mail), Reown/WalletConnect, OpenAI und Lovabl
 | Geschlossenes Konto (HMAC-SHA-256-Fingerprint der Wallet), Premium-Zahlungsbuchhaltung | 6 Jahre |
 | On-chain-Daten | dauerhaft, nicht löschbar |
 
+## Stand der Umsetzung (23.11.2026)
+
+| Funktion | Stand |
+|---|---|
+| Registrierung, Vault, Handle, `@vow.id`-Belege | live |
+| Bankverknüpfung für Premium | live, je nach Bank und Land unterschiedlich zuverlässig |
+| Wallet-Scan | live |
+| Erfassung von Einkäufen als „Ausstehende MR" (Pending) | live |
+| **Prüfung durch Verifizierer („Verify"/„Challenge")** | **noch nicht aktiv.** Laut einer Mitteilung von Vow.id wartet sie auf den Verifizierungs-Contract, „Bereitstellung in Kürze". Die Mitteilung ist nur als Screenshot ohne Datum bekannt. |
+| MR ausüben (in v$ umwandeln) | folgt erst nach der Prüfung; bisher hat das niemand in der Community real durchgeführt |
+| Verifier-Rollen (VV/QVV) | „Coming soon" |
+| On-Chain-Namen und Wiederherstellung über Backup-Wallet | angekündigt |
+| v$ einsetzen bei Vow.Market | laut Seite möglich, kein Testkauf durchgeführt |
+| v$ einsetzen bei vowhotels.com und vowchers.com | laut Community „in Kürze" |
+
+Vow.id sichert unveröffentlichte Funktionen ausdrücklich nicht zu.
+
+## Offizielle deutsche Begriffe
+
+| App / englisch | Deutsch (Premium-Aufklärung) |
+|---|---|
+| Pending MR | Ausstehende MR |
+| Active / Approved MR | Genehmigte MR |
+| Claim MR / Exercise | MR beanspruchen / ausüben |
+| Verifier | Verifizierer |
+
+## Kurse und Rechenbeispiel (22.11.2026, BNB Smart Chain)
+
+Kurse laut Screenshot einer Kurs-App: VOW 0,0309 $ · v$ 0,2065 $ · v£ 0,2196 $.
+
+- Der VOW-Beitrag beim Ausüben beträgt **50 % des aktuellen Marktwerts des zu erhaltenden v$**, pro MR. Die Premium-Aufklärung bestätigt diese Lesart wörtlich. Es sind nicht 50 % von einem Dollar.
+- Beispiel: 10 MR ausüben kostet VOW im Wert von etwa 1 $. Die 10 v$ sind an der Börse etwa 2 $ wert oder zählen bei Vow.Market als 10 $ Rabatt.
+- Offen: ob der Chainlink-Kurs des Protokolls dem Börsenkurs entspricht.
+
+## Vow.Market (eigene Prüfung der Seite, 22.11.2026)
+
+- Betreiber laut Fußzeile: N888 LIMITED, wie bei Vow.id.
+- „Use each v$ to enjoy a $1 discount", bei vielen Produkten „100% off with v$". Laut Bedingungen gilt die Rabattgrenze, die beim Produkt steht.
+- Ohne v$: Zahlung mit USDT oder USDC, dafür 20 % zurück in v$.
+- v$ sind dort kein gesetzliches Zahlungsmittel und nicht in Geld einlösbar. Bei Rückgabe werden sie dem Konto gutgeschrieben.
+- Nach eigener Angabe über 75.000 Produkte, weltweiter Versand; Versandkosten werden getrennt berechnet.
+- Im Code gibt es eine Stelle, die Preise bestimmter Lieferantenprodukte verdoppelt. Wofür genau, ist nicht geklärt. Preise vor einer Empfehlung mit anderen Shops vergleichen.
+
+### Token-Adressen (aus dem Code von vow.market; deckt sich mit der Liste „Token hinzufügen" in Vow.id)
+
+| Token | BNB Smart Chain | Ethereum |
+|---|---|---|
+| v$ (Vow Dollar) | `0x9C23942Ca2C35e06d1d20747F33705983A18d2AB` | `0xba7fe208e0167e4047a996e1efea830515f433f8` |
+| v€ (Vow Euro) | `0x3745e245612f130B57589688060454A8ae43276C` | `0x448fa53be5b9f792d6f799428df8d4c89eb9f04a` |
+| v£ (Vow Pound) | `0x6eA1734DF1627453DaA6834776CB0403ABC401b1` | `0x72bf018df20fbacf542f5ec159c6a7f0d7850967` |
+| vkr (Vow Kroner, „vDK") | – | `0x40a07abd0da20d9ec859c564727c10ce5cb7600e` |
+| v₹ (Vow Rupee) | – | `0x047128bf54f643403864cb37a5df134e3ecf1bf4` |
+| v$ Australien | – | `0x547649976443cd3b6ad8c9781f17f8ad6f061f2f` |
+| vR (Vow Rand) | – | `0xc669b1920bb901292c11020d27d1bf7168e49eac` |
+
+Der VOW-Token selbst steht in keiner der beiden Listen. Ungeprüft und ohne Zuordnung aus einer Betreiberquelle: `0xF585B5b4f22816BAf7629AEA55B701662630397b` (vermutlich VOW auf BSC), `0x6B27bB584F44f55E865432dCeb9eBBE9A17fd4A8`, `0x8B0B4C7878623DB8e5E6cB9bd0FA85C07C3B85f1`.
+
+## Aufklärung für Premium-Mitglieder (Ausgabe 2026-11-22.2)
+
+Premium-Mitglieder müssen in der App zehn Punkte einzeln bestätigen. Preis, Verlängerungsdatum und Vertrag ändern sich dadurch nicht. Die wichtigsten Aussagen:
+
+- MR sind „kein Cashback, kein Bargeld, keine Token" und haben keinen Barwert. Ausstehende MR werden möglicherweise nie genehmigt.
+- Premium garantiert nicht, dass die eigene Bank unterstützt wird oder sich verbinden lässt. In der App gibt es Listen zur Bankabdeckung des Anbieters (USA, EU) als CSV; auch ein Eintrag dort ist keine Garantie.
+- Im Abo ist kein VOW enthalten. Das Ausüben ist freiwillig; niemand ist verpflichtet, VOW zu kaufen.
+- Beworbene Sätze können sich für künftige Käufe ohne Ankündigung ändern. Bereits genehmigte MR werden nicht gekürzt.
+- **Regeln fürs Weiterempfehlen:** keine Logos oder Markenbilder Dritter; Händler darf man beim Namen nennen und eigene Erfahrungen schildern, aber keine Partnerschaft oder Förderung andeuten.
+- Herkunft der MR: vom Händler unterstützt, von der Community unterstützt oder beides. Vow.id schlägt vor und genehmigt nicht selbst.
+
+## Abdeckung und Teilnahme
+
+- Mindestalter 18 Jahre und Geschäftsfähigkeit. Ob sich Firmen registrieren dürfen, regeln die AGB nicht ausdrücklich.
+- Kategorien in der Checkliste: Shops, Energie, Mobilfunk, Internet, Streaming, Lieferdienste, Reisen, KI-Dienste. Versicherungen und Tankstellen werden nicht genannt.
+- Für Deutschland, Österreich und Spanien sind laut Ausgabe 11 weitere Energieversorger und deutsche Stadtwerke dazugekommen.
+- Aus der Schweiz und aus Bulgarien berichten Mitglieder, dass Banken und Anbieter fehlen. Einen Zeitplan für weitere Länder (auch Süd- und Mittelamerika) gibt es nicht; der Ausbau richtet sich laut Vow.id nach Anfragen über „Contact".
+- Beobachtung aus der Community: Vereinzelt werden nicht gelistete Händler erkannt, und manche gelisteten funktionieren noch nicht. Belege erscheinen teils erst am Folgetag, einzelne gar nicht.
+
+## Referral in Zahlen
+
+Der Richtwert von 0,5 % des qualifizierenden Umsatzes verteilt sich auf zehn Ebenen, also 0,05 % je Ebene. Zehn direkt Geworbene mit zusammen 5.000 $ Monatsumsatz bei gelisteten Anbietern ergeben auf der ersten Ebene rund 2,5 MR im Monat. Voraussetzung sind VV- oder QVV-Status und aktive Prüfer-Teilnahme; die Rollen sind noch nicht freigeschaltet. Der einmalige MR-Betrag je geworbener Person ist ein in der App eingestellter Wert und hier nicht bekannt.
+
+## Onboarding-Material
+
+Aus diesem Wiki abgeleitet, im Ordner `../Onboarding/`: Komplettanleitung, Starthilfe, Einsteiger-Seite, WhatsApp-Vorlagen und die anonymisierte Auswertung der Gruppenfragen.
+
 ## Risiken und Einordnung (eigene Zusammenfassung)
 
 - **Vow.id verspricht keine Gegenleistung:** Nichts ist garantiert, weder MR-Genehmigung, Rabatt-Akzeptanz noch v$-Wert oder Liquidität. MR haben ohne VOW-Beitrag keinen Nutzen.
@@ -152,3 +241,4 @@ Lovable Cloud (Hosting), Resend (E-Mail), Reown/WalletConnect, OpenAI und Lovabl
 - **Regulierung:** Vow.id stuft MR als außerhalb von UK-Finanzwerbung, MiCA und US-Wertpapierrecht ein. Das ist Vow.ids eigene Einschätzung und **keine** Entscheidung einer Behörde. VOW und v$ müssen nach eigener Aussage gesondert bewertet werden.
 - **Datenschutz:** Die Verschlüsselung ist serverseitig und nicht zero-knowledge. Belegtexte gehen an OpenAI in den USA. On-chain-Spuren sind pseudonym und dauerhaft.
 - Das Produkt ist als **Beta** gekennzeichnet.
+- Die ausführliche Einordnung mit Rechenbeispielen und den häufigsten Einwänden steht unter [Wirtschaftliche Einordnung und häufige Einwände](./vow-id-wirtschaft-und-einwaende.md).

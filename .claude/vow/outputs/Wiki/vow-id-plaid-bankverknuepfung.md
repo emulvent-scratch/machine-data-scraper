@@ -1,6 +1,6 @@
 # Vow.id – Bankverknüpfung über Plaid
 
-> Stand: 22.11.2026. Quellen: https://vow.id/terms (§ 8, § 9, § 13), https://vow.id/privacy (§ 4, § 7, § 9, § 12, § 15, § 16), https://vow.id/documentation (Abschnitt 11) sowie Texte und Code der Bank-Komponente im Frontend von vow.id. Übersicht zu Vow.id: [vow-id.md](./vow-id.md).
+> Stand: 23.11.2026 (Erstfassung 22.11.2026). Der Abschnitt „Aus der Praxis" beruht auf Beobachtungen aus der Community und ist nicht offiziell belegt. Quellen: https://vow.id/terms (§ 8, § 9, § 13), https://vow.id/privacy (§ 4, § 7, § 9, § 12, § 15, § 16), https://vow.id/documentation (Abschnitt 11) sowie Texte und Code der Bank-Komponente im Frontend von vow.id. Übersicht zu Vow.id: [vow-id.md](./vow-id.md).
 
 ## Worum es geht
 
@@ -75,9 +75,31 @@ Hauptanwendungsfall laut Startseite: *„Connect your bank and collect up to 100
 - Läuft die Verbindung ab oder wird sie widerrufen, garantiert Vow.id kein weiteres Matching.
 - Wer die Einwilligung widerruft, bekommt aus dieser Quelle keine neuen MR-Vorschläge mehr.
 
+## Aus der Praxis (Beobachtungen, Stand 23.11.2026)
+
+**Kontoauswahl.** Bei der Freigabe wählt man die Konten aus. Beispiel Sparkasse: Karte und Girokonto wurden freigegeben, Tagesgeld und Depot nicht. Mehrere Konten bei verschiedenen Banken lassen sich nacheinander verbinden; jedes erscheint einzeln und lässt sich einzeln entfernen.
+
+**Anmeldung je nach Bank verschieden.** Manche Banken öffnen die eigene Banking-App zur Freigabe (zum Beispiel Revolut). Bei Volks- und Raiffeisenbanken erscheint im Plaid-Fenster ein Formular für VR-NetKey oder Alias und PIN. In diesem Fall gehen die Zugangsdaten an Plaid, nicht an Vow.id. Die Aussage „Anmeldung nur bei der eigenen Bank" stimmt also nicht für alle Institute.
+
+**Gesehene Institute.** In Screenshots verbundener Konten tauchten auf: Sparkasse, Volksbanken Raiffeisenbanken, DKB, N26, Targobank, Revolut, Wise, PayPal. Das ist keine offizielle Liste. Aus Österreich (Erste Bank) und der Schweiz wurden Probleme gemeldet. American Express Deutschland und die Miles-&-More-Karte wurden als fehlend genannt.
+
+**Bankabdeckung prüfen.** In der App gibt es für Premium Listen zur Abdeckung des Anbieters (USA und EU, als CSV). Laut Vow.id ist auch ein Eintrag dort keine Garantie, und Premium garantiert keine Verbindung.
+
+**Kartenzahlung ja, Lastschrift fraglich.** Ein Kartenkauf im Supermarkt wurde sofort als MR-Vorschlag erkannt. Die Abbuchung eines gelisteten Energieversorgers (in der Liste „Stadtwerke Kassel", auf dem Konto „Städtische Werke Kassel") ergab keine MR. Mögliche Ursachen: Die Einwilligung spricht von Kartenzahlungen, Strom wird aber meist per Lastschrift bezahlt; oder der Name weicht ab. Ungeklärt. Das ist für das Versprechen „bis zu 100 % MR auf Energie" wesentlich.
+
+**Erkennungsregel.** Laut „New User Overview" (Ausgabe 11) verlangt Bank-MR eine sichere Händlererkennung und eine Händler-Website, die zur registrierten Liste passt. Der Text auf dem Kontoauszug allein reicht nicht. Nicht jede importierte Zeile ergibt MR.
+
+**Weitere Beobachtungen.**
+- Die Verbindung scheiterte bei einem Mitglied tagelang und funktionierte nach dem Wechsel vom Samsung-Browser zu Chrome.
+- Unter den Bank-Transaktionen erschienen bei einem Mitglied Einträge, die es nicht zuordnen konnte. Der Leitfaden rät: verbundenes Konto prüfen, bei der Bank nachfragen.
+- Mehrere Mitglieder haben Premium doppelt bezahlt, weil der erste Versuch scheinbar hing.
+- Gemeinschaftskonto mit zwei Vow.ids: nicht geregelt. Sicher ist nur, dass jeder Kauf einmal zählt und der erste gültige Anspruch gewinnt.
+- Vorteile der Kreditkarte (Cashback, Meilen): in den Unterlagen nicht erwähnt. Die Verbindung ist nur lesend und ändert die Zahlung nicht.
+
 ## Offene Punkte (öffentlich nicht dokumentiert)
 
 - Welche Plaid-Produkte genau genutzt werden. Der Code deutet auf Link plus Transactions hin; Auth, Identity oder Payment Initiation werden nicht genannt.
-- Eine konkrete Liste unterstützter Banken und Länder, insbesondere ob deutsche Banken über Plaid EU angebunden sind.
+- Eine verbindliche Liste unterstützter Banken und Länder. Deutsche Institute sind nach den Beobachtungen oben angebunden; die Abdeckungslisten aus der App liegen diesem Wiki nicht vor.
+- Ob Lastschriften (zum Beispiel für Energie) für MR erkannt werden oder nur Kartenzahlungen.
 - Ob in der EU ein lizenzierter Kontoinformationsdienst (AISP) dazwischengeschaltet ist. Die AGB erwähnen nur allgemein „any account-information provider“.
 - Welche Energieversorger bzw. „eligible listed services“ beim Bank-Matching als berechtigt gelten.
