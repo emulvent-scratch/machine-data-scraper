@@ -13,59 +13,99 @@ Zehn kurze Nachrichten, die aufeinander aufbauen. [Name] ersetzen. Der Einladung
 - Bei Menschen ohne Krypto-Erfahrung die Anmeldung gemeinsam machen (Nachricht 4). Niemanden allein E-Mail-Adressen oder Bankzugänge ändern lassen, der sich damit unsicher fühlt.
 - Die Seed-Phrase nennt dir niemand, auch nicht aus der Familie. Wenn jemand sie dir schicken will: sofort stoppen.
 
+## Zum Ton
+
+Kurz, gesprochen, mit großem „Du", so wie in Deinen eigenen Nachrichten. Lieber zwei kurze Nachrichten hintereinander als eine lange. Leerzeilen zeigen, wo Du in WhatsApp eine neue Nachricht anfangen kannst.
+
 ## 1. Der Einstieg
 
-Hallo [Name], ich probiere gerade etwas Neues aus und musste an dich denken. Es heißt Vow.id: Für Einkäufe, die man sowieso macht (Amazon, Strom, Handy), bekommt man Rabatt-Gutscheine gutgeschrieben. Es ist noch in der Testphase und kein schnelles Geld, aber die Anmeldung kostet fast nichts. Soll ich dir kurz schicken, wie es funktioniert?
+Hey [Name], wie geht's Dir?
+
+Ich bin gerade an was Neuem dran und hab an Dich gedacht 😊
+Heißt Vow.id. Du kaufst ein wie immer, Amazon, Strom, Handy, und sammelst dafür Rabatt-Gutscheine.
+
+Ist noch ganz frisch und kein schnelles Geld. Kostet aber auch fast nichts.
+Soll ich Dir kurz zeigen, wie das geht?
 
 ## 2. Die Erklärung (nach einem Ja)
 
-Gern. Kurz gesagt: Du meldest dich an, kaufst ein wie immer, und für deine Einkäufe werden dir Punkte vorgeschlagen. Daraus werden später Rabatt-Gutscheine.
+Super, freut mich!
 
-Ehrlich dazu: Das Einlösen ist noch nicht freigeschaltet. Im Moment sammelt man nur.
+Also: Du meldest Dich an, kaufst ganz normal ein und bekommst dafür Punkte. Aus den Punkten werden später Rabatt-Gutscheine.
 
-Man braucht dafür eine Wallet, das ist eine App auf dem Handy. Das klingt komplizierter, als es ist. Diese Anleitung erklärt alles Schritt für Schritt, auch ohne Vorkenntnisse:
+Damit Du's gleich weißt: Einlösen geht noch nicht, im Moment sammelt man erst mal.
+
+Du brauchst dafür eine Wallet. Das ist einfach eine App auf dem Handy, keine Sorge.
+
+Hier steht alles Schritt für Schritt drin:
 https://claude.ai/artifact/BDGWXE8qv2UzgfrJs84TTp
 
-Nimm dir dafür eine ruhige Stunde. Wenn du hängst, ruf mich an.
+Nimm Dir eine ruhige Stunde dafür. Und wenn's hakt, ruf mich einfach an.
 
 ## 3. Vor dem Start: zwei wichtige Dinge
 
-Bevor du loslegst, zwei Dinge:
+Noch zwei Sachen, bevor Du loslegst. Die sind wirklich wichtig:
 
-1. Die 12 Wörter, die dir die Wallet-App zeigt, schreibst du auf Papier und gibst sie niemandem. Auch mir nicht. Kein Foto, kein Screenshot.
+Die Wallet-App zeigt Dir 12 Wörter. Die schreibst Du auf Papier und gibst sie NIEMANDEM. Auch mir nicht. Kein Foto, kein Screenshot.
 
-2. Öffne Vow.id das erste Mal über diesen Link, damit du mir zugeordnet bist:
+Und nimm bitte diesen Link, wenn Du Vow.id das erste Mal aufmachst:
 https://vow.id/?ref=thilo24@vow.id
-In der grünen Zeile muss „thilo24" stehen. Das lässt sich später nicht mehr ändern.
+
+Da muss dann in Grün „thilo24" stehen. Das kann man später nicht mehr ändern.
 
 ## 4. Angebot, es gemeinsam zu machen
 
-Wenn du magst, machen wir die Anmeldung zusammen, am Telefon oder beim nächsten Kaffee. Das dauert etwa eine halbe Stunde. Du brauchst nur dein Handy, einen Stift und Papier.
+Wenn Du magst, machen wir das zusammen. Am Telefon oder beim nächsten Kaffee ☕
+Halbe Stunde, mehr ist es nicht. Handy, Stift und Zettel, das reicht.
 
 ## 5. Nach der Registrierung
 
-Glückwunsch, du bist drin! Jetzt fehlt nur noch ein Schritt: Trag bei Amazon unter „Anmelden & Sicherheit" deine neue Adresse (deinname@vow.id) als E-Mail ein. Deine Mails kommen weiter in deinem normalen Postfach an.
+Yes, Du bist drin! 🎉
 
-Bitte nur bei Shops ändern, nicht bei Google, Apple oder der Bank.
+Jetzt nur noch eins: Geh bei Amazon auf „Anmelden & Sicherheit" und trag da Deine neue Adresse ein, also deinname@vow.id.
+
+Deine Mails kommen trotzdem ganz normal bei Dir an.
+
+Aber bitte nur bei Shops ändern. Nicht bei Google, Apple oder der Bank!
 
 ## 6. Nach dem ersten Einkauf
 
-Schau mal in Vow.id unter Member Rewards → MR, ob dein Einkauf auftaucht. Dort steht „Ausstehend". Das ist bei allen so und heißt: erfasst, aber noch nicht bestätigt. Manchmal dauert es einen Tag, bis ein Einkauf erscheint.
+Und, schon was bestellt?
+
+Schau mal in Vow.id unter Member Rewards und dann MR. Da müsste Dein Einkauf stehen, mit „Ausstehend" dahinter.
+
+Das ist bei allen so, auch bei mir. Heißt nur: ist erfasst, wird noch bestätigt. Kann auch mal einen Tag dauern.
 
 ## 7. Wenn Skepsis kommt
 
-Das verstehe ich gut, ich war auch skeptisch. Verschenkt wird da nichts: Es sind Rabatt-Gutscheine und kein Geld, und ob sich das auf Dauer trägt, muss sich erst zeigen. Mein Rat ist deshalb, es kostenlos auszuprobieren und kein Geld einzusetzen. Und wenn es nichts für dich ist, ist das völlig in Ordnung.
+Versteh ich total. Ging mir am Anfang genauso.
+
+Geschenkt wird da nichts. Das sind Gutscheine, kein Geld. Und ob das auf Dauer funktioniert, muss sich erst zeigen.
+
+Deshalb sag ich jedem: einfach kostenlos ausprobieren und kein Geld reinstecken.
+
+Und wenn's nichts für Dich ist, auch völlig okay 😊
 
 ## 8. Einmal nachfragen (wenn keine Antwort kam)
 
-Kurz wegen Vow.id von neulich: kein Stress. Ich wollte nur fragen, ob du reingeschaut hast oder ob ich dir etwas erklären soll. Wenn es dich nicht interessiert, sag einfach Bescheid, dann ist das Thema erledigt.
+Hey [Name], nur ganz kurz wegen Vow.id von neulich.
+
+Hast Du mal reingeschaut? Oder soll ich Dir was erklären?
+
+Und wenn's Dich nicht interessiert, sag's einfach. Dann lass ich Dich damit in Ruhe 😉
 
 ## 9. Premium (nur wenn danach gefragt wird)
 
-Premium kostet 99 $ im Jahr, zum Start teils 49 $, und bringt höhere Sätze und die Verbindung zum Bankkonto. Ich würde damit warten, bis du gesehen hast, dass deine Einkäufe erfasst werden, und bis du weißt, ob deine Bank unterstützt wird. Garantiert ist das nicht.
+Premium kostet 99 Dollar im Jahr, im Moment zum Teil 49. Dafür gibt's mehr Punkte, und Du kannst Dein Bankkonto verbinden.
+
+Ich würd damit noch warten. Schau erst mal, ob Deine Einkäufe überhaupt erfasst werden und ob Deine Bank dabei ist. Das ist nämlich nicht bei jeder so.
 
 ## 10. Für später: wenn das Einlösen startet
 
-Erst verschicken, wenn es stimmt und du es selbst ausprobiert hast.
+Erst verschicken, wenn es stimmt und Du es selbst ausprobiert hast.
 
-Neuigkeit zu Vow.id: Das Einlösen der Punkte ist jetzt freigeschaltet. Ich habe es selbst ausprobiert: [kurz beschreiben, was du eingelöst und was es gekostet hat]. Wenn du magst, zeige ich dir, wie es geht.
+Hey [Name], gute Nachricht: Bei Vow.id kann man die Punkte jetzt einlösen!
+
+Hab's gerade selbst gemacht: [kurz erzählen, was Du eingelöst hast und was es gekostet hat].
+
+Wenn Du magst, zeig ich Dir, wie's geht.
