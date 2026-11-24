@@ -1,48 +1,44 @@
-# LinkedIn-Beitrag 25.11.2026: Abschluss der Countdown-Reihe (Bild: Tuch, „HEUTE!!! Es ist soweit")
+# LinkedIn-Beitrag 25.11.2026: HEUTE (Bild: Tuch, „HEUTE!!! Es ist soweit")
 
-Bogen der Reihe: Symptom (Nase) → Ursache (Wochenende ohne Sauerstoff) → Ausmaß (Tank in jeder CNC-Maschine) → heute: Auswirkung (Impact) und Auflösung (Luft).
+Schließt die Reihe: Nase → Montag, 6 Uhr → Blackbox unter dem Tuch → heute die Auflösung. Vor 9.00 Uhr posten.
 
 ## Text
 
-Heute ziehen wir das Tuch weg.
+HEUTE. Es ist so weit.
 
-Eine Woche lang ging es hier um einen Tank, den kaum jemand beachtet.
+Um 09.00h ziehen Björn Moos und Simon Schäfer das Tuch weg.
+Weltpremiere auf dem IMPACT FESTIVAL in Frankfurt: die emulvent-Sensorik.
 
-Erst die Nase: In vielen Hallen ist sie das wichtigste Messgerät für Kühlschmierstoff.
-Dann der Montagmorgen: Ein Wochenende ohne Sauerstoff reicht, und der Tank kippt.
-Dann die Menge: In jeder CNC-Maschine stehen oft mehrere hundert Liter.
+Eine Woche lang ging es hier um einen Tank, in den niemand hineinschaut.
 
-Heute das letzte Stück. Was passiert mit einem gekippten Tank?
+🔹 Die Nase: bisher das wichtigste Messgerät für Kühlschmierstoff.
+🔹 Montag, 6 Uhr: ein Wochenende ohne Sauerstoff, und es ist zu spät.
+🔹 Die Blackbox: mehrere hundert Liter, und niemand sieht es kommen.
 
-Er wird abgepumpt, entsorgt und neu angesetzt.
-Mit frischem Konzentrat, frischem Wasser und oft mit Biozid.
-Und der Mensch an der Maschine atmet bis dahin, was im Tank gewachsen ist.
+Ab heute gilt:
 
-Ein Rechenbeispiel:
-1.500 Liter Tank, drei ungeplante Wechsel im Jahr.
-Das sind 4.500 Liter, die entsorgt und ersetzt werden. Pro Maschine.
-Mit Belüftung rechnen wir mit rund 60 % weniger Wechseln.
-Das sind 2.700 Liter weniger. Jedes Jahr. Pro Maschine.
+Die Ampel ersetzt die Nase.
+Die Warnung kommt, bevor es riecht.
+Der Tank ist keine Blackbox mehr.
 
-Deshalb stehen wir heute nicht auf einer Werkzeugmaschinen-Messe.
-Sondern beim IMPACT FESTIVAL.
+Und warum zeigen wir das auf einem IMPACT FESTIVAL?
 
-Das Problem beginnt mit fehlender Luft.
-Unter dem Tuch steht unsere Antwort darauf: keine Chemie, sondern Luft.
+Kippt ein Tank, wird alles entsorgt und neu angesetzt.
+Jeder Tank, der nicht kippt, sind mehrere hundert Liter, die in der Maschine bleiben.
 
-📍 Forum, Messe Frankfurt [STAND]
-🕘 Heute 9–19 Uhr, morgen 9–18 Uhr
-[🎤 ENTHÜLLUNG: UHRZEIT]
+🎬 Enthüllung: heute, 09.00h
+🎤 Pitch auf der INNOVATION STAGE: heute, 12.05h. Simon stellt emulvent vor.
+📍 Heute und morgen, Messe Frankfurt, Gemeinschaftsstand bei den Hessen-10-Startups von TechQuartier
 
-Kommt vorbei und schaut selbst drunter.
-Für alle anderen folgt hier das Foto ohne Tuch.
+Ich bin diesmal nicht dabei und drücke aus der Ferne die Daumen.
+Das Foto ohne Tuch folgt hier.
 
-Danke an das Team vom IMPACT FESTIVAL und vom TechQuartier.
+Nicht in Frankfurt? Schreibt „Demo" in die Kommentare oder per Nachricht, dann zeigen wir euch die Sensorik in 20 Minuten per Video.
 
-#IMPACTFESTIVAL #Kühlschmierstoff #Zerspanung #Kreislaufwirtschaft #emulvent
+Wer von euch ist heute vor Ort? 👇
 
-## Hinweise
+#IF26 #IMPACTFestival #Hessen10 #Kühlschmierstoff #Nachhaltigkeit
 
-- Rechenbeispiel: Standardwerte des emulvent ROI-Rechners (1.500 l, 3 ungeplante Wechsel, 60 % weniger Wechsel). Annahmen, keine Messwerte; so formuliert („rechnen wir mit").
-- „oft mit Biozid" und „atmet, was im Tank gewachsen ist" vor dem Posten fachlich gegenlesen.
-- Platzhalter [STAND] und [ENTHÜLLUNG] füllen oder löschen. Seiten markieren.
+## Beim Posten
+
+Markieren: Björn Moos, Simon Schäfer, Hessen-10, TechQuartier, IMPACT FESTIVAL.
