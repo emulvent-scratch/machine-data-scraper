@@ -89,3 +89,15 @@ Fragen an das Gegenüber: Was genau macht dir Sorgen, Geld, Daten oder der Ruf? 
 Offene Fragen an Vow: Verhältnis Vow Limited zu N888; Stand des BaFin-Verfahrens; welche Prüfungen (Audits) die neuen Verträge haben; warum vow.id nach eigener Sicht keine Erlaubnis braucht.
 
 Quellen: bafin.de (Meldung 7.3.2024), certik.com/blog/vow-incident-analysis, halborn.com (Vow hack August 2024), quillaudits.com.
+
+### Nachtrag: Aussage „Vow Limited ist eine australische Firma ohne Bezug zum VOW-Token"
+
+Diese Aussage kursiert in der Community (24.11.2026). Sie ist nicht belegt, und öffentliche Quellen sprechen dagegen:
+
+- Das VOW-Whitepaper nennt „Vow Limited" als Herausgeber des VOW-Tokens. Die Kanzlei Carey Olsen berichtete im Januar 2021, den in Jersey ansässigen Herausgeber Vow bei der Token-Ausgabe beraten zu haben.
+- Die BaFin-Meldung nennt neben „Vow Limited" ausdrücklich die „Vow App". Die App dieses Namens im Play Store (Paket com.vowcurrency.vow.app) dient laut Beschreibung dem Einsatz von v$, v€ und v£.
+- Die BaFin-Meldung nennt nach den gefundenen Quellen keinen Firmensitz. Ein Beleg für Australien wurde nicht gefunden.
+
+Folge für Gespräche: das Argument nicht verwenden, solange Vow keinen Beleg liefert (Handelsregisternummer der gemeinten Firma, Stellungnahme zur BaFin-Meldung). Tragfähig bleibt: Die Meldung ist von 2024, betrifft die Vow App und nicht vow.id von N888 LIMITED, und ist eine Mitteilung über Ermittlungen.
+
+Quellen: vow-2.gitbook.io/white-paper, careyolsen.com (Januar 2021), play.google.com (Vow App), bafin.de.
