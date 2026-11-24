@@ -88,3 +88,18 @@ Ja. Wer Vow.id selbst nutzt, kann es auch weiterempfehlen und wird dafür mit Me
 **Für alles Weitere:**
 Die Antwort steht wahrscheinlich in der Starthilfe: [LINK ZUR STARTHILFE]
 Oben im Suchfeld einfach das Stichwort eingeben (z. B. „BNB", „Bank", „Pending"). Wenn danach noch etwas offen ist, melde dich.
+
+**„Bargeld ist Freiheit. Mit der Bankverknüpfung wird uns die genommen."**
+
+Hi [Name]
+Verstehe ich. Bargeld bleibt Dir.
+
+Die Bank verbinden ist freiwillig.
+Nur lesend. Kein Zugriff auf Dein Geld.
+Jederzeit wieder trennbar.
+
+Strom, Gas, Wasser und Online-Käufe zahlst Du eh nicht bar.
+
+Und es geht auch ohne Bank:
+Bei jedem Anbieter Deine name@vow.id als E-Mail hinterlegen.
+Ist etwas mehr Arbeit, funktioniert aber.
