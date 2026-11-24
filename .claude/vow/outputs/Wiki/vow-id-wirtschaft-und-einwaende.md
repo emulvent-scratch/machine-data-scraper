@@ -107,3 +107,14 @@ Quellen: vow-2.gitbook.io/white-paper, careyolsen.com (Januar 2021), play.google
 Nach Angabe des Nutzers ist N888 die Firma von Paul und Vow die Firma von Bish. Nicht aus einem Register belegt. Ein Drittverzeichnis führt N888 LIMITED (17434249) als aktiv mit einem Direktor und einem Eigentümer; der Name ist dort nicht genannt. Prüfbar über die Officers-Seite von Companies House.
 
 Folge: Es sind zwei getrennte Firmen mit unterschiedlichen Inhabern. Das stützt die Aussage „die BaFin-Meldung betrifft nicht den Betreiber von vow.id". Es stützt nicht die Aussage „Vow Limited hat nichts mit dem VOW-Token zu tun": vow.id baut auf dem VOW-Token und den v$ aus dem Vow-Ökosystem auf.
+
+### Nachtrag: Registerdaten zu N888 LIMITED (Screenshots des Nutzers von corpsignals.uk, 24.11.2026)
+
+- Gegründet am 2.9.2026, Status aktiv, Company No. 17434249.
+- Ein Direktor und zugleich einziger Eigentümer (über 75 %): Teleky Pal Domokos, ungarische Staatsangehörigkeit. „Pál" ist die ungarische Form von Paul, das passt zur Angabe „Firma von Paul".
+- Sitz 20 Wenlock Road, London N1 7GU. Das ist eine Geschäftsadresse eines Dienstleisters, an der laut Verzeichnis rund 29.000 Firmen gemeldet sind.
+- Noch keine Jahresabschlüsse, keine Angaben zu Umsatz oder Mitarbeitern.
+
+Quelle ist ein Drittverzeichnis, das Daten von Companies House aufbereitet. Maßgeblich ist der Eintrag bei Companies House selbst.
+
+Einordnung: Der Betreiber ist eine sehr junge Ein-Personen-Gesellschaft mit Briefkastenadresse. Das ist für ein Start-up üblich und kein Hinweis auf Fehlverhalten, bedeutet aber: keine Geschäftshistorie, keine geprüften Zahlen, begrenzte Haftungsmasse.
