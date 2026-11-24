@@ -69,3 +69,23 @@ Zusätzlich offen: Ob Energiezahlungen per Lastschrift über die Bankverknüpfun
 - Wie viele v$ erzeugt werden und wie viel Nachfrage dem gegenübersteht.
 - Tatsächliche Preise bei Vow.Market im Vergleich zu anderen Shops.
 - Start und Bedingungen von vowhotels.com und vowchers.com.
+
+## Einwand: KI-Zusammenfassung mit BaFin-Warnung und Sicherheitsvorfall (Stand 24.11.2026)
+
+Interessenten schicken Screenshots einer KI-Suche zu „vow.id". Die Punkte darin sind überwiegend zutreffend und sollten nicht bestritten werden.
+
+| Punkt | Was stimmt | Einordnung |
+|---|---|---|
+| BaFin | Verbrauchermitteilung vom 7.3.2024: BaFin ermittelt gegen Vow Limited („Vow App") wegen des Verdachts, ohne Erlaubnis Bankgeschäfte oder Finanzdienstleistungen anzubieten (§ 37 Abs. 4 KWG). | Betrifft Vow Limited und die Vow App, nicht N888 LIMITED und vow.id. Es ist eine Mitteilung über Ermittlungen, kein Urteil. Ein Abschluss oder Update wurde nicht gefunden. Das Verhältnis von Vow Limited zu N888 ist in den Unterlagen nicht erklärt. N888 hat nach eigener Angabe keine FCA-Zulassung. |
+| Sicherheitsvorfall | 13.8.2024: Beim Test einer Kursänderung auf der Live-Chain wurde der Umrechnungskurs VOW→v$ kurz von 1 auf 100 gesetzt. Ein Angreifer erzeugte massenhaft v$ und verkaufte sie. Schaden rund 1,2 Mio. $, Kurs zeitweise etwa −80 %. | Quellen (CertiK, Halborn, QuillAudits) weichen bei Menge und Ursache ab. Vow.id sagt, die neuen Verträge seien unveränderlich und ohne Admin-Schlüssel; das würde diese Fehlerart ausschließen, ist aber eine Angabe des Betreibers. |
+| Strukturvertrieb | Empfehlungen über zehn Ebenen. | Zutreffend. Vow.id verspricht kein Einkommen. Angreifbar macht sich, wer mit „Cashback" oder „100 %" wirbt. |
+| Keine garantierte Auszahlung | MR und v$ sind kein Geld, Wert hängt von Annahme und Nachfrage ab. | Zutreffend, steht so in den AGB. |
+| Bank- und Wallet-Daten | Bankverknüpfung über Plaid, Wallet-Verbindung. | Bank: freiwillig, nur Premium, nur lesend, trennbar. Wallet: Anmeldung ist nur eine Signatur. Freigaben einzeln prüfen. |
+
+Gesprächsregel: zuerst zustimmen, was stimmt, dann trennen (Firma, Datum, App), dann auf den kostenlosen Test verweisen. Nie sagen, die Warnung sei erledigt oder falsch.
+
+Fragen an das Gegenüber: Was genau macht dir Sorgen, Geld, Daten oder der Ruf? Hast du die BaFin-Meldung selbst gelesen (Datum, Firma)? Was müsstest du sehen, um es kostenlos zu testen?
+
+Offene Fragen an Vow: Verhältnis Vow Limited zu N888; Stand des BaFin-Verfahrens; welche Prüfungen (Audits) die neuen Verträge haben; warum vow.id nach eigener Sicht keine Erlaubnis braucht.
+
+Quellen: bafin.de (Meldung 7.3.2024), certik.com/blog/vow-incident-analysis, halborn.com (Vow hack August 2024), quillaudits.com.
