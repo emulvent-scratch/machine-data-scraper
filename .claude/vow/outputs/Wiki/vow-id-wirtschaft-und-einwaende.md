@@ -101,3 +101,9 @@ Diese Aussage kursiert in der Community (24.11.2026). Sie ist nicht belegt, und 
 Folge für Gespräche: das Argument nicht verwenden, solange Vow keinen Beleg liefert (Handelsregisternummer der gemeinten Firma, Stellungnahme zur BaFin-Meldung). Tragfähig bleibt: Die Meldung ist von 2024, betrifft die Vow App und nicht vow.id von N888 LIMITED, und ist eine Mitteilung über Ermittlungen.
 
 Quellen: vow-2.gitbook.io/white-paper, careyolsen.com (Januar 2021), play.google.com (Vow App), bafin.de.
+
+### Nachtrag: Wem gehören die Firmen (Angabe des Nutzers, 24.11.2026)
+
+Nach Angabe des Nutzers ist N888 die Firma von Paul und Vow die Firma von Bish. Nicht aus einem Register belegt. Ein Drittverzeichnis führt N888 LIMITED (17434249) als aktiv mit einem Direktor und einem Eigentümer; der Name ist dort nicht genannt. Prüfbar über die Officers-Seite von Companies House.
+
+Folge: Es sind zwei getrennte Firmen mit unterschiedlichen Inhabern. Das stützt die Aussage „die BaFin-Meldung betrifft nicht den Betreiber von vow.id". Es stützt nicht die Aussage „Vow Limited hat nichts mit dem VOW-Token zu tun": vow.id baut auf dem VOW-Token und den v$ aus dem Vow-Ökosystem auf.
