@@ -120,7 +120,7 @@ header{order:-1}
 <div class="wrap">
 <aside class="side">
   <nav aria-label="Inhalt">
-    <a href="#kurz">Kurz gesagt</a><a href="#stand">Was läuft</a><a href="#vorteile">Vorteile</a><a href="#bedenken">Bedenken</a><a href="#zahlen">Zahlen</a><a href="#szenarien">Szenarien</a><a href="#pruefplan">Prüfplan</a><a href="#fragen">Deine Fragen</a><a href="#vow">Fragen an Vow</a><a href="#begriffe">Begriffe</a>
+    <a href="#kurz">Kurz gesagt</a><a href="#stand">Was läuft</a><a href="#tln">TLN im Klartext</a><a href="#vorteile">Vorteile</a><a href="#bedenken">Bedenken</a><a href="#zahlen">Zahlen</a><a href="#szenarien">Szenarien</a><a href="#pruefplan">Prüfplan</a><a href="#fragen">Deine Fragen</a><a href="#vow">Fragen an Vow</a><a href="#begriffe">Begriffe</a>
   </nav>
   <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 von 8 Prüfschritten erledigt</span></div>
 </aside>
@@ -133,7 +133,7 @@ header{order:-1}
     <div class="fact"><b>0 €</b>kostet das Konto. Dazu kommt eine kleine BNB-Gebühr.</div>
     <div class="fact"><b>≈ 0,10 $</b>VOW pro MR beim Ausüben (50 % des v$-Kurses)</div>
     <div class="fact"><b>0,21 $</b>Kurs eines v$ am 22.11.2026, nicht 1 $</div>
-    <div class="fact"><b>Noch nie</b>hat jemand MR wirklich in v$ umgewandelt</div>
+    <div class="fact"><b>0,75 $</b>muss v$ erreichen, bevor TLN-Gold-Optionen überhaupt starten</div>
   </div>
 </header>
 
@@ -144,6 +144,7 @@ header{order:-1}
       <li>Vow.id ist die erste Anwendung, die <b>laufend VOW verbraucht</b>. Für dich als VOW-Halter ist das der eigentliche Punkt.</li>
       <li>Die Wirkung hängt allein an der Zahl der Nutzer. Bei realistischen Größen bleibt sie klein (siehe <a href="#zahlen">Zahlen</a>).</li>
       <li>An deiner TLN-Position, am Pool oder am Tresor <b>ändert Vow.id nichts</b>.</li>
+      <li>TLN und Vow.id hängen am selben Hebel: dem <b>v$-Kurs</b>. TLN-Gold-Optionen starten erst ab 0,75 $, heute steht v$ bei 0,21 $. Jede Belohnung in beiden Systemen erzeugt neue v$. Das drückt genau auf diesen Kurs.</li>
       <li>Der entscheidende Schritt, das Genehmigen und Ausüben der MR, läuft noch nicht. Alles Weitere ist Ankündigung.</li>
       <li>Vernünftig ist: kostenlos testen, kein zusätzliches VOW kaufen, keine 1.000-Tage-Bindung als Verifier eingehen und niemanden werben, bis der ganze Weg einmal nachweislich funktioniert.</li>
     </ol>
@@ -160,10 +161,48 @@ header{order:-1}
   </div>
 </section>
 
+<section id="tln">
+  <h2>TLN im Klartext</h2>
+  <p>So beschreibt die TLN-App unter tlndapp.com sich selbst (gelesen am 24.11.2026). Die Angaben stammen aus den Texten der App, nicht aus den Contracts.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Baustein</th><th>Was die App sagt</th></tr></thead>
+    <tbody>
+      <tr><td>Grundidee</td><td>Man legt PancakeSwap-LP-Token aus den Pools VOW/v$, v€/VOW, v£/VOW oder BTCB/VOW in einen Staking-Contract. Ältere Positionen liegen in den „48 %“-Contracts für VOW/vUSD.</td></tr>
+      <tr><td>Sperre</td><td><b>368 Tage</b> (an anderer Stelle 367). Kein vorzeitiger Ausstieg. Nur die einzahlende Wallet kann wieder abheben.</td></tr>
+      <tr><td>Belohnung</td><td>TLN Gold im Umfang des <b>1,5-Fachen des Dollarwerts</b> der LP beim Einzahlen, ausgezahlt mit 1 % pro Tag über 150 Tage. Die App betont: TLN Gold ist nicht in Dollar bemessen.</td></tr>
+      <tr><td>TLN Gold verkaufen</td><td>Möglich, aber beim Abheben fallen <b>20 % Gebühr in VOW</b> an. Marktpreis laut App: 0,22 $ je TLN Gold.</td></tr>
+      <tr><td>TLN Gold als Option</td><td>Wer 1 TLN Gold verbrennt, bekommt eine Option auf VOW im Wert von v$1 zum heutigen Preis. Nach 368 Tagen zahlt man v$1,18 und erhält das VOW, oder man lässt es verfallen. Booster ×2 und ×4 kosten 18 % Optionsgebühr. Dafür prägt der Contract neue v$ und kauft damit VOW.</td></tr>
+      <tr><td>Warteschlange</td><td>Optionen werden <b>erst aktiviert, wenn v$ ≥ 0,75 USDT</b> notiert. Bei 0,21 $ steht die Warteschlange still.</td></tr>
+      <tr><td>Empfehlungen</td><td>TLN X und TLN Gold auf <b>bis zu 10 „Einflussebenen“</b>. Freigeschaltet sind 3 Ebenen, jede weitere verlangt einen zusätzlichen direkt geworbenen „Knoten“. TLN X lässt sich 1:1 in v$ tauschen gegen 20 % des v$-Werts in VOW. Die App schreibt selbst: Diese v$ sind „inflationär“.</td></tr>
+      <tr><td>Kredite</td><td>„Earn up to 20% APY“ und „20% APY in USDC or USDT paid daily“. Gleichzeitig steht in den Gesprächsleitfäden: „Es gibt keine festen Renditen.“</td></tr>
+      <tr><td>v$-Gebühr</td><td>1,6 % jeder Überweisung von v$, v€, v£ und vUSD werden beim Empfänger verbrannt.</td></tr>
+      <tr><td>Betreiber</td><td>Keiner genannt. „Es ist kein Unternehmen im traditionellen Sinne.“ „Bei TLN wissen wir nicht, wer du bist.“ Ein Audit wird erwähnt („audited and open-source“), aber nicht benannt.</td></tr>
+      <tr><td>Risikohinweise</td><td>Ausführlich, unter anderem „kein risikofreies Investment“, Totalverlust möglich und die Faustregel, nicht mehr als 10 % seines Geldes in Hochrisiko-Anlagen zu stecken.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Was das in Zahlen heißt</h3>
+  <p>Beispiel: 1.000 $ in LP gestakt, Preise vom 24.11.2026.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Schritt</th><th>Wert</th></tr></thead>
+    <tbody>
+      <tr><td>TLN Gold über 150 Tage</td><td class="n">1.500 Einheiten</td></tr>
+      <tr><td>Marktwert bei 0,22 $</td><td class="n">≈ 330 $</td></tr>
+      <tr><td>Abhebegebühr 20 % in VOW</td><td class="n">≈ −66 $</td></tr>
+      <tr><td>bleibt, wenn sich zu 0,22 $ Käufer finden</td><td class="n">≈ 264 $ (26 %)</td></tr>
+      <tr><td>zum Vergleich: berichteter Pool-Verlust 82.000 → 30.000 $</td><td class="n">−63 %</td></tr>
+    </tbody>
+    <caption>Die Belohnung gleicht einen Kursverlust der LP nur bis etwa ein Viertel aus. Verkaufen viele gleichzeitig TLN Gold, sinkt dessen Preis. Der Pool-Verlust ist Hörensagen aus der Gruppe.</caption>
+  </table></div>
+  <p class="note"><b>Der Kern:</b> Laut Leitfaden kommen die Erträge „aus Handelsgebühren, nicht von neuen Nutzern“. Die großen Posten, also 1,5× in TLN Gold, TLN X und die Optionen, sind aber neu geprägte Token. Einen Wert haben sie nur, wenn jemand sie kauft. Und fast jeder Weg zu Geld führt über neue v$, die irgendwo verkauft werden.</p>
+</section>
+
 <section id="vorteile">
   <span class="part">Teil 1</span>
   <h2>Was für dich als VOW- und TLN-Mitglied spricht</h2>
   <ul class="cards">
+    <li class="card"><div class="head"><h3>Erstmals Händler-Nachfrage nach v$</h3><span class="tag pro">Vorteil</span></div>
+      <p>TLN braucht einen v$-Kurs von mindestens 0,75 $, damit die Optionen überhaupt starten. Spekulation allein hat das nicht geschafft. Vow.id ist der erste Versuch, v$ über Alltagseinkäufe einen Nutzen zu geben. Gelingt das, profitieren TLN-Positionen direkt.</p>
+      <p class="but"><b>Aber:</b> Vow.id selbst erzeugt laufend neue v$. Ob die Rabatt-Nachfrage größer wird als das neue Angebot, ist die offene Kernfrage.</p></li>
     <li class="card"><div class="head"><h3>Endlich ein Verbraucher für VOW</h3><span class="tag pro">Vorteil</span></div>
       <p>Jedes Ausüben verlangt VOW. 20 % davon werden verbrannt, 80 % gehen an die Kasse des Contracts. Erstmals entsteht Nachfrage aus Alltagseinkäufen statt aus Spekulation.</p>
       <p class="but"><b>Aber:</b> Wie stark das wirkt, hängt allein an der Nutzerzahl. Was mit den 80 % in der Kasse passiert, ist nicht beschrieben.</p></li>
@@ -203,10 +242,17 @@ header{order:-1}
       <p class="but"><b>Fair dazu:</b> Die BaFin-Meldung betrifft Vow Limited, nicht N888, den Betreiber von Vow.id. Die Behauptung „Vow Limited ist eine australische Firma ohne Bezug zum Token“ ist aber nicht belegt. Whitepaper und Kanzleibericht nennen Vow Limited als Herausgeber von VOW.</p></li>
     <li class="card"><div class="head"><h3>Neue v$ drücken auf den Kurs</h3><span class="tag mid">Mittel</span></div>
       <p>Jedes Ausüben erzeugt neue v$. Wer sie nicht bei Vow.Market einlöst, verkauft sie. Am 22.11. lagen im v$-Pool rund 1,1 Mio. $ Liquidität bei etwa 52.000 $ Tagesumsatz. Dauerhafter Verkaufsdruck senkt den v$-Kurs, und mit ihm sinkt der Wert jeder MR.</p>
-      <p class="but"><b>Für TLN prüfen:</b> Steckt deine Position in einem VOW/v$-Pool, fangen die Liquiditätsgeber diese Verkäufe auf. Ob und wie stark das deine Position betrifft, hängt an den TLN-Regeln. Die liegen dieser Seite nicht vor.</p></li>
+      <p class="but"><b>Für TLN direkt:</b> Wer neue v$ verkauft, verkauft sie in den VOW/v$-Pool. Die Liquiditätsgeber, also TLN-Staker, nehmen diese v$ auf und geben dafür VOW ab. Ihre LP besteht danach aus mehr v$ und weniger VOW. Gleichzeitig entfernt sich v$ weiter von der 0,75-$-Schwelle für die TLN-Optionen.</p></li>
+    <li class="card"><div class="head"><h3>Alle Belohnungen sind neu geprägte Token</h3><span class="tag hi">Schwer</span></div>
+      <p>Vow.id-MR werden zu v$. Bei TLN werden TLN Gold, TLN X und Optionen zu v$ oder VOW. Überall entsteht neues Angebot, das erst durch Käufer Wert bekommt. TLN nennt die v$ aus TLN X selbst „inflationär“ und setzt auf Burns von 1,6 % und 20 % als Gegengewicht. Der v$-Kurs von 0,21 $ zeigt, dass das bisher nicht gereicht hat.</p></li>
+    <li class="card"><div class="head"><h3>Hinter TLN steht niemand Benennbares</h3><span class="tag hi">Schwer</span></div>
+      <p>Die App nennt weder Firma noch Personen noch Sitz. Ein Audit wird behauptet, aber nicht benannt. Bei N888 und Vow.id gibt es wenigstens einen Registereintrag. Bei TLN gibt es niemanden, an den man sich wenden könnte.</p>
+      <p class="but"><b>Aus der Suche, nicht selbst gelesen:</b> BehindMLM beschreibt TLN als Neuauflage von „The Last Network“ und nennt es ein Ponzi-System. Quadriga Initiative führt für Mai 2024 eine Contract-Schwachstelle bei TLN mit rund 280.000 $ Schaden. Beide Seiten waren hier nicht abrufbar, die Angaben sind ungeprüft.</p></li>
+    <li class="card"><div class="head"><h3>Widersprüche in der TLN-Kommunikation</h3><span class="tag mid">Mittel</span></div>
+      <p>Die Leitfäden für „Botschafter“ sagen: keine festen Renditen, nicht „Du wirst X % verdienen“. Dieselbe App wirbt mit „20 % APY in USDC oder USDT, täglich ausgezahlt“. Die Sperrfrist heißt mal 367, mal 368 Tage. Wer das prüft, sieht genau diese Stellen zuerst.</p></li>
     <li class="card"><div class="head"><h3>Verifier heißt: noch einmal 1.000 Tage sperren</h3><span class="tag mid">Mittel</span></div>
       <p>Für VV musst du VOW im Wert von 500 bis 10.000 $ für 1.000 Tage sperren. Jede Aufstockung startet die Frist neu. Zurück kommt dieselbe Token-Menge, nicht der Dollarwert. Pro Genehmigung gibt es 0,33 MR. Dazu kommt Pflichtarbeit in jedem 30-Tage-Fenster.</p>
-      <p class="but"><b>Vergleich:</b> Das ist die gleiche Art Bindung wie bei TLN, nur länger und mit noch unbekanntem Ertrag.</p></li>
+      <p class="but"><b>Vergleich:</b> TLN sperrt 368 Tage, Vow.id-Verifier 1.000 Tage. Beide Empfehlungsbäume haben 10 Ebenen, und für beide muss man eigenes Kapital binden. Wer beides macht, verdoppelt dieselbe Wette.</p></li>
     <li class="card"><div class="head"><h3>Ein-Personen-Firma ohne Geschichte</h3><span class="tag mid">Mittel</span></div>
       <p>N888 LIMITED wurde am 2.9.2026 gegründet. Es gibt einen Direktor und Alleineigentümer, eine Sammeladresse mit rund 29.000 Firmen und keine Abschlüsse. Eine Zulassung bei der britischen Finanzaufsicht gibt es nicht. Die App läuft auf einem KI-Baukasten (Lovable) und verarbeitet trotzdem Bankdaten. Wie N888 und Vow Limited zusammenhängen, ist nicht erklärt.</p></li>
     <li class="card"><div class="head"><h3>Die Werbezahlen halten nicht</h3><span class="tag mid">Mittel</span></div>
@@ -285,7 +331,8 @@ header{order:-1}
   <h2>Fragen, die du stellen wirst</h2>
   <div class="faq">
     <details><summary>Ist Vow.id nicht nur ein Vehikel, um den VOW-Kurs zu stützen?</summary><div class="a"><p>Die Frage ist berechtigt. Vow.id braucht VOW zum Ausüben und verbrennt einen Teil, das nützt VOW-Haltern. Dagegen spricht: Das Konto ist kostenlos, niemand muss ausüben, und die Bedingungen versprechen nichts. Nach dem Rechenbeispiel oben ist der Effekt auf VOW bei realistischen Nutzerzahlen klein. Ein reines Kursvehikel wäre also schlecht gebaut.</p></div></details>
-    <details><summary>Was bringt Vow.id für meine TLN-Position oder den Tresor?</summary><div class="a"><p>Direkt nichts. Laufzeiten, Abrechnung nach 367 Tagen und der aktuelle Wert bleiben, wie sie sind. Indirekt hilft es nur, wenn Vow.id so groß wird, dass VOW spürbar gefragt ist. Fragen zu Pool und Tresor beantworten die Betreiber dieser Produkte, nicht Vow.id.</p></div></details>
+    <details><summary>Was bringt Vow.id für meine TLN-Position oder den Tresor?</summary><div class="a"><p>Direkt nichts. Die 368-Tage-Sperre, deine LP und das bisher erhaltene TLN Gold bleiben, wie sie sind. Indirekt hängt alles am v$-Kurs. Nimmt Vow.id über Händler mehr v$ auf, als es selbst erzeugt, steigt v$ Richtung 0,75 $. Dann startet die Options-Warteschlange von TLN. Werden die neuen v$ dagegen vor allem verkauft, landen sie in deinem VOW/v$-Pool und drücken v$ weiter.</p><p>Fragen zum Tresor beantworten die Betreiber dieser Produkte, nicht Vow.id.</p></div></details>
+    <details><summary>Lohnt es sich, nach Ablauf neu zu staken?</summary><div class="a"><p>Rechne mit den Zahlen aus „TLN im Klartext“: Beim heutigen Preis bleiben vom 1,5-fachen TLN Gold nach Gebühr etwa 26 % des Einsatzes übrig, wenn sich Käufer finden. Dem steht das Kursrisiko der LP für 368 Tage gegenüber. Die Optionen sind bis v$ = 0,75 $ nichts wert. Neu staken ist also eine Wette darauf, dass v$ sich mehr als verdreifacht oder VOW stark steigt.</p></div></details>
     <details><summary>Kann ich mein gebundenes VOW zum Ausüben nutzen?</summary><div class="a"><p>Nur VOW, das frei in deiner Wallet liegt. Ob und wann sich VOW aus dem TLN-Pool lösen lässt, regeln die TLN-Bedingungen. Eine Position im Minus aufzulösen, um MR auszuüben, ist rechnerisch fast nie sinnvoll.</p></div></details>
     <details><summary>Warum sollte es diesmal funktionieren?</summary><div class="a"><p>Garantieren kann das niemand. Neu ist: ein anderer Betreiber, unveränderliche Contracts nach eigener Angabe, offene AGB und ein Produkt, das sich kostenlos prüfen lässt. Alt bleibt: dasselbe Token-Ökosystem, dieselbe Abhängigkeit von Nachfrage. Entscheide nach dem, was du im Prüfplan selbst siehst.</p></div></details>
     <details><summary>Wer haftet, wenn etwas schiefgeht?</summary><div class="a"><p>Praktisch niemand mit Substanz. N888 ist eine Ein-Personen-Limited ohne Abschlüsse. Die Contracts sind nach eigener Angabe nicht von N888 entwickelt, aber auch nicht änderbar. Die AGB schließen Wertgarantien aus. Setz nur ein, was du verlieren kannst.</p></div></details>
@@ -304,6 +351,14 @@ header{order:-1}
     <li>Werden Lastschriften für Energie erkannt, ja oder nein?</li>
     <li>Gibt es einen Sicherheitstest der App, die Bankdaten verarbeitet?</li>
     <li>Was passiert mit bestehenden Pool- und Tresor-Positionen? Gibt es dazu eine offizielle Aussage?</li>
+    <li>Werden v$, die bei Vow.Market als Rabatt eingelöst werden, verbrannt oder wieder verkauft?</li>
+  </ul>
+  <h3>Und an TLN</h3>
+  <ul>
+    <li>Wer betreibt TLN, mit welcher Firma und in welchem Land?</li>
+    <li>Welches Audit von wem gilt für die aktuellen Staking- und Options-Contracts?</li>
+    <li>Woher kommen die „20 % APY in USDC oder USDT“, und wer zahlt sie?</li>
+    <li>Wie viele Optionen warten in der Warteschlange, und wie viele neue v$ würden beim Erreichen von 0,75 $ geprägt?</li>
   </ul>
 </section>
 
@@ -318,13 +373,16 @@ header{order:-1}
     <dt>Burn</dt><dd>20 % jedes VOW-Beitrags werden vernichtet.</dd>
     <dt>N888 LIMITED</dt><dd>Betreiber von Vow.id und Vow.Market, London, gegründet 2.9.2026.</dd>
     <dt>Vow Limited</dt><dd>Laut Whitepaper Herausgeber des VOW-Tokens. Gegen sie und die „Vow App“ ermittelt die BaFin seit 2024.</dd>
-    <dt>TLN</dt><dd>Das Partnernetzwerk mit VOW-Pool-Positionen und Abrechnung nach 367 Tagen. Dessen Regeln sind nicht Teil dieser Seite.</dd>
+    <dt>TLN Protocol</dt><dd>LP-Staking für das VOW-Ökosystem auf tlndapp.com, 368 Tage Sperre, ohne benannten Betreiber.</dd>
+    <dt>TLN Gold</dt><dd>Belohnungstoken für Staker. Verkaufbar gegen 20 % Gebühr in VOW oder verbrennbar für eine VOW-Option, die erst ab v$ = 0,75 $ startet.</dd>
+    <dt>TLN X</dt><dd>Empfehlungsbelohnung auf bis zu 10 Ebenen. Tauschbar in neue v$ gegen 20 % in VOW.</dd>
+    <dt>LP</dt><dd>Anteilsschein an einem Tauschpool, zum Beispiel VOW/v$. Sein Wert ändert sich mit beiden Kursen.</dd>
   </dl>
 </section>
 
 <footer>
   <p>Private, inoffizielle Einschätzung. Sie stammt nicht von Vow.id, N888 LIMITED, Vow Limited oder TLN und ist keine Anlage- oder Rechtsberatung.</p>
-  <p>Grundlagen: AGB, Datenschutzerklärung und Dokumentation von vow.id (20.11.2026), Aufklärung für Premium-Mitglieder (22.11.2026), Registerdaten zu N888 LIMITED, BaFin-Verbrauchermitteilung vom 7.3.2024, Analysen zum Vorfall vom 13.8.2024 (CertiK, Halborn, QuillAudits), Kurse und Liquidität vom 22.11.2026 sowie anonymisierte Erfahrungen aus der Mitgliedergruppe. Was nur auf Erfahrungen oder Hörensagen beruht, ist so gekennzeichnet.</p>
+  <p>Grundlagen: AGB, Datenschutzerklärung und Dokumentation von vow.id (20.11.2026), Aufklärung für Premium-Mitglieder (22.11.2026), Registerdaten zu N888 LIMITED, BaFin-Verbrauchermitteilung vom 7.3.2024, die Texte der TLN-App auf tlndapp.com (gelesen am 24.11.2026), Analysen zum Vorfall vom 13.8.2024 (CertiK, Halborn, QuillAudits), Kurse und Liquidität vom 22.11.2026 sowie anonymisierte Erfahrungen aus der Mitgliedergruppe. Was nur auf Erfahrungen oder Hörensagen beruht, ist so gekennzeichnet.</p>
   <p>Fast alle Produktangaben stammen vom Betreiber selbst. Ein unabhängiges Audit, geprüfte Zahlen oder eine Behördenentscheidung lagen nicht vor.</p>
 </footer>
 </div>
