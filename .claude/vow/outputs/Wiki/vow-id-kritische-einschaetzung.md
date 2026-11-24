@@ -66,6 +66,8 @@ Wir sehen heute also nur Zahlen in einer App. Ausstehende MR sind laut Vow.id au
 
 Wer VOW hält oder im TLN-Pool steckt, profitiert, wenn andere über vow.id VOW kaufen müssen. 20 % jedes Beitrags werden vernichtet, 80 % gehen in eine Contract-Kasse, deren Verwendung nicht beschrieben ist.
 
+Das gilt auch für mich: Meine Anleitungen enthalten meinen eigenen Einladungslink. Wer über mich einsteigt, steht dauerhaft in meinem Empfehlungsbaum. Das soll Oli wissen, bevor er meine Einschätzung liest.
+
 Das heißt nicht, dass vow.id nur dafür gebaut ist. Es heißt aber: Wer aus dem TLN-Umfeld vow.id empfiehlt, sollte damit rechnen, dass ein kritisches Gegenüber genau das unterstellt. Und an bestehenden Positionen im Minus ändert vow.id nichts. Zum Ausüben braucht man zusätzliches VOW.
 
 ## 6. Daten und Sicherheit
@@ -74,6 +76,7 @@ Das heißt nicht, dass vow.id nur dafür gebaut ist. Es heißt aber: Wer aus dem
 - **Belegtexte gehen an OpenAI in den USA.** Laut Vow.id keine Anhänge und keine Bankdaten.
 - **Bank:** Die Verbindung ist nur lesend und lässt sich trennen. Bei Volks- und Raiffeisenbanken gibt man VR-NetKey und PIN im Plaid-Fenster ein, die Zugangsdaten gehen also an Plaid. Ob in der EU ein lizenzierter Kontoinformationsdienst dazwischen sitzt, ist nicht dokumentiert. In der Gruppe tauchten fremde Transaktionen in einem Konto auf. Mehrere Mitglieder haben Premium doppelt bezahlt.
 - **Die Erfassung ist unzuverlässig.** Bei Amazon wurde von zwei Bestellungen nur eine erkannt. Temu-Bestätigungen kamen nicht an. Erste Bank (Österreich), Salzburg AG und Schweizer Banken funktionieren laut Gruppe noch nicht.
+- **Festlegungen sind endgültig.** Wallet, Empfehler und Handle lassen sich nach der Registrierung nicht mehr ändern. Geht die Wallet verloren, ist die Vow.id samt MR weg. Die Wiederherstellung über eine Backup-Wallet ist nur angekündigt.
 - **On-chain-Spuren sind dauerhaft.** Wallet, MR-Zuteilungen und Abstimmungen lassen sich nicht löschen. Sie sind pseudonym, nicht anonym.
 
 ## 7. Empfehlungen und Strukturvertrieb
