@@ -1,6 +1,6 @@
 # Vow.id – kritische Einschätzung (für Oli)
 
-> Stand: 24.11.2026. Grundlage sind die Wiki-Seiten [Vow.id](./vow-id.md), [Plaid-Bankverknüpfung](./vow-id-plaid-bankverknuepfung.md) und [Wirtschaft und Einwände](./vow-id-wirtschaft-und-einwaende.md). Quellen dort: AGB, Datenschutzerklärung und Dokumentation von vow.id (20.11.2026), Premium-Aufklärung (22.11.2026), Registerdaten, BaFin-Meldung, Berichte zum Hack von 2024 und Beobachtungen aus unserer Gruppe. Das ist eine eigene Einschätzung und keine Anlage- oder Rechtsberatung.
+> Stand: 24.11.2026. Grundlage sind die anonymisierte Auswertung unserer Gruppenfragen (`../Onboarding/gruppenfragen-auswertung.md`) sowie die Wiki-Seiten [Vow.id](./vow-id.md), [Plaid-Bankverknüpfung](./vow-id-plaid-bankverknuepfung.md) und [Wirtschaft und Einwände](./vow-id-wirtschaft-und-einwaende.md). Quellen dort: AGB, Datenschutzerklärung und Dokumentation von vow.id (20.11.2026), Premium-Aufklärung (22.11.2026), Registerdaten, BaFin-Meldung, Berichte zum Hack von 2024 und Beobachtungen aus unserer Gruppe. Das ist eine eigene Einschätzung und keine Anlage- oder Rechtsberatung.
 >
 > Vorweg: Fast alle Produktangaben stammen vom Betreiber selbst. Ein unabhängiges Audit, geprüfte Zahlen oder eine Behördenentscheidung liegen nicht vor.
 
@@ -29,8 +29,9 @@ Ab dem zweiten Jahr kostet Premium 99 $, die Schwellen verdoppeln sich also.
 Was dazu kommt:
 - **Alle Sätze sind Höchstwerte.** Vow.id darf sie für künftige Käufe ohne Ankündigung ändern.
 - **Ob Energie zählt, ist offen.** In unserer Gruppe hat die Abbuchung eines gelisteten Stadtwerks keine MR ergeben. Strom wird meist per Lastschrift bezahlt, die Einwilligung spricht aber von Kartenzahlungen. Damit ist die stärkste Werbeaussage („bis 100 % auf Energie“) derzeit nicht belegt.
-- **Den v$-Wert gibt der Markt vor.** Jedes Ausüben erzeugt neue v$. Verkaufen viele, fällt der Kurs. Wie viele v$ der Markt bei 0,21 $ aufnimmt, ist unbekannt.
+- **Den v$-Wert gibt der Markt vor.** Jedes Ausüben erzeugt neue v$. Verkaufen viele, fällt der Kurs. Der Markt ist dünn: Am 22.11.2026 lagen im v$-Pool auf der BNB Smart Chain rund 1,1 Mio. $ Liquidität bei nur etwa 52.000 $ Tagesumsatz (VOW: 2,3 Mio. $ Liquidität, 219.000 $ Umsatz; v£: 674 $ Umsatz). Schon ein paar Hundert Mitglieder, die ihre v$ gleichzeitig verkaufen, würden den Kurs spürbar drücken.
 - **Der „volle“ Wert von 1 $ je v$** gilt nur als Rabatt bei Händlern, die v$ annehmen. Das ist vor allem Vow.Market, und das gehört derselben Firma wie vow.id. Im Code von Vow.Market gibt es eine Stelle, die Preise bestimmter Lieferantenprodukte verdoppelt. Ohne Preisvergleich ist der Rabatt nichts wert.
+- **Vow.id nimmt seine eigene Währung nicht an.** Premium ist seit dem 22.11.2026 nur noch per Karte, USDC oder USDT zu bezahlen, nicht mit v$ oder VOW. Interessenten lesen das als Misstrauen des Systems gegenüber dem eigenen Token. Der Einwand ist berechtigt.
 - **60 Tage Frist.** Genehmigte MR verfallen, wenn sie nicht rechtzeitig ausgeübt werden.
 
 ## 2. Was noch nicht funktioniert
@@ -57,6 +58,7 @@ Wir sehen heute also nur Zahlen in einer App. Ausstehende MR sind laut Vow.id au
 
 - **BaFin, 7.3.2024:** Ermittlungen gegen Vow Limited und die „Vow App“ wegen des Verdachts unerlaubter Bank- oder Finanzgeschäfte. Ein Abschluss ist nicht bekannt. Formal betrifft das nicht N888. vow.id baut aber auf VOW und v$ auf, also auf genau diesem Ökosystem.
 - **Hack, 13.8.2024:** Beim Testen auf der Live-Chain wurde der Umrechnungskurs falsch gesetzt. Ein Angreifer erzeugte massenhaft v$, Schaden rund 1,2 Mio. $, Kurs zeitweise etwa −80 %. Vow.id sagt, die neuen Verträge seien unveränderlich und ohne Admin-Schlüssel. Ein Audit dazu liegt uns nicht vor.
+- **Ältere Engagements hängen.** In unserer Gruppe fragt eine Langzeit-Halterin, die vor rund drei Jahren Geld in den „VOW Tresor“ gegeben hat, warum dort „gar nichts mehr läuft“. Ein Mitglied berichtet (Hörensagen), eine 82.000-$-Position im VOW/v$-Pool sei seit 1.9. auf rund 30.000 $ gefallen. Wer schon in VOW steckt, wird Olis Frage „warum diesmal?“ selbst stellen.
 - **v$ steht bei 0,21 $ statt 1 $.** Der ursprüngliche Anspruch eines Gutscheins im Wert von einem Dollar hat sich am Markt nicht gehalten.
 - **Die Aussage „Vow Limited ist eine australische Firma ohne Bezug zum Token“** ist nicht belegt. Whitepaper und Kanzleibericht nennen Vow Limited als Herausgeber des VOW-Tokens. Wir sollten das Argument nicht verwenden.
 
@@ -71,6 +73,7 @@ Das heißt nicht, dass vow.id nur dafür gebaut ist. Es heißt aber: Wer aus dem
 - **Der Vault ist nicht zero-knowledge.** Die Verschlüsselung läuft serverseitig, Personal und Serverfunktionen können entschlüsseln. Das sagt Vow.id selbst.
 - **Belegtexte gehen an OpenAI in den USA.** Laut Vow.id keine Anhänge und keine Bankdaten.
 - **Bank:** Die Verbindung ist nur lesend und lässt sich trennen. Bei Volks- und Raiffeisenbanken gibt man VR-NetKey und PIN im Plaid-Fenster ein, die Zugangsdaten gehen also an Plaid. Ob in der EU ein lizenzierter Kontoinformationsdienst dazwischen sitzt, ist nicht dokumentiert. In der Gruppe tauchten fremde Transaktionen in einem Konto auf. Mehrere Mitglieder haben Premium doppelt bezahlt.
+- **Die Erfassung ist unzuverlässig.** Bei Amazon wurde von zwei Bestellungen nur eine erkannt. Temu-Bestätigungen kamen nicht an. Erste Bank (Österreich), Salzburg AG und Schweizer Banken funktionieren laut Gruppe noch nicht.
 - **On-chain-Spuren sind dauerhaft.** Wallet, MR-Zuteilungen und Abstimmungen lassen sich nicht löschen. Sie sind pseudonym, nicht anonym.
 
 ## 7. Empfehlungen und Strukturvertrieb
@@ -83,6 +86,7 @@ Das heißt nicht, dass vow.id nur dafür gebaut ist. Es heißt aber: Wer aus dem
 - Das kostenlose Konto kostet nichts außer Daten und Zeit.
 - Die AGB sind ungewöhnlich offen. Kein Geld, kein Cashback, keine Garantie, ausführliche Risikohinweise. Versprochen wird nichts.
 - Die Bankverbindung ist nur lesend und freiwillig.
+- Die Erfassung funktioniert grundsätzlich. Belegte Beispiele aus der Gruppe: Spotify 12,99 € ergab 5,82 MR (40 %, über die Bank), Booking.com 640 C$ ergab 185,95 MR in Kanada. Alles davon ist noch „ausstehend“.
 - Die Belegadresse und der Wallet-Scanner sind für sich genommen nützliche Funktionen.
 - Der Ansatz, Händler-Rabatte statt ausgedachter Renditen zu verteilen, ist als Idee nachvollziehbar und kein klassisches Schneeballsystem. Ob er trägt, hängt aber allein davon ab, ob Händler v$ annehmen und Käufer v$ wollen.
 
