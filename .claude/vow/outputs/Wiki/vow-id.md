@@ -255,3 +255,20 @@ Aus diesem Wiki abgeleitet, im Ordner `../Onboarding/`: Komplettanleitung, Start
 6. Fehlenden Absender zur Überprüfung melden. Auch ein erkannter Absender braucht E-Mail-Authentifizierung; eine Genehmigung garantiert keine MR (Rest fehlt).
 
 Folgerung: Es gibt eine Foto-Einreichung für Belege. Wie sie gewertet wird, ist offen.
+
+## Anbieterliste Deutschland, Auswahl (aus der App, übermittelt vom Nutzer am 25.11.2026)
+
+Alle mit dem Vermerk „Premium erfasst dies automatisch" und Status „Tracking". Die Liste wird nach Angabe des Nutzers wöchentlich länger.
+
+| Kategorie | Premium-Satz | Anbieter |
+|---|---|---|
+| Marketplaces | 40 % | Shein, Temu, eBay, AliExpress, Vinted, Zalando, Wayfair, Wish |
+| Dienstprogramme (Energie) | 100 % | E.ON, EnBW, Vattenfall, Stadtwerke Düsseldorf, enercity, N-ERGIE, enviaM, E WIE EINFACH, Yello, GASAG, Naturstrom, Grünwelt Energie, Pfalzwerke, Lechwerke, WEMAG |
+| Mobilfunk | 40 % | Deutsche Telekom, O2 Deutschland, Vodafone Deutschland |
+| Lieferung nach Hause | 22,5 % | Uber Eats, Just Eat |
+| Streaming | 40 % | Netflix, Amazon Prime Video, Spotify, YouTube Premium |
+| KI-Abonnements | 40 % | ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity, Adobe Firefly, Runway |
+| Supermärkte | 20 % | Lidl, Aldi, Edeka, Rewe, Kaufland, Netto, Penny |
+| Cafés | 22,5 % | Starbucks, Costa Coffee, Dunkin, Tchibo, Espresso House, Coffee Fellows, Balzac Coffee |
+
+Offen: Sätze im kostenlosen Konto je Kategorie; ob Amazon (Shop) in einer anderen Kategorie steht.
