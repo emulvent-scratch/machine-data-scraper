@@ -284,3 +284,33 @@ Die App zeigt je Anbieter zwei Werte: zuerst Free, dann Premium.
 Energieversorger: E.ON (Germany), EnBW, Vattenfall (Germany), EWE, LichtBlick, Stadtwerke München, Mainova, RheinEnergie, Stadtwerke Düsseldorf, SachsenEnergie, enercity, N-ERGIE, MVV Energie, Leipziger Stadtwerke, BS Energy, badenova, ENTEGA, Süwag, enviaM, E WIE EINFACH, Yello, eprimo, GASAG, ExtraEnergie, Tibber, Ostrom, Rabot Energy, Polarstern, Naturstrom, Green Planet Energy, EWS Schönau, Grünwelt Energie, Maxenergy, Lekker Energie, Pfalzwerke, Lechwerke, Bayernwerk Natur, DEW21, Stadtwerke Bochum, WEMAG, eins energie, Stadtwerke Karlsruhe, Stadtwerke Stuttgart, Hamburg Energie, Vattenfall Berlin, aWATTar, sonnenklar Energie.
 
 Stadtwerke: Bonn, Münster, Bielefeld, Duisburg, Essen, Krefeld, Mönchengladbach, Wuppertal, Aachen (STAWAG), Hagen (Enervie), Gelsenkirchen (ELE), Herne, Oberhausen (EVO), Solingen, Remscheid (EWR), Neuss, Mülheim (medl), Hamm, Paderborn (Westfalen Weser), Osnabrück, Bremen (swb), Kiel, Lübeck, Rostock, Schwerin, Flensburg, Neumünster, Göttingen, Wolfsburg (WEVG), Hildesheim (EVI), Kassel, Magdeburg, Halle, Erfurt, Jena, Gera, Zwickau, Potsdam (EWP), Cottbus, Frankfurt (Oder), Dessau, Augsburg, Regensburg (REWAG), Ingolstadt, Würzburg (WVV), Erlangen (ESTW), Fürth (infra), Bamberg, Bayreuth, Rosenheim, Landshut, Passau, Kempten (AÜW), Ulm (SWU), Heidelberg, Pforzheim, Heilbronn (HNVG), Reutlingen (FairEnergie), Tübingen, Esslingen, Ludwigsburg-Kornwestheim, Konstanz, Schwäbisch Hall, Baden-Baden, Mainz (Mainzer Stadtwerke), Wiesbaden (ESWE), Offenbach (EVO), Gießen, Marburg, Fulda (RhönEnergie), Hanau, Kaiserslautern (SWK), Trier, Koblenz (evm), Ludwigshafen (TWL), Saarbrücken, Witten, Iserlohn, Lüdenscheid, Bocholt, Gütersloh, Herford, Bad Homburg, Lüneburg (Avacon), Celle, Emden, Wilhelmshaven (GEW), Bremerhaven, Norderstedt, Elmshorn, Stralsund, Greifswald, Neubrandenburg (neu.sw), Plauen, Görlitz, Bautzen (EWB), Weimar, Gotha, Eisenach, Speyer, Worms (EWR), Landau (EnergieSüdwest), Bad Kreuznach.
+
+## Abgleich mit dem Programmcode von vow.id (25.11.2026)
+
+Quelle: Skript `verifier-access.functions-*.js` unter vow.id/assets, enthält den Händlerkatalog (rund 2.500 Einträge weltweit) und zwei Satz-Tabellen. Der Dateiname ändert sich mit jeder Version; Einstieg über die Skripte in der Startseite, dann nach einem bekannten Händlernamen suchen.
+
+| Kategorie (Code) | Bezeichnung | Free | Premium |
+|---|---|---|---|
+| marketplaces | Online shops | 10 % | 40 % |
+| mobile | Mobile | 10 % | 40 % |
+| streaming | Streaming | 10 % | 40 % |
+| ai | AI services | 10 % | 40 % |
+| electricity | Energy | 0 | 100 % |
+| delivery | Food delivery | 10 % | 22,5 % |
+| food (fastfood, coffee, restaurants) | Food & drink and coffee shops | 10 % (coffee: 0) | 22,5 % |
+| fashion | Fashion & sport | 10 % | 22,5 % |
+| stays | Hotels & accommodation | 10 % | 22,5 % |
+| supermarkets | Supermarkets | 10 % nur Tesco, Sainsbury's, Asda; sonst 0 | 20 % |
+| health | Health & beauty | 10 % | 20 % |
+| software | Software & apps | 10 % | 20 % |
+| taxi | Taxis | 0 | 18 % |
+| electronics | Electronics | 8 % | 16 % |
+| home | Home & DIY | 10 % | 15 % |
+| general | Department & discount | 10 % | 15 % |
+| convenience | Convenience stores | 7,5 % | 15 % |
+| travel | Flights & rail | 4,5 % | 10 % |
+| fuel | Petrol stations | 0 | 4,5 % |
+
+Regel im Code: Free ist 0, wenn der Anbieter nicht verfügbar ist oder die Kategorie Energie oder Café ist; bei Supermärkten nur für drei britische Ketten größer 0.
+
+Deutschland, zusätzlich zu den bereits notierten Anbietern: Tankstellen (Aral, Esso, JET, TotalEnergies, AVIA, HEM, Hoyer, OIL!, ORLEN/star, Q1, Raiffeisen, Westfalen, Circle K, Eni/Agip), Supermärkte (Norma, Globus, Famila, Marktkauf), Mode (About You, Bershka, Bonprix, C&A, Mango, Nike, Otto), Drogerie (dm, Rossmann, Müller), Elektronik (MediaMarkt, Apple), Baumarkt (Hornbach, OBI), Lieferdienste (Flink, Lieferando, Wolt), Mobilfunk (1&1, congstar, freenet), Taxi (Bolt, FreeNow, Uber), Reise (Ryanair, Trainline, easyJet), Schnellrestaurants (Nordsee, Five Guys, Chipotle, Popeyes, Taco Bell), Discount (Action). Die Auswertung ist nicht vollständig, weil der Code Länder teils über Sammelvariablen zuweist.
