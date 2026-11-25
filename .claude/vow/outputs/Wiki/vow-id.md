@@ -272,3 +272,15 @@ Alle mit dem Vermerk „Premium erfasst dies automatisch" und Status „Tracking
 | Cafés | 22,5 % | Starbucks, Costa Coffee, Dunkin, Tchibo, Espresso House, Coffee Fellows, Balzac Coffee |
 
 Offen: Sätze im kostenlosen Konto je Kategorie. Amazon steht laut Nutzer unter Marketplaces mit 40 %.
+
+## Free und Premium je Anbieter (aus der App, übermittelt vom Nutzer am 25.11.2026)
+
+Die App zeigt je Anbieter zwei Werte: zuerst Free, dann Premium.
+
+- Marketplaces: Free 10 %, Premium 40 %. Amazon, Shein, Temu, eBay, AliExpress, Etsy, ASOS, Vinted, Zalando, Wish, Depop.
+- Energie: Free „–" (keine MR), Premium 100 %. 150 Versorger in der übermittelten Liste.
+- Free-Werte für Supermärkte, Cafés, Lieferdienste, Mobilfunk, Streaming und KI-Abos: nicht übermittelt.
+
+Energieversorger: E.ON (Germany), EnBW, Vattenfall (Germany), EWE, LichtBlick, Stadtwerke München, Mainova, RheinEnergie, Stadtwerke Düsseldorf, SachsenEnergie, enercity, N-ERGIE, MVV Energie, Leipziger Stadtwerke, BS Energy, badenova, ENTEGA, Süwag, enviaM, E WIE EINFACH, Yello, eprimo, GASAG, ExtraEnergie, Tibber, Ostrom, Rabot Energy, Polarstern, Naturstrom, Green Planet Energy, EWS Schönau, Grünwelt Energie, Maxenergy, Lekker Energie, Pfalzwerke, Lechwerke, Bayernwerk Natur, DEW21, Stadtwerke Bochum, WEMAG, eins energie, Stadtwerke Karlsruhe, Stadtwerke Stuttgart, Hamburg Energie, Vattenfall Berlin, aWATTar, sonnenklar Energie.
+
+Stadtwerke: Bonn, Münster, Bielefeld, Duisburg, Essen, Krefeld, Mönchengladbach, Wuppertal, Aachen (STAWAG), Hagen (Enervie), Gelsenkirchen (ELE), Herne, Oberhausen (EVO), Solingen, Remscheid (EWR), Neuss, Mülheim (medl), Hamm, Paderborn (Westfalen Weser), Osnabrück, Bremen (swb), Kiel, Lübeck, Rostock, Schwerin, Flensburg, Neumünster, Göttingen, Wolfsburg (WEVG), Hildesheim (EVI), Kassel, Magdeburg, Halle, Erfurt, Jena, Gera, Zwickau, Potsdam (EWP), Cottbus, Frankfurt (Oder), Dessau, Augsburg, Regensburg (REWAG), Ingolstadt, Würzburg (WVV), Erlangen (ESTW), Fürth (infra), Bamberg, Bayreuth, Rosenheim, Landshut, Passau, Kempten (AÜW), Ulm (SWU), Heidelberg, Pforzheim, Heilbronn (HNVG), Reutlingen (FairEnergie), Tübingen, Esslingen, Ludwigsburg-Kornwestheim, Konstanz, Schwäbisch Hall, Baden-Baden, Mainz (Mainzer Stadtwerke), Wiesbaden (ESWE), Offenbach (EVO), Gießen, Marburg, Fulda (RhönEnergie), Hanau, Kaiserslautern (SWK), Trier, Koblenz (evm), Ludwigshafen (TWL), Saarbrücken, Witten, Iserlohn, Lüdenscheid, Bocholt, Gütersloh, Herford, Bad Homburg, Lüneburg (Avacon), Celle, Emden, Wilhelmshaven (GEW), Bremerhaven, Norderstedt, Elmshorn, Stralsund, Greifswald, Neubrandenburg (neu.sw), Plauen, Görlitz, Bautzen (EWB), Weimar, Gotha, Eisenach, Speyer, Worms (EWR), Landau (EnergieSüdwest), Bad Kreuznach.
