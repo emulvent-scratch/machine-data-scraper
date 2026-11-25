@@ -262,7 +262,7 @@ Alle mit dem Vermerk „Premium erfasst dies automatisch" und Status „Tracking
 
 | Kategorie | Premium-Satz | Anbieter |
 |---|---|---|
-| Marketplaces | 40 % | Shein, Temu, eBay, AliExpress, Vinted, Zalando, Wayfair, Wish |
+| Marketplaces | 40 % | Amazon, Shein, Temu, eBay, AliExpress, Vinted, Zalando, Wayfair, Wish |
 | Dienstprogramme (Energie) | 100 % | E.ON, EnBW, Vattenfall, Stadtwerke Düsseldorf, enercity, N-ERGIE, enviaM, E WIE EINFACH, Yello, GASAG, Naturstrom, Grünwelt Energie, Pfalzwerke, Lechwerke, WEMAG |
 | Mobilfunk | 40 % | Deutsche Telekom, O2 Deutschland, Vodafone Deutschland |
 | Lieferung nach Hause | 22,5 % | Uber Eats, Just Eat |
@@ -271,4 +271,4 @@ Alle mit dem Vermerk „Premium erfasst dies automatisch" und Status „Tracking
 | Supermärkte | 20 % | Lidl, Aldi, Edeka, Rewe, Kaufland, Netto, Penny |
 | Cafés | 22,5 % | Starbucks, Costa Coffee, Dunkin, Tchibo, Espresso House, Coffee Fellows, Balzac Coffee |
 
-Offen: Sätze im kostenlosen Konto je Kategorie; ob Amazon (Shop) in einer anderen Kategorie steht.
+Offen: Sätze im kostenlosen Konto je Kategorie. Amazon steht laut Nutzer unter Marketplaces mit 40 %.
