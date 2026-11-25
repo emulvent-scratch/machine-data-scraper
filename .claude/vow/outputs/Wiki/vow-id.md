@@ -314,3 +314,10 @@ Quelle: Skript `verifier-access.functions-*.js` unter vow.id/assets, enthält de
 Regel im Code: Free ist 0, wenn der Anbieter nicht verfügbar ist oder die Kategorie Energie oder Café ist; bei Supermärkten nur für drei britische Ketten größer 0.
 
 Deutschland, zusätzlich zu den bereits notierten Anbietern: Tankstellen (Aral, Esso, JET, TotalEnergies, AVIA, HEM, Hoyer, OIL!, ORLEN/star, Q1, Raiffeisen, Westfalen, Circle K, Eni/Agip), Supermärkte (Norma, Globus, Famila, Marktkauf), Mode (About You, Bershka, Bonprix, C&A, Mango, Nike, Otto), Drogerie (dm, Rossmann, Müller), Elektronik (MediaMarkt, Apple), Baumarkt (Hornbach, OBI), Lieferdienste (Flink, Lieferando, Wolt), Mobilfunk (1&1, congstar, freenet), Taxi (Bolt, FreeNow, Uber), Reise (Ryanair, Trainline, easyJet), Schnellrestaurants (Nordsee, Five Guys, Chipotle, Popeyes, Taco Bell), Discount (Action). Die Auswertung ist nicht vollständig, weil der Code Länder teils über Sammelvariablen zuweist.
+
+## Stand der Freischaltung laut Community (25.11.2026, nicht offiziell belegt)
+
+- Es fehlen noch zwei Bausteine: die Prüfer (Verifizierer) und das Staking für Affiliates. Einen Termin gibt es nicht; es startet, „wenn es fertig ist".
+- Begründung für die Prüfung durch drei Personen: Schutz vor Betrug, etwa automatisch erzeugte gefälschte Rechnungs-Mails, mit denen MR erschlichen werden könnten. Passt zu den Best Practices für Belege (authentifizierte Händlerbelege, echte Absenderadresse).
+- Behauptung „MR entstehen sofort auf der Blockchain, wenn die Rechnung eingeht": nicht belegt. Laut App sind ausstehende MR nur Vorschläge und keine genehmigten Ansprüche.
+- Nicht übernehmen: „für immer stabiles Punktesystem". Vow.id sichert keinen Wert und keine Stabilität zu.
