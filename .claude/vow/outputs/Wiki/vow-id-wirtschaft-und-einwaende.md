@@ -118,3 +118,34 @@ Folge: Es sind zwei getrennte Firmen mit unterschiedlichen Inhabern. Das stützt
 Quelle ist ein Drittverzeichnis, das Daten von Companies House aufbereitet. Maßgeblich ist der Eintrag bei Companies House selbst.
 
 Einordnung: Der Betreiber ist eine sehr junge Ein-Personen-Gesellschaft mit Briefkastenadresse. Das ist für ein Start-up üblich und kein Hinweis auf Fehlverhalten, bedeutet aber: keine Geschäftshistorie, keine geprüften Zahlen, begrenzte Haftungsmasse.
+
+## Einwand: „Ich habe echtes Geld bezahlt und wertlose MR bekommen" (Stand 25.11.2026)
+
+Auslöser: Streit in der Community-Gruppe. Die kritische Frage war in der Sache berechtigt, mehrere Gegenargumente waren falsch.
+
+Ehrliche Antwort: Ja, es ist ungewiss.
+
+- Die Premium-Gebühr (49 oder 99 $) ist echtes Geld.
+- Ausstehende MR sind Vorschläge ohne Geldwert und können abgelehnt werden.
+- Ob und wann sie genehmigt werden, sichert niemand zu. Einen Termin gibt es nicht.
+- Ohne Verifizierer werden keine v$ ausgegeben.
+
+| Aussage aus der Gruppe | Einordnung |
+|---|---|
+| „MR SIND v$" | Falsch. MR sind Rechte auf v$. Dazwischen liegen die Genehmigung durch drei Prüfer und der VOW-Beitrag. |
+| „Mit einem Knopfdruck 0,20 $ wert" | Unvollständig. Der VOW-Beitrag kostet etwa die Hälfte des v$-Marktwerts. Beim Tausch bleiben rund 0,10 $ je MR vor Gebühren, und nur nach Genehmigung. Als Rabatt bei Vow.Market zählt der v$ als 1 $. |
+| „Über 180.000 MR verifiziert" | Nicht belegt und im Widerspruch dazu, dass die Prüfung noch nicht läuft. Vermutlich sind erfasste, also ausstehende MR gemeint. |
+| „Payback-Punkte sind wertlos" | Falsch. Ein Payback-Punkt ist 1 Cent und sofort einlösbar. Der Vergleich schadet. |
+| „Wo hast du Geld investiert?" | Die Premium-Gebühr ist echtes Geld. |
+| „Es wurde nie gesagt, dass drei prüfen müssen" (Kritikerseite) | Falsch. Die Prüfung durch drei Verifizierer steht von Anfang an in den Unterlagen. |
+
+Erstattung: Im Code von vow.id gibt es eine Funktion für Premium-Rückerstattungen (`premium-membership-refunds`). Bedingungen unbekannt; maßgeblich sind die AGB und „Contact" in der App. Kein Anspruch daraus ableiten.
+
+Gesprächsregeln daraus:
+
+- Die Ungewissheit selbst aussprechen, bevor das Gegenüber es tut.
+- Nie „MR sind v$" und nie den Payback-Vergleich verwenden.
+- Keine Termine weitergeben („hoffentlich morgen"). Haltbar ist nur: „Es startet, wenn es fertig ist."
+- Interessenten nicht in die Community-Gruppe schicken, solange dort berechtigte Fragen mit Spott beantwortet werden. Die Anleitung beantwortet dieselben Fragen sachlich.
+
+In der Komplettanleitung und der Starthilfe steht dazu die Frage „Ich habe Premium bezahlt und nur ausstehende MR. Sind die etwas wert?" unter „Berechtigte Zweifel".
