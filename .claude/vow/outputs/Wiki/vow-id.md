@@ -244,3 +244,14 @@ Aus diesem Wiki abgeleitet, im Ordner `../Onboarding/`: Komplettanleitung, Start
 - **Datenschutz:** Die Verschlüsselung ist serverseitig und nicht zero-knowledge. Belegtexte gehen an OpenAI in den USA. On-chain-Spuren sind pseudonym und dauerhaft.
 - Das Produkt ist als **Beta** gekennzeichnet.
 - Die ausführliche Einordnung mit Rechenbeispielen und den häufigsten Einwänden steht unter [Wirtschaftliche Einordnung und häufige Einwände](./vow-id-wirtschaft-und-einwaende.md).
+
+## Best Practices für Belege (Text aus der App, übermittelt vom Nutzer am 25.11.2026, am Ende abgeschnitten)
+
+1. Weiterleitungs-E-Mail verifiziert halten; normalen Posteingang und Spam auf zugestellte Kopien prüfen.
+2. E-Mail-Adresse direkt beim Dienst ändern. Der Dienst muss Originalbelege an die @vow.id-Adresse senden; persönliche Weiterleitungen sind keine authentifizierten Händlerbelege.
+3. Tatsächliche Von-Adresse prüfen. Anzeigename oder Belegfoto beweisen den Absender nicht.
+4. Originalrechnung aufbewahren (Betrag, Währung, Kaufdatum, Bestellreferenz). Rechnungen von Apple und Google Play können den zugrunde liegenden Dienst identifizieren.
+5. Nie Passwörter oder Anmeldecodes hochladen; vollständige Kartennummern und irrelevante Daten vor dem Einreichen eines Fotos abdecken.
+6. Fehlenden Absender zur Überprüfung melden. Auch ein erkannter Absender braucht E-Mail-Authentifizierung; eine Genehmigung garantiert keine MR (Rest fehlt).
+
+Folgerung: Es gibt eine Foto-Einreichung für Belege. Wie sie gewertet wird, ist offen.
