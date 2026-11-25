@@ -103,3 +103,12 @@ Hauptanwendungsfall laut Startseite: *„Connect your bank and collect up to 100
 - Ob Lastschriften (zum Beispiel für Energie) für MR erkannt werden oder nur Kartenzahlungen.
 - Ob in der EU ein lizenzierter Kontoinformationsdienst (AISP) dazwischengeschaltet ist. Die AGB erwähnen nur allgemein „any account-information provider“.
 - Welche Energieversorger bzw. „eligible listed services“ beim Bank-Matching als berechtigt gelten.
+
+## Welche Karte wird erkannt (Stand 25.11.2026, aus der Community, nicht offiziell belegt)
+
+Grundregel aus der Gruppe: Der Bank-Scanner muss in der Buchung erkennen können, wo eingekauft wurde.
+
+- Girocard und Debitkarte der verbundenen Bank: Einzelbuchung mit Händlername auf dem Girokonto, wird grundsätzlich erkannt.
+- Kreditkarte mit Sammelabrechnung: auf dem Girokonto nur die Gesamtsumme, wird nicht erkannt. Ausnahme: Das Kartenkonto lässt sich bei der Verknüpfung als eigenes Konto auswählen.
+- Karten fremder Anbieter (zum Beispiel Vault27): laufen nicht über die verbundene Bank, werden nicht erkannt.
+- Offen: ob Supermärkte überhaupt als Anbieter gelistet sind; ob Apple Pay/Google Pay den Händlernamen unverändert durchreichen.
