@@ -1,0 +1,262 @@
+<title>Vow.id para principiantes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<style>
+/* Layout: one narrow column for phones; a progress line, then five numbered parts, each a short run of tickable steps; mistakes and glossary at the end. */
+:root{
+  --bg:#F2F5F4; --surface:#FFFFFF; --fg:#13222A; --muted:#55666E; --line:#D5DEDC;
+  --accent:#0A6B6B; --accent-soft:#DDEEEC; --warn:#9A5B00; --warn-soft:#FBEFD9; --ok:#1B7A4B; --bad:#A3302B;
+  --display:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; --bad:#F08A84; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; --bad:#F08A84; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.4rem;font-weight:600}
+h3{font-size:1.04rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+ul{margin:0;padding-left:20px}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lead{font-size:1.06rem;color:var(--muted)}
+header,section{display:flex;flex-direction:column;gap:14px}
+section{scroll-margin-top:16px}
+.need{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.need div{border-top:2px solid var(--accent);padding-top:8px;font-size:.9rem;color:var(--muted)}
+.need b{display:block;font-family:var(--display);font-size:1.05rem;color:var(--fg)}
+.progress{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+.progress span{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.part{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.step label{display:flex;gap:8px;align-items:center;font-size:.88rem;color:var(--muted);cursor:pointer;align-self:flex-start;margin-top:2px}
+.step input{width:18px;height:18px;accent-color:var(--accent)}
+.step input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.step.done{border-color:var(--ok)}
+.step.done h3{color:var(--ok)}
+.note{background:var(--warn-soft);border-radius:10px;padding:12px 14px;font-size:.94rem}
+.note b{color:var(--warn)}
+.dodont{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.dodont div{border-radius:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--line);min-width:0}
+.dodont b{display:block;margin-bottom:4px}
+.yes b{color:var(--ok)} .no b{color:var(--bad)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+summary{cursor:pointer;padding:10px 12px;font-weight:600;font-size:.94rem}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details .a{padding:0 12px 12px;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.addr{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;overflow-wrap:anywhere;user-select:all}
+dl{margin:0;display:grid;grid-template-columns:minmax(100px,max-content) 1fr;gap:8px 16px}
+dt{font-family:var(--display);font-weight:600}
+dd{margin:0;min-width:0;color:var(--muted)}
+footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:420px){ dl{grid-template-columns:1fr;gap:2px 0} dd{margin-bottom:8px} }
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Guía no oficial para principiantes · Actualizada al 22 de noviembre de 2026</span>
+  <h1>De cero a tu Vow.id</h1>
+  <p class="lead">¿Nunca tuviste nada que ver con cripto? Esta guía te lleva paso a paso: configurar la billetera, protegerla, conseguir un poco de BNB, registrarte en Vow.id y hacer que se vean los tokens. Marcá lo que ya hiciste y seguí a tu ritmo.</p>
+  <div class="need">
+    <div><b>45 minutos</b>sin apuro, mejor de un tirón</div>
+    <div><b>Celular</b>con el sistema actualizado y bloqueo de pantalla</div>
+    <div><b>Lápiz y papel</b>para tu frase semilla</div>
+    <div><b>Unos pocos euros</b>para la comisión de red en BNB</div>
+  </div>
+  <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count">0 de 14 pasos completados</span></div>
+  <p class="note"><b>La única regla que protege todo:</b> tu frase semilla no se la das nunca a nadie y no la escribís en ningún lado, salvo al restaurar tu propia app de billetera. Ningún soporte, ningún sitio web y ningún conocido la necesita.</p>
+</header>
+
+<section id="teil1">
+  <span class="part">Parte 1</span>
+  <h2>Configurar y proteger la billetera</h2>
+  <p>Una billetera (wallet) es una app con la que te identificás en servicios como Vow.id y administrás criptoactivos. Es solo tuya. No existe el «olvidé mi contraseña»: la única llave de repuesto es tu frase semilla.</p>
+  <ol class="steps">
+    <li class="step"><h3>1. Elegir la app de billetera</h3>
+      <p>Necesitás una billetera que funcione con la BNB Smart Chain. Acá se usa como ejemplo Trust Wallet, porque aparece directamente en la selección de billeteras de Vow.id. MetaMask o TokenPocket funcionan igual.</p>
+      <p>Elegí con cuidado: tu Vow.id queda vinculada para siempre a esa billetera.</p>
+      <label><input type="checkbox" id="s1"> Listo</label></li>
+    <li class="step"><h3>2. Instalar la app desde la fuente correcta</h3>
+      <p>Entrá al sitio web oficial del proveedor y desde ahí seguí el enlace al App Store o a Play Store. No busques la app por tu cuenta en la tienda y no hagas clic en anuncios publicitarios. Existen apps de billetera falsas que roban los fondos.</p>
+      <label><input type="checkbox" id="s2"> Listo</label></li>
+    <li class="step"><h3>3. Crear una billetera nueva</h3>
+      <p>Abrí la app y elegí «Crear una billetera nueva». Definí un código de bloqueo para la app. La app te muestra ahora tu frase semilla: 12 palabras en inglés en un orden fijo.</p>
+      <label><input type="checkbox" id="s3"> Listo</label></li>
+    <li class="step"><h3>4. Anotar la frase semilla</h3>
+      <p>Escribí las 12 palabras a mano en papel, con su número y en el orden correcto. Revisá cada palabra. Después la app te las pide una vez.</p>
+      <div class="dodont">
+        <div class="yes"><b>Así está bien</b>En papel, dos copias, en dos lugares seguros y separados. Por ejemplo, en tu casa en una caja fuerte y en un sobre cerrado en manos de una persona de confianza.</div>
+        <div class="no"><b>Esto nunca</b>Captura de pantalla, foto, app de notas, correo a vos mismo, nube, WhatsApp, gestor de contraseñas en el mismo celular. Y nunca dictársela ni mostrársela a nadie.</div>
+      </div>
+      <p>Quien tiene las palabras, tiene la billetera. Quien las pierde, y además pierde el celular, se queda sin nada.</p>
+      <label><input type="checkbox" id="s4"> Listo</label></li>
+  </ol>
+</section>
+
+<section id="teil2">
+  <span class="part">Parte 2</span>
+  <h2>Cargar un poco de BNB en la billetera</h2>
+  <p>Vow.id funciona sobre la BNB Smart Chain. Ahí cada transacción cuesta una pequeña comisión en BNB. Para el registro tiene que haber al menos 0,002 BNB en tu billetera, un monto muy chico. Cargá un poco más, así también alcanza para los pasos posteriores.</p>
+  <ol class="steps">
+    <li class="step"><h3>5. Encontrar tu dirección</h3>
+      <p>En la billetera tocá «Recibir» y elegí <b>BNB Smart Chain</b>. La app muestra una dirección larga que empieza con 0x. Esa es tu dirección pública. Podés compartirla, es como un número de cuenta. Copiala siempre con el botón de copiar y nunca la escribas a mano.</p>
+      <label><input type="checkbox" id="s5"> Listo</label></li>
+    <li class="step"><h3>6. Conseguir BNB</h3>
+      <p>Hay dos caminos habituales:</p>
+      <ul>
+        <li><b>Comprar dentro de la billetera.</b> Muchas billeteras tienen un botón «Comprar». Detrás hay servicios de pago que aceptan tarjeta o transferencia y que por lo general piden una breve verificación de identidad. Elegí BNB en la BNB Smart Chain. Compará la comisión que se muestra: con montos chicos suele ser alta.</li>
+        <li><b>Que te lo envíen.</b> Alguien que ya tiene BNB te manda un monto chico a tu dirección. O comprás en un exchange de criptomonedas y lo retirás desde ahí.</li>
+      </ul>
+      <p class="note"><b>Prestá atención a la red:</b> al enviar o retirar tiene que estar elegida «BNB Smart Chain», que muchas veces también figura como «BSC» o «BEP20». Elegir la red equivocada es el error de principiante más frecuente. En ese caso el dinero no llega y casi siempre se pierde.</p>
+      <label><input type="checkbox" id="s6"> Listo</label></li>
+    <li class="step"><h3>7. Verificar que haya llegado</h3>
+      <p>A los pocos minutos el monto debería aparecer en tu billetera bajo BNB (BNB Smart Chain). Recién cuando lo veas ahí, seguí adelante. Con sumas más grandes, mandá siempre primero un monto chico de prueba.</p>
+      <label><input type="checkbox" id="s7"> Listo</label></li>
+  </ol>
+</section>
+
+<section id="teil3">
+  <span class="part">Parte 3</span>
+  <h2>Registrarte en Vow.id</h2>
+  <p>Ahora viene el paso principal. Abrí Vow.id por primera vez desde el enlace de invitación de la persona que te invitó. Después ya no se puede cambiar quién te recomendó.</p>
+  <ol class="steps">
+    <li class="step"><h3>8. Abrir el enlace de invitación y conectar la billetera</h3>
+      <p>Abrí el enlace en el navegador de tu celular y tocá "Create Vow.id" (crear Vow.id). Elegí tu billetera o "WalletConnect". El celular pasa a la app de billetera y te pregunta si permitís la conexión. Confirmá y volvé a la misma pestaña del navegador.</p>
+      <label><input type="checkbox" id="s8"> Listo</label></li>
+    <li class="step"><h3>9. Firmar el mensaje</h3>
+      <p>Revisá la línea que indica quién te recomendó y tocá "Sign message" (firmar mensaje). Tu billetera muestra un texto y te pide tu firma. Esta firma no cuesta nada y no mueve fondos. Solo prueba que la billetera es tuya.</p>
+      <label><input type="checkbox" id="s9"> Listo</label></li>
+    <li class="step"><h3>10. Unirte al árbol de afiliados</h3>
+      <p>Tocá "Join and open wallet" (unirse y abrir la billetera). Ahora viene tu primera transacción real: la billetera muestra la comisión de red en BNB. Confirmala una sola vez y esperá. No toques varias veces, aunque tarde un momento.</p>
+      <label><input type="checkbox" id="s10"> Listo</label></li>
+    <li class="step"><h3>11. Confirmar el correo y asegurar tu nombre</h3>
+      <p>Ingresá tu dirección de correo habitual y escribí el PIN de cuatro dígitos que te llega a la casilla. Después elegí tu handle, es decir, tu nombre en Vow.id. Pasa a ser nombre@vow.id y queda para siempre.</p>
+      <label><input type="checkbox" id="s11"> Listo</label></li>
+  </ol>
+  <p>Cómo sigue después está en la <a href="https://claude.ai/artifact/Upk3Ss3EjvSHM7x6WyFwnG" target="_blank" rel="noopener noreferrer">ayuda inicial de Vow.id</a>: primera compra, preguntas frecuentes y ayuda si algo se traba.</p>
+</section>
+
+<section id="teil4">
+  <span class="part">Parte 4</span>
+  <h2>Hacer que los tokens se vean en la billetera</h2>
+  <p>Tu billetera muestra por sí sola únicamente los tokens conocidos. VOW y los tokens de vale (v$, v€, v£ y otros) tenés que agregarlos una vez para que se vean. Agregar significa solamente «mostrar». Con eso no comprás nada y no recibís nada.</p>
+  <ol class="steps">
+    <li class="step"><h3>12. Agregar tokens desde Vow.id</h3>
+      <p>En Vow.id abrí la sección Member Rewards y ahí "Add tokens" (agregar tokens). Tocá el botón de agregar al lado del token que quieras y confirmá en tu billetera.</p>
+      <p>Cada token figura ahí con su red. Para empezar alcanzan estos tres, todos en la <b>BNB Smart Chain</b>:</p>
+      <ul>
+        <li>Vow Dollar (v$)</li>
+        <li>Vow Euro (v€)</li>
+        <li>Vow Pound (v£)</li>
+      </ul>
+      <p>Los mismos tres existen también en Ethereum. Solo en Ethereum existen Vow Kroner (vkr, Dinamarca), Vow Rupee (v₹), Vow Rand (vR) y el Vow Dollar australiano. A eso se suman USDT y USDC en ambas redes. El token VOW en sí no está en esa lista; su dirección la encontrás en la nota desplegable de abajo.</p>
+      <details><summary>A mí el botón de agregar no me hace nada</summary>
+        <div class="a">
+          <p>Vow.id mismo lo advierte: algunas billeteras móviles no admiten agregar tokens con el botón. En ese caso agregás el token a mano en tu billetera («Agregar token» o "Custom Token", red BNB Smart Chain) e ingresás la dirección del contrato.</p>
+          <p>Direcciones en la BNB Smart Chain, tomadas de vow.market, el marketplace del mismo operador (al 22 de noviembre de 2026):</p>
+          <ul class="addr">
+            <li>v$ <code>0x9C23942Ca2C35e06d1d20747F33705983A18d2AB</code></li>
+            <li>v€ <code>0x3745e245612f130B57589688060454A8ae43276C</code></li>
+            <li>v£ <code>0x6eA1734DF1627453DaA6834776CB0403ABC401b1</code></li>
+          </ul>
+          <p>El token VOW recién lo necesitás para ejercer MR aprobados. No está en la lista de Vow.id. Su dirección en la BNB Smart Chain, según indica el autor de esta guía:</p>
+          <ul class="addr">
+            <li>VOW <code>0xF585B5b4f22816BAf7629AEA55B701662630397b</code></li>
+          </ul>
+          <p>Antes de agregarlo, compará esta dirección con la que figura en un portal de cotizaciones como CoinGecko o CoinMarketCap.</p>
+          <p>Copiá la dirección, no la escribas a mano, y después compará los primeros y los últimos cuatro caracteres. Decimales: 18.</p>
+        </div>
+      </details>
+      <label><input type="checkbox" id="s12"> Listo</label></li>
+    <li class="step"><h3>13. Nunca tomar la dirección de un token de un chat</h3>
+      <p>Cualquiera puede crear un token con el nombre «VOW» o «v$». El auténtico es solo el que tiene la dirección de contrato correcta. Por eso, nunca tomes direcciones de WhatsApp, de Telegram ni de una página que te mande alguien. Si en tu billetera aparece un token que no conocés, dejalo ahí y no hagas clic en ningún enlace que traiga.</p>
+      <label><input type="checkbox" id="s13"> Entendido</label></li>
+  </ol>
+</section>
+
+<section id="teil5">
+  <span class="part">Parte 5</span>
+  <h2>Más adelante: cambiar euros por cripto</h2>
+  <p>Para registrarte y juntar rewards no necesitás nada más que ese poquito de BNB. Comprar cripto recién pasa a ser un tema cuando quieras pagar Premium con USDC o USDT, o canjear rewards aprobados con VOW.</p>
+  <ol class="steps">
+    <li class="step"><h3>14. Entender el principio antes de comprar</h3>
+      <ul>
+        <li><b>Comprar:</b> con la función de compra de tu billetera o con un servicio de compra pagás en euros y recibís, por ejemplo, USDT o USDC en tu dirección. Contá con una verificación de identidad y con comisiones.</li>
+        <li><b>Intercambiar:</b> VOW lo conseguís cambiando USDT, USDC o BNB por VOW en la BNB Smart Chain, a través de un exchange descentralizado como PancakeSwap. Cada intercambio cuesta comisión, y la cotización varía.</li>
+        <li><b>Aclarar el camino de vuelta:</b> antes de comprar, averiguá cómo volvés a euros y cuánto cuesta. No es igual de fácil con todos los servicios ni con todos los tokens.</li>
+        <li><b>Empezar de a poco:</b> hacé la primera compra con un monto cuya pérdida no te moleste. Los criptoactivos pueden caer con fuerza.</li>
+      </ul>
+      <p>Qué servicios usan los miembros para esto está en la ayuda inicial, en «¿De dónde saco VOW para canjear?».</p>
+      <label><input type="checkbox" id="s14"> Entendido</label></li>
+  </ol>
+</section>
+
+<section id="freigaben">
+  <h2>Entender las aprobaciones</h2>
+  <p>Tarde o temprano una app te va a pedir una «aprobación» (en inglés, "approval"). Es algo distinto de la firma gratuita del registro. Vow.id explica los términos así en su sección de seguridad:</p>
+  <ul>
+    <li><b>Aprobación de token:</b> le permitís a otra dirección o a un smart contract gastar una cantidad determinada de un token de tu billetera. Las apps de intercambio lo necesitan antes de poder operar por vos.</li>
+    <li><b>Aprobación ilimitada:</b> la app puede mover mucho más de lo necesario para esa operación puntual, muchas veces todo tu saldo de ese token, ahora y en el futuro. Muchas apps lo piden para ahorrarte una segunda transacción. Si tu billetera lo ofrece, mejor ingresá solo el monto que necesitás en ese momento.</li>
+    <li><b>Revocar:</b> una aprobación la podés quitar más adelante. Eso cuesta una pequeña comisión de red. La app simplemente te la vuelve a pedir la próxima vez que la uses.</li>
+  </ul>
+  <p>El escaneo de billetera de Vow.id (sección "Security", seguridad) te muestra tus aprobaciones vigentes. No encuentra todo: algunas firmas existen solo fuera de la blockchain y no aparecen en ningún escaneo. Revocar tampoco recupera lo que ya se fue. Es una pieza más, no una protección total.</p>
+</section>
+
+<section id="fehler">
+  <h2>Los errores de principiante más caros</h2>
+  <ul>
+    <li><b>Ingresar o fotografiar la frase semilla.</b> Cualquier página que la pida es una estafa, aunque parezca auténtica.</li>
+    <li><b>Elegir la red equivocada.</b> Para Vow.id, siempre BNB Smart Chain (BSC, BEP20).</li>
+    <li><b>Escribir la dirección a mano en vez de copiarla.</b> Un solo carácter equivocado y el dinero se pierde. Después de pegarla, compará los primeros y los últimos cuatro caracteres.</li>
+    <li><b>Confirmar una transacción sin leerla.</b> Una firma para registrarte es inofensiva. Una transacción o una «aprobación» (approval) puede mover fondos. Confirmá solo lo que entendés.</li>
+    <li><b>Responderle al «soporte» en los chats.</b> El soporte real no te escribe primero y nunca pide códigos ni palabras.</li>
+    <li><b>Tocar varias veces porque se cuelga.</b> Así se generan pagos duplicados. Primero verificá y después volvé a intentar.</li>
+  </ul>
+</section>
+
+<section id="begriffe">
+  <h2>Términos en una frase</h2>
+  <dl>
+    <dt>Billetera</dt><dd>La app con la que te identificás y administrás criptoactivos. En inglés, «wallet».</dd>
+    <dt>Frase semilla</dt><dd>12 palabras que restauran tu billetera en cualquier dispositivo. La llave maestra.</dd>
+    <dt>Dirección</dt><dd>El número público de tu billetera, empieza con 0x. Lo puede conocer cualquiera.</dd>
+    <dt>Red</dt><dd>La blockchain en la que está algo. Para Vow.id, la BNB Smart Chain.</dd>
+    <dt>BNB</dt><dd>La moneda con la que se pagan las comisiones en la BNB Smart Chain.</dd>
+    <dt>Gas</dt><dd>Otra palabra para la comisión de red de una transacción.</dd>
+    <dt>Token</dt><dd>Un valor en una blockchain, por ejemplo VOW, v$ o USDT.</dd>
+    <dt>Firma</dt><dd>Una firma gratuita que prueba que la billetera es tuya.</dd>
+    <dt>Aprobación</dt><dd>El permiso para que una app mueva tokens de tu billetera. En inglés, «approval».</dd>
+    <dt>Transacción</dt><dd>Una operación en la blockchain. Cuesta comisión y no se puede deshacer.</dd>
+    <dt>Stablecoin</dt><dd>Un token atado al dólar, como USDT o USDC.</dd>
+  </dl>
+</section>
+
+<footer>
+  <p>Esta página es una guía privada y no oficial, y no proviene de Vow.id, de N888 LIMITED ni de ningún proveedor de billeteras. No constituye asesoramiento de inversión.</p>
+  <p>Las apps y las pantallas cambian. Si un botón se llama distinto en tu caso, vale lo que muestren tu billetera y el propio vow.id. Vow.id está en fase beta.</p>
+  <p>Si te trabás en algún punto, escribile a la persona que te mandó esta página. Al hacerlo, nunca envíes tu frase semilla, tu PIN ni ningún código.</p>
+</footer>
+</div>
+
+<script>
+const boxes=[...document.querySelectorAll(".step input")],bar=document.getElementById("bar"),count=document.getElementById("count");
+function update(){const n=boxes.filter(b=>b.checked).length;bar.style.width=(100*n/boxes.length)+"%";
+  count.textContent=n===boxes.length?"Los "+n+" pasos completados. Te damos la bienvenida a Vow.id.":n+" de "+boxes.length+" pasos completados";
+  boxes.forEach(b=>b.closest(".step").classList.toggle("done",b.checked))}
+boxes.forEach(b=>{try{b.checked=localStorage.getItem("voweinst-"+b.id)==="1"}catch(e){}
+  b.addEventListener("change",()=>{try{localStorage.setItem("voweinst-"+b.id,b.checked?"1":"0")}catch(e){}update()})});
+update();
+</script>
