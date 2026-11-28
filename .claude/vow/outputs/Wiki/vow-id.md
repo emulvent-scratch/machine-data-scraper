@@ -350,3 +350,7 @@ Neu oder präziser gegenüber Ausgabe 11:
 | Argentinien | 8mnrKzWP6MknFT8V4MMZ4u | Y9SLosjzH2eKPsJrvABFfv | A6BYrGaJfk3u94CfXBrc2t |
 
 Alle Links unter https://claude.ai/artifact/<Kennung>. Die deutschen Seiten wurden am 26.11.2026 in einer anderen Sitzung neu gestaltet (violette Farben, Kopfbereich, Leiste „Einstieg · Starthilfe · Nachschlagen", neue Seite „Einstieg" QqHGNBteLMd75uNaDW3mys). Die Übersetzungen beruhen auf dem Inhalt vom 25.11. im älteren Aussehen. Katalog: Spanien gut abgedeckt, Argentinien ohne lokale Anbieter.
+
+### Zielgruppen der Sprachfassungen (Klarstellung des Nutzers, 28.11.2026)
+
+Die argentinische Fassung (es-ar, Voseo) richtet sich an die argentinische Community in Deutschland, nicht an Leser in Argentinien. Deshalb gelten dort die deutschen Anbieter, Banken und Euro-Angaben unverändert. Die zunächst eingefügten Hinweise „Importante para Argentina" und die Umstellung auf Dollar wurden wieder entfernt. Seit dem 28.11. haben alle Seiten das neue Aussehen, die Leiste Einstieg · Starthilfe · Nachschlagen und einen Sprachschalter (Deutsch, English, Español, Argentina); die frühere Einsteiger-Seite der Übersetzungen ist durch „Einstieg" ersetzt.
