@@ -191,11 +191,17 @@ footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padd
 .trail [aria-current]{background:var(--pop);color:var(--on-pop)}
 .trail a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 
-/* Sprachwechsel: vier Pillen unter der Seitenleiste im Kopf; die aktive Sprache ist hell hinterlegt. */
-.lang{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.78rem;font-weight:600}
-.lang>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:4px 12px;border-radius:99px;text-decoration:none;color:var(--hero-fg);border:1.5px solid rgb(255 255 255 / .38)}
-.lang [aria-current]{background:var(--hero-fg);color:var(--hero-a);border-color:transparent}
-.lang a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
+/* Sprachwechsel: ein Aufklappmenü im Kopf. Der Knopf zeigt Flagge und Namen der aktiven Sprache, das Menü die drei anderen. */
+.lang{position:relative;align-self:flex-start;background:none;border:0;border-radius:0;font-size:.86rem;font-weight:600}
+.lang>summary{list-style:none;display:inline-flex;justify-content:flex-start;align-items:center;gap:8px;min-height:40px;padding:4px 14px 4px 10px;border-radius:99px;cursor:pointer;color:var(--hero-fg);background:rgb(255 255 255 / .13);border:1.5px solid rgb(255 255 255 / .38)}
+.lang>summary::-webkit-details-marker{display:none}
+.lang>summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;border-radius:0;background:none;transform:rotate(45deg);margin:-4px 0 0 4px;flex:none}
+.lang[open]>summary::after{content:"";transform:rotate(225deg);margin-top:3px}
+.lang>summary:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
+.lang .fl{width:22px;height:15px;border-radius:3px;flex:none;box-shadow:0 0 0 1px rgb(0 0 0 / .18)}
+.lang-menu{position:absolute;left:0;top:calc(100% + 6px);z-index:8;min-width:220px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:6px;display:flex;flex-direction:column;gap:2px}
+.lang-menu a{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 10px;border-radius:10px;text-decoration:none;color:var(--fg);font-weight:600}
+.lang-menu a:hover,.lang-menu a:focus-visible{background:var(--accent-soft);outline:none}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
@@ -220,7 +226,7 @@ footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padd
 
 <div class="hero"><div class="in">
 <div class="trail" role="navigation" aria-label="The three pages"><span class="t1" aria-current="page"><i>1</i>Start here</span><a class="t2" href="https://claude.ai/artifact/CN88827jTmW1GysVr9ogFe" target="_blank" rel="noopener noreferrer"><i>2</i>Quick start</a><a class="t3" href="https://claude.ai/artifact/RSdA3DfE8LqBzssviBFAZP" target="_blank" rel="noopener noreferrer"><i>3</i>Look it up</a></div>
-<div class="lang" role="navigation" aria-label="Language"><a href="https://claude.ai/artifact/QqHGNBteLMd75uNaDW3mys" hreflang="de" lang="de" target="_blank" rel="noopener noreferrer">Deutsch</a><span aria-current="true" lang="en">English</span><a href="https://claude.ai/artifact/7CcjNomFvJ9kN2tKJFhSUL" hreflang="es" lang="es" target="_blank" rel="noopener noreferrer">Español</a><a href="https://claude.ai/artifact/A6BYrGaJfk3u94CfXBrc2t" hreflang="es-AR" lang="es-AR" target="_blank" rel="noopener noreferrer">Argentina</a></div>
+<details class="lang"><summary aria-label="Choose language"><svg class="fl" viewBox="0 0 22 15" aria-hidden="true"><path fill="#012169" d="M0 0h22v15H0z"/><path stroke="#fff" stroke-width="3" d="M0 0l22 15M22 0L0 15"/><path stroke="#C8102E" stroke-width="1.2" d="M0 0l22 15M22 0L0 15"/><path stroke="#fff" stroke-width="5" d="M11 0v15M0 7.5h22"/><path stroke="#C8102E" stroke-width="3" d="M11 0v15M0 7.5h22"/></svg><span lang="en">English</span></summary><div class="lang-menu"><a href="https://claude.ai/artifact/QqHGNBteLMd75uNaDW3mys" hreflang="de" lang="de" target="_blank" rel="noopener noreferrer"><svg class="fl" viewBox="0 0 22 15" aria-hidden="true"><path fill="#000" d="M0 0h22v5H0z"/><path fill="#D00" d="M0 5h22v5H0z"/><path fill="#FFCE00" d="M0 10h22v5H0z"/></svg>Deutsch</a><a href="https://claude.ai/artifact/7CcjNomFvJ9kN2tKJFhSUL" hreflang="es" lang="es" target="_blank" rel="noopener noreferrer"><svg class="fl" viewBox="0 0 22 15" aria-hidden="true"><path fill="#AA151B" d="M0 0h22v15H0z"/><path fill="#F1BF00" d="M0 3.75h22v7.5H0z"/></svg>Español (España)</a><a href="https://claude.ai/artifact/A6BYrGaJfk3u94CfXBrc2t" hreflang="es-AR" lang="es-AR" target="_blank" rel="noopener noreferrer"><svg class="fl" viewBox="0 0 22 15" aria-hidden="true"><path fill="#74ACDF" d="M0 0h22v15H0z"/><path fill="#fff" d="M0 5h22v5H0z"/><circle cx="11" cy="7.5" r="1.6" fill="#F6B40E"/></svg>Español (Argentina)</a></div></details>
   <span class="eyebrow">Unofficial introduction · as of 25 November 2026</span>
   <h1>Vow.id for <em>beginners</em></h1>
   <p>In five minutes you will know what it is about, what it costs and whether it suits you.</p>
@@ -408,6 +414,9 @@ footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padd
 </script>
 <script>
 (function(){
+  var box=document.querySelector("details.lang"); if(!box) return;
+  document.addEventListener("click",function(e){ if(!box.contains(e.target)) box.open=false; });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") box.open=false; });
   var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()), r=m?m[1]:"";
   try{ if(!r) r=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
   if(!/^[a-z0-9-]{3,30}$/.test(r)) return;
