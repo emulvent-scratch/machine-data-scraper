@@ -5,16 +5,26 @@
 <style>
 /* Layout: one narrow column for phones; a short contents row, then six numbered parts of tickable steps, then the searchable questions, fixes, and reference sections. */
 :root{
-  --bg:#F2F5F4; --surface:#FFFFFF; --fg:#13222A; --muted:#55666E; --line:#D5DEDC;
-  --accent:#0A6B6B; --accent-soft:#DDEEEC; --warn:#9A5B00; --warn-soft:#FBEFD9; --ok:#1B7A4B; --bad:#A3302B;
-  --display:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#F4F5F9;--surface:#FFFFFF;--fg:#151A2B;--muted:#5A6177;--line:#DCDFEA;
+  --accent:#6036FE;--accent-soft:#E9EBFE;--on-accent:#FFFFFF;
+  --warn:#8F5200;--warn-soft:#FCEFD6;--ok:#17754A;--ok-soft:#E1F3E9;--bad:#A3302B;--bad-soft:#FBE7E5;
+  --hero-a:#220E67;--hero-b:#5525E8;--hero-fg:#F6F7FD;--hero-muted:#D8DBFD;--pop:#F5B942;--on-pop:#2A1C00;
+  --s1:#0361A1;--s2:#133EEC;--s3:#5525E8;
+  --shadow:0 8px 26px rgb(20 25 60 / .10);
+  --display:"Space Grotesk","Inter",system-ui,sans-serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
-  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; --bad:#F08A84; color-scheme:dark } }
+  --bg:#0F121B;--surface:#181C29;--fg:#E6E8F0;--muted:#A0A6BA;--line:#2B3144;
+  --accent:#A4A7FE;--accent-soft:#262451;--on-accent:#0E0C2B;
+  --warn:#F0B55A;--warn-soft:#33290F;--ok:#62CC95;--ok-soft:#143024;--bad:#F08A84;--bad-soft:#3A1B1A;
+  --hero-a:#170A4B;--hero-b:#4024AD;--hero-fg:#F6F7FD;--hero-muted:#CACDF8;--pop:#F5B942;--on-pop:#2A1C00;
+  --shadow:0 8px 26px rgb(0 0 0 / .35);color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
-  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; --bad:#F08A84; color-scheme:dark }
+  --bg:#0F121B;--surface:#181C29;--fg:#E6E8F0;--muted:#A0A6BA;--line:#2B3144;
+  --accent:#A4A7FE;--accent-soft:#262451;--on-accent:#0E0C2B;
+  --warn:#F0B55A;--warn-soft:#33290F;--ok:#62CC95;--ok-soft:#143024;--bad:#F08A84;--bad-soft:#3A1B1A;
+  --hero-a:#170A4B;--hero-b:#4024AD;--hero-fg:#F6F7FD;--hero-muted:#CACDF8;--pop:#F5B942;--on-pop:#2A1C00;
+  --shadow:0 8px 26px rgb(0 0 0 / .35);color-scheme:dark }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
@@ -125,6 +135,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .results .chips{padding:0 10px 8px}
 .hit{outline:3px solid var(--accent);outline-offset:3px}
 section,.step,details,dt{scroll-margin-top:104px}
+
+/* Farben wie Einstieg und Starthilfe: dunkler Kopf mit Verlauf, gelber Akzent, getönte Ja/Nein-Kästen. */
+header{background:linear-gradient(150deg,var(--hero-a),var(--hero-b));color:var(--hero-fg);border-radius:22px;padding:26px 20px;box-shadow:var(--shadow)}
+header .eyebrow,header .lead{color:var(--hero-muted)}
+header .need div{border-top-color:var(--pop);color:var(--hero-muted)}
+header .need b{color:var(--hero-fg)}
+header .note{background:rgb(255 255 255 / .1);color:var(--hero-fg)}
+header .note b{color:var(--pop)}
+.fact{border-top-color:var(--pop)}
+.part{align-self:flex-start;background:var(--accent-soft);border-radius:99px;padding:3px 12px}
+.yes{background:var(--ok-soft)!important;border-color:transparent!important}
+.no{background:var(--bad-soft)!important;border-color:transparent!important}
+.step.done{background:var(--ok-soft)}
+.invite{background:var(--pop)}
+.invite a{color:var(--on-pop)}
+.results{box-shadow:var(--shadow)}
+@media (min-width:760px){header{padding:34px 30px}}
+.trail{display:flex;flex-wrap:wrap;gap:6px;font-size:.8rem;font-weight:600}
+.trail>*{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 5px;border-radius:99px;text-decoration:none;color:var(--hero-fg);background:rgb(255 255 255 / .13);min-height:40px}
+.trail i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.78rem;border:1.5px solid rgb(255 255 255 / .75)}
+.trail .t1 i{background:var(--s1)}.trail .t2 i{background:var(--s2)}.trail .t3 i{background:var(--s3)}
+.trail [aria-current]{background:var(--pop);color:var(--on-pop)}
+.trail a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
+
+
+/* Sprachwechsel: vier Pillen unter der Seitenleiste im Kopf; die aktive Sprache ist hell hinterlegt. */
+.lang{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.78rem;font-weight:600}
+.lang>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:4px 12px;border-radius:99px;text-decoration:none;color:var(--hero-fg);border:1.5px solid rgb(255 255 255 / .38)}
+.lang [aria-current]{background:var(--hero-fg);color:var(--hero-a);border-color:transparent}
+.lang a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 </style>
 
 <div class="wrap">
@@ -144,6 +184,8 @@ section,.step,details,dt{scroll-margin-top:104px}
   </div>
 </div>
 <header>
+<div class="trail" role="navigation" aria-label="Las tres páginas"><a class="t1" href="https://claude.ai/artifact/7CcjNomFvJ9kN2tKJFhSUL" target="_blank" rel="noopener noreferrer"><i>1</i>Primeros pasos</a><a class="t2" href="https://claude.ai/artifact/F23tqcC5xGtnRF9g2M9P8m" target="_blank" rel="noopener noreferrer"><i>2</i>Guía de inicio</a><span class="t3" aria-current="page"><i>3</i>Consulta</span></div>
+<div class="lang" role="navigation" aria-label="Idioma"><a href="https://claude.ai/artifact/BDGWXE8qv2UzgfrJs84TTp" hreflang="de" lang="de" target="_blank" rel="noopener noreferrer">Deutsch</a><a href="https://claude.ai/artifact/RSdA3DfE8LqBzssviBFAZP" hreflang="en" lang="en" target="_blank" rel="noopener noreferrer">English</a><span aria-current="true" lang="es">Español</span><a href="https://claude.ai/artifact/8mnrKzWP6MknFT8V4MMZ4u" hreflang="es-AR" lang="es-AR" target="_blank" rel="noopener noreferrer">Argentina</a></div>
   <span class="eyebrow">Guía no oficial · A 28 de noviembre de 2026</span>
   <h1>De cero a tu Vow.id</h1>
   <p class="lead">Todo en una sola página, aunque nunca hayas tenido nada que ver con las criptomonedas: configurar y proteger tu wallet, registrarte en Vow.id y registrar tu primera compra. Debajo están las respuestas a las preguntas que hace casi todo el mundo y ayuda para cuando algo se atasca.</p>
@@ -640,4 +682,12 @@ if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.f
 
 function toHash(){const id=location.hash.slice(1);const t=id&&document.getElementById(id);if(t)t.scrollIntoView()}
 window.addEventListener("hashchange",toHash);setTimeout(toHash,300);
+</script>
+<script>
+(function(){
+  var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()), r=m?m[1]:"";
+  try{ if(!r) r=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
+  if(!/^[a-z0-9-]{3,30}$/.test(r)) return;
+  [].forEach.call(document.querySelectorAll(".lang a"),function(a){ a.href=a.href.split("#")[0]+"#ref-"+r; });
+})();
 </script>

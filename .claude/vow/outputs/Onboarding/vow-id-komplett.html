@@ -158,6 +158,12 @@ header .note b{color:var(--pop)}
 .trail .t1 i{background:var(--s1)}.trail .t2 i{background:var(--s2)}.trail .t3 i{background:var(--s3)}
 .trail [aria-current]{background:var(--pop);color:var(--on-pop)}
 .trail a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
+
+/* Sprachwechsel: vier Pillen unter der Seitenleiste im Kopf; die aktive Sprache ist hell hinterlegt. */
+.lang{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.78rem;font-weight:600}
+.lang>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:4px 12px;border-radius:99px;text-decoration:none;color:var(--hero-fg);border:1.5px solid rgb(255 255 255 / .38)}
+.lang [aria-current]{background:var(--hero-fg);color:var(--hero-a);border-color:transparent}
+.lang a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 </style>
 
 <div class="wrap">
@@ -178,6 +184,7 @@ header .note b{color:var(--pop)}
 </div>
 <header>
 <div class="trail" role="navigation" aria-label="Die drei Seiten"><a class="t1" href="https://claude.ai/artifact/QqHGNBteLMd75uNaDW3mys" target="_blank" rel="noopener noreferrer"><i>1</i>Einstieg</a><a class="t2" href="https://claude.ai/artifact/Upk3Ss3EjvSHM7x6WyFwnG" target="_blank" rel="noopener noreferrer"><i>2</i>Starthilfe</a><span class="t3" aria-current="page"><i>3</i>Nachschlagen</span></div>
+<div class="lang" role="navigation" aria-label="Sprache"><span aria-current="true" lang="de">Deutsch</span><a href="https://claude.ai/artifact/RSdA3DfE8LqBzssviBFAZP" hreflang="en" lang="en" target="_blank" rel="noopener noreferrer">English</a><a href="https://claude.ai/artifact/3Frx3eLGf4YFnFCwjv36Wo" hreflang="es" lang="es" target="_blank" rel="noopener noreferrer">Español</a><a href="https://claude.ai/artifact/8mnrKzWP6MknFT8V4MMZ4u" hreflang="es-AR" lang="es-AR" target="_blank" rel="noopener noreferrer">Argentina</a></div>
   <span class="eyebrow">Inoffizielle Anleitung · Stand 28. November 2026</span>
   <h1>Von null zu deiner Vow.id</h1>
   <p class="lead">Alles auf einer Seite, auch wenn du noch nie mit Krypto zu tun hattest: Wallet einrichten und absichern, bei Vow.id registrieren, den ersten Einkauf erfassen. Darunter stehen die Antworten auf die Fragen, die fast jeder stellt, und Hilfe, wenn etwas hakt.</p>
@@ -674,4 +681,12 @@ if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.f
 
 function toHash(){const id=location.hash.slice(1);const t=id&&document.getElementById(id);if(t)t.scrollIntoView()}
 window.addEventListener("hashchange",toHash);setTimeout(toHash,300);
+</script>
+<script>
+(function(){
+  var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()), r=m?m[1]:"";
+  try{ if(!r) r=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
+  if(!/^[a-z0-9-]{3,30}$/.test(r)) return;
+  [].forEach.call(document.querySelectorAll(".lang a"),function(a){ a.href=a.href.split("#")[0]+"#ref-"+r; });
+})();
 </script>
