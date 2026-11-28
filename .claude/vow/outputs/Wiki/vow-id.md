@@ -321,3 +321,32 @@ Deutschland, zusätzlich zu den bereits notierten Anbietern: Tankstellen (Aral, 
 - Begründung für die Prüfung durch drei Personen: Schutz vor Betrug, etwa automatisch erzeugte gefälschte Rechnungs-Mails, mit denen MR erschlichen werden könnten. Passt zu den Best Practices für Belege (authentifizierte Händlerbelege, echte Absenderadresse).
 - Behauptung „MR entstehen sofort auf der Blockchain, wenn die Rechnung eingeht": nicht belegt. Laut App sind ausstehende MR nur Vorschläge und keine genehmigten Ansprüche.
 - Nicht übernehmen: „für immer stabiles Punktesystem". Vow.id sichert keinen Wert und keine Stabilität zu.
+
+## Offizieller Leitfaden, Ausgabe 13 vom 26.11.2026 (PDF en/es/de unter vow.id/downloads/vow-id-new-user-overview-<sprache>.pdf?edition=13)
+
+Neu oder präziser gegenüber Ausgabe 11:
+
+- Weiterleitung je Händler: Jeder Händler muss unter „Discover" einzeln freigegeben werden (grün/rot). Checkliste reicht nicht. Mails nicht freigegebener Händler werden bis zu 30 Tage verschlüsselt zurückgehalten; danach Zustellung erneut anstoßen.
+- Fehlender Beleg: private Foto-Einreichung mit Auswahl des Dienstes; Foto ist Prüfmaterial, keine automatische Gutschrift.
+- Reihenfolge der geführten Schritte: Handle sichern, E-Mail bestätigen, dann Token hinzufügen → Checkliste → Amazon → Premium → Bank → Wallet Security. „Add tokens" listet v$, v£, v€, USDT, USDC.
+- Discover: Free startet mit „Email Receipts", Premium mit „Bank Matching". Wo die Bankverknüpfung verfügbar ist, braucht Premium keine E-Mail-Belege. Wo sie nicht aktiv ist, sammelt Premium zum Premium-Satz über E-Mail-Belege.
+- Premium-Aufklärung: zehn Punkte. Bestehende Premium-Mitglieder müssen bestätigen oder eine Erstattung bestätigen; dann sofort Free, Erstattung innerhalb von 48 Stunden über den ursprünglichen Zahlungsweg.
+- Premium: 99 $/Jahr, Einführung 49 $; kein Monatsplan; Karte verlängert jährlich automatisch, Wallet-Zahlung gilt 12 Monate ohne Verlängerung.
+- Bank: Member Rewards → MR → „Bank Feed", „Add a bank account", sechsstelliger Code per E-Mail, „Sync now". Bank-MR beruhen auf sicherer Händlererkennung und passender Händler-Website; der Buchungstext allein reicht nicht. Umrechnung in USD zum Kurs des Kauftags; Obergrenze 500 MR je Kauf.
+- Bewertung beim Ausüben: Chainlink-Kurs (bestätigt). Vorhandener v$-Bestand wird vor Neuausgabe verwendet; 20 % des VOW-Beitrags verbrannt, 80 % an die Kasse des Vertrags.
+- Anzeige „Awaiting contract": Prüfung und Ausüben sind dann noch nicht aktiv.
+- Anfechtung: Drei gültige Anfechtungen lehnen ab; jeder Anfechter hinterlegt VOW im Wert von 10 $; vier autorisierte Proposer mit je 500 $ Sicherheit; Prüfer erhalten bei Genehmigung je 0,33 MR aus dem Budget des Einkaufs.
+- Affiliate: Drei verschiedene qualifizierte direkte Kunden ergeben den Status „Qualified Affiliate". VV 500 bis unter 10.000 $, QVV genau 10.000 $, 1.000 Tage, jede Aufstockung setzt die Frist neu.
+- Sicherheits-Scan: Ethereum und BNB Smart Chain standardmäßig; Polygon, Arbitrum, Base, Optimism optional; Solana nur lesend mit eigener Adresse.
+- Wortlaut: „Community Funded means community-enabled protocol issuance, not Vow.id financing or a brand partnership." und „MR is part of an economic experiment, has no cash value and promises no financial return."
+
+## Seiten und Sprachfassungen (Stand 28.11.2026)
+
+| Sprache | Komplettanleitung | Starthilfe | Einsteiger |
+|---|---|---|---|
+| Deutsch | BDGWXE8qv2UzgfrJs84TTp | Upk3Ss3EjvSHM7x6WyFwnG | KrS1QpEdEb2iAHCYGBk8j4 |
+| Englisch | RSdA3DfE8LqBzssviBFAZP | CN88827jTmW1GysVr9ogFe | 1NZqtgDHmtuCXQsowcvkBb |
+| Spanisch | 3Frx3eLGf4YFnFCwjv36Wo | F23tqcC5xGtnRF9g2M9P8m | 7CcjNomFvJ9kN2tKJFhSUL |
+| Argentinien | 8mnrKzWP6MknFT8V4MMZ4u | Y9SLosjzH2eKPsJrvABFfv | A6BYrGaJfk3u94CfXBrc2t |
+
+Alle Links unter https://claude.ai/artifact/<Kennung>. Die deutschen Seiten wurden am 26.11.2026 in einer anderen Sitzung neu gestaltet (violette Farben, Kopfbereich, Leiste „Einstieg · Starthilfe · Nachschlagen", neue Seite „Einstieg" QqHGNBteLMd75uNaDW3mys). Die Übersetzungen beruhen auf dem Inhalt vom 25.11. im älteren Aussehen. Katalog: Spanien gut abgedeckt, Argentinien ohne lokale Anbieter.
