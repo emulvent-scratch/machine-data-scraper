@@ -1,213 +1,382 @@
 <title>Guía de inicio Vow.id</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-/* Layout: one narrow reading column for phones; a question box on top, then current status, start checklist, numbered registration route, searchable FAQ, fixes, glossary, risks. */
+/* Layout: a dark teal hero band with the promise and three key numbers; a white "how it works" card overlaps its lower edge. Below, one phone-width column of visual blocks: icon tiles, green/amber status pair, a numbered timeline, and collapsed reference folds. Long text only opens on tap. */
 :root{
-  --bg:#F2F5F4; --surface:#FFFFFF; --fg:#13222A; --muted:#55666E; --line:#D5DEDC;
-  --accent:#0A6B6B; --accent-soft:#DDEEEC; --warn:#9A5B00; --warn-soft:#FBEFD9; --ok:#1B7A4B;
-  --display:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#F4F5F9;--surface:#FFFFFF;--fg:#151A2B;--muted:#5A6177;--line:#DCDFEA;
+  --accent:#133FFD;--accent-soft:#E4EDFF;--on-accent:#FFFFFF;
+  --warn:#8F5200;--warn-soft:#FCEFD6;--ok:#17754A;--ok-soft:#E1F3E9;--bad:#A3302B;--bad-soft:#FBE7E5;
+  --hero-a:#051969;--hero-b:#133EEC;--hero-fg:#F6F7FD;--hero-muted:#CFDEFE;--pop:#F5B942;--on-pop:#2A1C00;
+  --s1:#0361A1;--s2:#133EEC;--s3:#5525E8;
+  --shadow:0 8px 26px rgb(20 25 60 / .10);
+  --display:"Space Grotesk","Inter",system-ui,sans-serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
-  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark } }
+  --bg:#0F121B;--surface:#181C29;--fg:#E6E8F0;--muted:#A0A6BA;--line:#2B3144;
+  --accent:#8CAFFE;--accent-soft:#172953;--on-accent:#050F2C;
+  --warn:#F0B55A;--warn-soft:#33290F;--ok:#62CC95;--ok-soft:#143024;--bad:#F08A84;--bad-soft:#3A1B1A;
+  --hero-a:#03114C;--hero-b:#1034B1;--hero-fg:#F6F7FD;--hero-muted:#BED1F9;--pop:#F5B942;--on-pop:#2A1C00;
+  --shadow:0 8px 26px rgb(0 0 0 / .35);color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
-  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark }
+  --bg:#0F121B;--surface:#181C29;--fg:#E6E8F0;--muted:#A0A6BA;--line:#2B3144;
+  --accent:#8CAFFE;--accent-soft:#172953;--on-accent:#050F2C;
+  --warn:#F0B55A;--warn-soft:#33290F;--ok:#62CC95;--ok-soft:#143024;--bad:#F08A84;--bad-soft:#3A1B1A;
+  --hero-a:#03114C;--hero-b:#1034B1;--hero-fg:#F6F7FD;--hero-muted:#BED1F9;--pop:#F5B942;--on-pop:#2A1C00;
+  --shadow:0 8px 26px rgb(0 0 0 / .35);color-scheme:dark }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
-.wrap{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:700;letter-spacing:-.01em}
-h2{font-size:1.4rem;font-weight:600}
-h3{font-size:1.02rem;font-weight:600}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero-a)}
+.in{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:1.55rem;font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.04rem;font-weight:600}
 p{margin:0}
 a{color:var(--accent)}
-.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.lead{font-size:1.06rem;color:var(--muted)}
-header{display:flex;flex-direction:column;gap:12px}
-section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
-section ul{margin:0;padding-left:20px}
-.ask{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.ask label{font-family:var(--display);font-weight:600}
-.ask input{width:100%;font:inherit;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg)}
-.ask input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.ask small{color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips button{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
-.chips button:hover{border-color:var(--accent);color:var(--accent)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.fact{border-top:2px solid var(--accent);padding-top:8px}
-.fact b{display:block;font-family:var(--display);font-size:1.15rem}
-.fact span{font-size:.88rem;color:var(--muted)}
-.note{background:var(--warn-soft);color:var(--fg);border-radius:10px;padding:12px 14px;font-size:.94rem}
-.note b{color:var(--warn)}
-.status{background:var(--accent-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
-.status b{color:var(--accent)}
-.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.check label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
-.check input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
-.check span{min-width:0}
-.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:0}
-.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
-.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;color:var(--accent);background:var(--accent-soft);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
-.steps div{min-width:0;display:flex;flex-direction:column;gap:4px}
-.steps .cp{font-size:.86rem;color:var(--ok);font-weight:500}
-.cat{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:10px}
-details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
-summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+ul,ol{margin:0}
+.i{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.hero{background:linear-gradient(150deg,var(--hero-a),var(--hero-b));color:var(--hero-fg);padding-block:34px 72px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;border:40px solid rgb(255 255 255 / .06)}
+.hero::before{width:260px;height:260px;right:-90px;top:-90px}
+.hero::after{width:150px;height:150px;right:60px;bottom:-95px;border-width:26px}
+.hero .in{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--hero-muted)}
+h1{font-size:clamp(2.05rem,9vw,3.1rem);font-weight:700;letter-spacing:-.02em;line-height:1.06}
+h1 em{font-style:normal;color:var(--pop)}
+.hero p{color:var(--hero-muted);font-size:1.08rem;max-width:36ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.pill{display:inline-flex;gap:6px;align-items:center;background:rgb(255 255 255 / .13);border-radius:99px;padding:7px 13px;font-size:.88rem;font-weight:500}
+.pill b{color:var(--pop);font-weight:700}
+
+main{display:flex;flex-direction:column;gap:44px;padding-bottom:56px}
+section{display:flex;flex-direction:column;gap:16px;scroll-margin-top:104px}
+.kick{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:-10px}
+.sub{color:var(--muted)}
+
+.flow{margin-top:-46px;position:relative;z-index:2;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px 10px 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.flow>div{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;padding-inline:4px}
+.flow>div+div::before{content:"";position:absolute;left:-9px;top:20px;width:12px;height:12px;border-top:2.5px solid var(--accent);border-right:2.5px solid var(--accent);transform:rotate(45deg);opacity:.55}
+.ic{width:52px;height:52px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.ic .i{width:26px;height:26px}
+.flow b{font-family:var(--display);font-size:.95rem;line-height:1.2}
+.flow span{font-size:.8rem;color:var(--muted);line-height:1.3}
+.cap{font-size:.9rem;color:var(--muted);text-align:center;margin-top:-4px}
+.cap b{color:var(--fg)}
+
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.tile .i{color:var(--accent);margin-bottom:4px}
+.tile b{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.tile span{font-size:.86rem;color:var(--muted);line-height:1.35}
+@media (min-width:640px){.tiles.four{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.box{border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box .hd{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:1.05rem}
+.box ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
+.box.ok{background:var(--ok-soft)} .box.ok .hd{color:var(--ok)}
+.box.wait{background:var(--warn-soft)} .box.wait .hd{color:var(--warn)}
+.box.no{background:var(--bad-soft)} .box.no .hd{color:var(--bad)}
+.box.plain{background:var(--surface);border:1px solid var(--line)}
+
+.guard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;background:var(--surface);border:2px solid var(--pop);border-radius:16px;padding:16px}
+.guard .ic{background:var(--pop);color:var(--on-pop)}
+.guard b{font-family:var(--display);font-size:1.08rem;display:block;margin-bottom:4px}
+.guard p{font-size:.94rem}
+
+.progress{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:8px 14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.bar{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .25s}
+.progress span{font-size:.84rem;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.tl{list-style:none;padding:0;display:flex;flex-direction:column;counter-reset:s}
+.tl>li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;position:relative;padding-bottom:16px}
+.tl>li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-family:var(--display);font-weight:700;font-size:1.05rem;display:grid;place-items:center;position:relative;z-index:1}
+.tl>li::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.tl>li:last-child{padding-bottom:0}.tl>li:last-child::after{display:none}
+.tl>li.done::before{content:"✓";background:var(--ok)}
+.tl .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tl .top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 10px}
+.time{font-size:.78rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.tl p{font-size:.95rem}
+.cp{display:flex;gap:6px;align-items:flex-start;font-size:.86rem;font-weight:500;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:7px 10px}
+.cp .i{width:16px;height:16px;margin-top:2px;stroke-width:2.4}
+.tick{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:1.5px solid var(--line);border-radius:99px;padding:8px 14px;font-weight:600;font-size:.9rem;cursor:pointer;min-height:44px}
+.tick input,.check input{width:20px;height:20px;accent-color:var(--accent);flex:none;margin:0}
+.done .tick{border-color:var(--ok);color:var(--ok)}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.mini .box{padding:12px;font-size:.9rem;gap:4px}.mini .hd{font-size:.95rem}
+.warnline{background:var(--warn-soft);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.warnline b{color:var(--warn)}
+
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;padding:13px 14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent);font-family:var(--display);font-weight:700;flex:none}
-details[open] summary::after{content:"–"}
-details .a{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px;color:var(--fg)}
-details .a ul{margin:0;padding-left:20px}
-#faqlist,#fixlist{display:flex;flex-direction:column;gap:8px}
-#hits{font-size:.9rem;color:var(--muted)}
+summary::after{content:"+";color:var(--accent);font-family:var(--display);font-weight:700;font-size:1.2rem;flex:none}
+details[open]>summary::after{content:"–"}
+details .a{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+details .a ul,details .a ol{padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.more{background:none;border:0;border-top:1px dashed var(--line);border-radius:0}
+.more>summary{padding:8px 0 0;font-size:.88rem;color:var(--accent);min-height:36px;justify-content:flex-start}
+.more>summary::after{margin-left:2px}
+.more .a{padding:8px 0 0}
+#faqlist,#fixlist{display:flex;flex-direction:column;gap:10px}
+.group>summary,.fold>summary{padding:16px}
+.group>summary::after,.fold>summary::after{width:30px;height:30px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center}
+.gname{font-family:var(--display);font-size:1.08rem;font-weight:600;flex:1;min-width:0}
+.gcount{font-size:.78rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.glist{padding:0 10px 10px;display:flex;flex-direction:column;gap:8px}
+.glist details,.fold details{background:var(--bg);border-color:transparent}
+.fold>summary h2{font-size:1.12rem;flex:1}
+.fold>.body{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px;font-size:.95rem}
+.fold>.body>ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
 dl{margin:0;display:grid;grid-template-columns:minmax(90px,max-content) 1fr;gap:8px 16px}
 dt{font-family:var(--display);font-weight:600}
 dd{margin:0;min-width:0;color:var(--muted)}
-footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
 @media (max-width:420px){ dl{grid-template-columns:1fr;gap:2px 0} dd{margin-bottom:8px} }
+.hit{outline:3px solid var(--accent);outline-offset:3px}
 
-/* Search: a large field that stays at the top while reading; results open as a panel below it and jump to the matching step, question, term or section. */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;order:-2;background:var(--bg);padding-block:10px;margin-block:-10px}
+.cta{background:linear-gradient(150deg,var(--hero-a),var(--hero-b));color:var(--hero-fg);border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:12px}
+.cta p{color:var(--hero-muted)}
+.cta a:not(.btn){color:var(--pop)}
+.btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;padding:13px 20px;border-radius:99px;background:var(--pop);color:var(--on-pop);min-height:48px}
+.risk{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.risk li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start}
+.risk .i{width:18px;height:18px;color:var(--warn);margin-top:2px}
+footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+
+/* Starthilfe: sticky search, wallet switch, checklist */
+.searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;margin-block:-14px -24px}
 .field{position:relative}
-.field svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
-.field input{width:100%;font:inherit;font-size:1.1rem;padding:16px 18px 16px 50px;border-radius:14px;border:2px solid var(--accent);background:var(--surface);color:var(--fg)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.field>svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.field input{width:100%;font:inherit;font-size:1.02rem;padding:14px 16px 14px 48px;border-radius:99px;border:2px solid var(--accent);background:var(--surface);color:var(--fg)}
 .results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgb(0 0 0 / .2);max-height:min(62vh,540px);overflow:auto;padding:8px;display:flex;flex-direction:column;gap:2px}
 .res{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:2px 10px;text-align:left;font:inherit;background:none;border:0;border-radius:10px;padding:10px;color:var(--fg);cursor:pointer}
 .res:hover,.res:focus-visible{background:var(--accent-soft)}
 .typ{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:4px}
-.res b{font-weight:600}
 .res small{grid-column:2;color:var(--muted);font-size:.86rem}
 .results p{padding:8px 10px;color:var(--muted);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .results .chips{padding:0 10px 8px}
-.hit{outline:3px solid var(--accent);outline-offset:3px}
-section,.steps li,details,dt{scroll-margin-top:104px}
+.chips button{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.choice{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.choice h2{font-size:1.3rem}
+.yn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.yn button{font:inherit;font-weight:700;padding:14px 10px;border-radius:14px;border:2px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:48px}
+.yn button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.panel{background:var(--accent-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:.95rem}
+.panel ol{padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.check{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.check label{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:48px}
+.check span{min-width:0;font-size:.95rem}
+.check label:has(input:checked){border-color:var(--ok);background:var(--ok-soft)}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+@media (min-width:760px){ body{font-size:17px} .hero{padding-block:52px 88px} main{gap:52px} }
+.refbox{display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:12px}
+.refbox .btn{align-self:flex-start}
+.refbox small,.aff small{font-size:.84rem;color:var(--muted)}
+.aff{display:flex;flex-direction:column;gap:12px}
+.aff .frow{display:flex;flex-wrap:wrap;gap:10px}
+.aff .frow>div{flex:1 1 180px;min-width:0}
+.aff label{display:block;font-size:.84rem;font-weight:600;margin-bottom:4px}
+.aff input{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;min-height:46px}
+.aff input:focus-visible,.aff button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.aff .out{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.aff .lk{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.aff .lk code{flex:1 1 220px;min-width:0;overflow-wrap:anywhere;font-size:.84rem}
+.aff button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:99px;padding:8px 14px;min-height:44px;cursor:pointer}
+.aff .err{color:var(--bad);font-size:.88rem;font-weight:600}
+.trail{display:flex;flex-wrap:wrap;gap:6px;font-size:.8rem;font-weight:600}
+.trail>*{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 5px;border-radius:99px;text-decoration:none;color:var(--hero-fg);background:rgb(255 255 255 / .13);min-height:40px}
+.trail i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.78rem;border:1.5px solid rgb(255 255 255 / .75)}
+.trail .t1 i{background:var(--s1)}.trail .t2 i{background:var(--s2)}.trail .t3 i{background:var(--s3)}
+.trail [aria-current]{background:var(--pop);color:var(--on-pop)}
+.trail a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 
-/* Wallet switch: two large buttons; the chosen one opens a panel with the next steps. Nothing is hidden for readers who skip it. */
-.choice{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
-.choice .lead{font-size:1rem}
-.yn{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.yn button{font:inherit;font-weight:600;padding:14px 16px;border-radius:12px;border:2px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;text-align:center}
-.yn button:hover{background:var(--accent-soft)}
-.yn button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
-.panel{background:var(--accent-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
-.panel ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+/* Sprachwechsel: vier Pillen unter der Seitenleiste im Kopf; die aktive Sprache ist hell hinterlegt. */
+.lang{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.78rem;font-weight:600}
+.lang>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:4px 12px;border-radius:99px;text-decoration:none;color:var(--hero-fg);border:1.5px solid rgb(255 255 255 / .38)}
+.lang [aria-current]{background:var(--hero-fg);color:var(--hero-a);border-color:transparent}
+.lang a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 </style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.9-5.2 2.9 1-5.9-4.3-4.1 5.9-.8z"/></symbol>
+<symbol id="ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6.5v11" stroke-dasharray="2 2.6"/></symbol>
+<symbol id="wallet" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H17v3"/><path d="M3 7.5V17a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H5.5A2.5 2.5 0 0 1 3 7.5z"/><circle cx="16.5" cy="13.5" r="1"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8-7.5 9.5-4.3-1.500-7.5-5-7.5-9.5V6z"/><path d="M9 12l2.200 2.200L15 10.500"/></symbol>
+<symbol id="coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.800 9.300A3.300 3.300 0 1 0 14.800 14.700M8 11h4.500M8 13h4.500"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="15.500" r="4"/><path d="M11 12.500l8.500-8.500M16.500 7l2.500 2.500M14 9.500l1.500 1.500"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8.500" r="3.500"/><path d="M5 20c.800-3.500 3.500-5.500 7-5.500s6.200 2 7 5.500"/></symbol>
+<symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.500"/><path d="M9.700 9.500a2.400 2.400 0 1 1 3.400 2.200c-.700.400-1.100.900-1.100 1.800M12 16.800v.200"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="alert" viewBox="0 0 24 24"><path d="M12 4l9 15.500H3z"/><path d="M12 10v4.500M12 17v.200"/></symbol>
+<symbol id="gift" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.500"/><path d="M3 9h18M12 9v11M12 9c-1-3-5-4-5-1.500S10 9 12 9zm0 0c1-3 5-4 5-1.500S14 9 12 9z"/></symbol>
+</defs></svg>
 
-<div class="wrap">
+<div class="hero"><div class="in">
+<div class="trail" role="navigation" aria-label="Las tres páginas"><a class="t1" href="https://claude.ai/artifact/A6BYrGaJfk3u94CfXBrc2t" target="_blank" rel="noopener noreferrer"><i>1</i>Primeros pasos</a><span class="t2" aria-current="page"><i>2</i>Guía de inicio</span><a class="t3" href="https://claude.ai/artifact/8mnrKzWP6MknFT8V4MMZ4u" target="_blank" rel="noopener noreferrer"><i>3</i>Consulta</a></div>
+<div class="lang" role="navigation" aria-label="Idioma"><a href="https://claude.ai/artifact/Upk3Ss3EjvSHM7x6WyFwnG" hreflang="de" lang="de" target="_blank" rel="noopener noreferrer">Deutsch</a><a href="https://claude.ai/artifact/CN88827jTmW1GysVr9ogFe" hreflang="en" lang="en" target="_blank" rel="noopener noreferrer">English</a><a href="https://claude.ai/artifact/F23tqcC5xGtnRF9g2M9P8m" hreflang="es" lang="es" target="_blank" rel="noopener noreferrer">Español</a><span aria-current="true" lang="es-AR">Argentina</span></div>
+  <span class="eyebrow">Guía de inicio no oficial · Actualizada al 28 de noviembre de 2026</span>
+  <h1>Configurá Vow.id <em>con calma</em></h1>
+  <p>Siete pasos para registrarte. Y, con franqueza, qué funciona hoy y qué todavía no.</p>
+  <div class="pills"><span class="pill"><b>0 US$</b> el registro</span><span class="pill"><b>unos 10 min</b></span><span class="pill"><b>0,002 BNB</b> necesarios</span></div>
+</div></div>
+
+<main class="in">
+<section id="kurz">
+  <div class="flow" role="img" aria-label="Comprar, juntar Member Rewards y usarlos después como descuento">
+    <div><span class="ic"><svg class="i"><use href="#bag"/></svg></span><b>Comprar</b><span>como siempre, p. ej. en Amazon</span></div>
+    <div><span class="ic"><svg class="i"><use href="#star"/></svg></span><b>Juntar rewards</b><span>Vow.id te propone MR</span></div>
+    <div><span class="ic"><svg class="i"><use href="#ticket"/></svg></span><b>Usar el descuento</b><span>los MR aprobados pasan a ser v$</span></div>
+  </div>
+  <h2 class="vh">Lo más importante primero</h2>
+  <p class="cap">Iniciás sesión con tu billetera y acreditás compras reales. Los Member Rewards (MR) aprobados se pueden convertir en v$ con un aporte en VOW; los v$ son vales digitales de descuento.</p>
+</section>
+
 <div class="searchbar" id="searchbar">
   <div class="field">
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     <label for="q" class="vh">Buscar en la guía</label>
-    <input id="q" type="search" placeholder="Buscar en la guía, p. ej. frase semilla" autocomplete="off" aria-controls="results">
+    <input id="q" type="search" placeholder="Buscar una pregunta, p. ej. frase semilla" autocomplete="off" aria-controls="results">
     <div class="results" id="results" hidden></div>
   </div>
 </div>
-<header>
-  <span class="eyebrow">Guía de inicio no oficial · Actualizada al 28 de noviembre de 2026</span>
-  <h1>Configurá Vow.id con calma</h1>
-  <p class="lead">Recibiste una invitación a Vow.id. Acá encontrás las respuestas a las preguntas que casi siempre surgen al empezar, el camino por el registro y una evaluación franca de qué funciona hoy y qué todavía no.</p>
-</header>
 
 <section id="wahl" class="choice">
   <h2>¿Ya tenés una billetera cripto?</h2>
-  <p class="lead">Tocá la opción que corresponde a tu caso y te muestro por dónde empezar. También podés seguir leyendo directamente.</p>
   <div class="yn" role="group" aria-label="¿Ya tenés una billetera cripto?">
-    <button type="button" id="w-ja" aria-pressed="false" aria-controls="p-ja">Sí, tengo una billetera</button>
-    <button type="button" id="w-nein" aria-pressed="false" aria-controls="p-nein">No, todavía no</button>
+    <button type="button" id="w-ja" aria-pressed="false" aria-controls="p-ja"><svg class="i"><use href="#check"/></svg>Sí, ya tengo</button>
+    <button type="button" id="w-nein" aria-pressed="false" aria-controls="p-nein"><svg class="i"><use href="#wallet"/></svg>No, todavía no</button>
   </div>
   <div class="panel" id="p-ja" hidden>
-    <p><b>Bien, entonces podés empezar directamente.</b> Estos son tus próximos pasos:</p>
+    <p><b>Bien, entonces podés empezar directamente.</b></p>
     <ol>
-      <li><a href="#bereit">Tené esto a mano</a>: billetera, algo de BNB, enlace de invitación, casilla de e-mail.</li>
-      <li><a href="#schritte">Registro en siete pasos</a>, unos diez minutos.</li>
-      <li><a href="#fragen">Preguntas frecuentes</a>, empezando por “Ya me registré. ¿Cómo sigo?”.</li>
+      <li><a href="#bereit">Tené esto a mano</a></li>
+      <li><a href="#schritte">Registro en siete pasos</a></li>
+      <li><a href="#fragen">Preguntas frecuentes</a> para después</li>
     </ol>
-    <p>Antes revisá dos cosas: que tu billetera pueda operar con la BNB Smart Chain y que sea la billetera que querés conservar de forma permanente. Tu Vow.id queda ligada a ella para siempre.</p>
+    <p>Antes revisá esto: que tu billetera pueda operar con la BNB Smart Chain y que sea la billetera que querés conservar de forma permanente. Tu Vow.id queda ligada a ella para siempre.</p>
   </div>
   <div class="panel" id="p-nein" hidden>
-    <p><b>Entonces primero va la billetera.</b> Calculá más o menos media hora. En resumen:</p>
-    <ol>
-      <li>Instalar una app de billetera desde la fuente oficial, por ejemplo Trust Wallet o MetaMask.</li>
-      <li>Crear una billetera nueva y anotar la frase semilla a mano en papel. Nunca le saques una foto ni se la des a nadie.</li>
-      <li>Cargar un monto chico de BNB en la billetera, en la red BNB Smart Chain.</li>
-    </ol>
-    <p>Cada uno de estos pasos está explicado por separado en la <a href="https://claude.ai/artifact/8mnrKzWP6MknFT8V4MMZ4u#teil1" target="_blank" rel="noopener noreferrer">guía completa de Vow.id</a>. Te lleva desde la primera billetera hasta el registro terminado.</p>
+    <p><b>Entonces primero va la billetera.</b> Calculá más o menos media hora.</p>
+    <p>La página <a href="https://claude.ai/artifact/A6BYrGaJfk3u94CfXBrc2t" target="_blank" rel="noopener noreferrer">Primeros pasos con Vow.id</a> te lleva en seis pasos hasta tu primera billetera: instalar la app, guardar la frase semilla en papel y conseguir algo de BNB.</p>
     <p>Cuando tu billetera esté lista, seguí acá en <a href="#bereit">Tené esto a mano</a>.</p>
   </div>
 </section>
 
-<section id="kurz">
-  <h2>Lo más importante primero</h2>
-  <p>Vow.id es una aplicación web en la que iniciás sesión con tu billetera. Acreditás compras reales, por ejemplo en Amazon, y a cambio se te proponen Member Rewards (MR). Los MR aprobados se pueden convertir en v$ con un aporte en VOW; los v$ son vales digitales de descuento.</p>
-  <div class="facts">
-    <div class="fact"><b>0 €</b><span>cuesta el registro. Solo pagás una pequeña comisión de red en BNB.</span></div>
-    <div class="fact"><b>0,002 BNB</b><span>tiene que haber como mínimo en la billetera (BNB Smart Chain).</span></div>
-    <div class="fact"><b>Para siempre</b><span>quedan fijados la billetera, el referidor y el handle. Nada de eso se puede cambiar después.</span></div>
-    <div class="fact"><b>No es cashback</b><span>Los MR no son dinero. Para canjearlos aportás VOW por la mitad del valor de mercado de un v$.</span></div>
+<section id="fakten">
+  <span class="kick">De un vistazo</span>
+  <h2>Cuatro cosas que tenés que saber</h2>
+  <div class="tiles four">
+    <div class="tile"><svg class="i"><use href="#gift"/></svg><b>0 US$</b><span>cuesta el registro. Solo se suma una pequeña comisión de red en BNB.</span></div>
+    <div class="tile"><svg class="i"><use href="#coin"/></svg><b>0,002 BNB</b><span>tiene que haber como mínimo en la billetera (BNB Smart Chain).</span></div>
+    <div class="tile"><svg class="i"><use href="#lock"/></svg><b>Para siempre</b><span>quedan fijados la billetera, el referidor y el handle.</span></div>
+    <div class="tile"><svg class="i"><use href="#ticket"/></svg><b>No es cashback</b><span>Los MR no son dinero. Para canjearlos aportás VOW por la mitad del valor de mercado de un v$.</span></div>
   </div>
-  <div class="status">
-    <p><b>Lo que funciona hoy:</b> el registro, la dirección para comprobantes, la vinculación bancaria para Premium y el escaneo de la billetera. Las compras se registran y se muestran como propuestas de MR.</p>
-    <p><b>Lo que todavía no funciona:</b> la revisión de las propuestas por verificadores independientes. Según un comunicado de Vow.id, depende de un smart contract que debería desplegarse “en breve”. Hasta entonces los MR quedan en “Pending” (pendiente) y no se pueden canjear.</p>
-    <p>Vow.id está marcada como beta. Todavía no se reconocen todos los comprobantes ni todos los bancos.</p>
+</section>
+
+<section id="stand">
+  <span class="kick">Situación real</span>
+  <h2>Qué funciona hoy y qué no</h2>
+  <div class="duo">
+    <div class="box ok"><div class="hd"><svg class="i"><use href="#check"/></svg>Funciona</div>
+      <ul><li>El registro y la dirección para comprobantes</li><li>La vinculación bancaria para Premium</li><li>El escaneo de la billetera</li><li>Las compras aparecen como propuestas de MR</li></ul></div>
+    <div class="box wait"><div class="hd"><svg class="i"><use href="#clock"/></svg>Todavía no funciona</div>
+      <ul><li>La revisión de las propuestas por verificadores independientes</li><li>Según Vow.id, depende de un smart contract que debería llegar “en breve”</li><li>Hasta entonces los MR quedan en “Pending” (pendiente) y no se pueden canjear</li></ul></div>
   </div>
-  <p class="note"><b>Primero la seguridad:</b> nadie necesita tu frase semilla, tu clave privada, tu PIN de e-mail ni tu código bancario. Tampoco la persona que te invitó. Quien te los pida quiere estafarte.</p>
+  <p class="sub">Vow.id está marcada como beta. Todavía no se reconocen todos los comprobantes ni todos los bancos.</p>
+  <div class="guard"><span class="ic"><svg class="i"><use href="#shield"/></svg></span>
+    <div><b>Primero la seguridad</b>
+    <p>Nadie necesita tu frase semilla, tu clave privada, tu PIN de e-mail ni tu código bancario. Tampoco la persona que te invitó. Quien te los pida quiere estafarte.</p></div></div>
 </section>
 
 <section id="bereit">
+  <span class="kick">Antes de empezar</span>
   <h2>Tené esto a mano</h2>
   <ul class="check" id="check">
     <li><label><input type="checkbox" id="c1"><span>La billetera que querés conservar <b>de forma permanente</b>, con la frase semilla guardada en un lugar seguro.</span></label></li>
-    <li><label><input type="checkbox" id="c2"><span>Al menos 0,002 BNB en la BNB Smart Chain en esa billetera.</span></label></li>
-    <li><label><input type="checkbox" id="c3"><span>El enlace de invitación de la persona que te invitó. Abrí Vow.id por primera vez desde ese enlace.</span></label></li>
-    <li><label><input type="checkbox" id="c4"><span>Tu casilla de e-mail habitual, que puedas abrir ahora.</span></label></li>
-    <li><label><input type="checkbox" id="c5"><span>Un nombre que te guste para tu handle (pasa a ser nombre@vow.id).</span></label></li>
+    <li><label><input type="checkbox" id="c2"><span>Al menos <b>0,002 BNB</b> en la BNB Smart Chain en esa billetera.</span></label></li>
+    <li><label><input type="checkbox" id="c3"><span>El <b>enlace de invitación</b> de la persona que te invitó. Abrí Vow.id por primera vez desde ese enlace.</span></label></li>
+    <li><label><input type="checkbox" id="c4"><span>Tu <b>casilla de e-mail</b> habitual, que puedas abrir ahora.</span></label></li>
+    <li><label><input type="checkbox" id="c5"><span>Un <b>nombre que te guste</b> para tu handle (pasa a ser nombre@vow.id).</span></label></li>
   </ul>
 </section>
 
 <section id="schritte">
+  <span class="kick">Unos diez minutos</span>
   <h2>Registro en siete pasos</h2>
-  <p class="lead">Calculá unos diez minutos. Mientras tanto dejá abierta una sola pestaña de Vow.id. La app sigue el idioma que elegiste; por eso los botones pueden aparecer en inglés o en otro idioma, según la configuración. Esta guía usa los nombres en inglés.</p>
-  <ol class="steps">
-    <li><div><h3>Abrir desde el enlace de invitación</h3><p>Abrí el enlace de tu invitación en el navegador, leé el aviso de riesgos de arriba y elegí “Create Vow.id” (crear Vow.id). En la configuración de privacidad podés rechazar la publicidad.</p><span class="cp">Listo cuando se abre la selección de billetera.</span></div></li>
-    <li><div><h3>Conectar la billetera</h3><p>Elegí tu billetera o WalletConnect y confirmá la conexión en la app de la billetera. En el celular, el navegador puede saltar a la app de la billetera. Después volvé a la misma pestaña del navegador.</p><span class="cp">Listo cuando aparece tu dirección con “Sign message to continue” (firmar el mensaje para continuar).</span></div></li>
-    <li><div><h3>Revisar el referidor y firmar el mensaje</h3><p>Revisá la línea verde que indica quién te recomendó. Si figura el nombre correcto, firmá el mensaje. La firma no cuesta nada y no mueve fondos.</p><span class="cp">Listo cuando aparece la pantalla “Join the Decentralised Affiliate Tree” (unirse al árbol de afiliados descentralizado).</span></div></li>
-    <li><div><h3>Unirse al árbol de afiliados</h3><p>Elegí “Join and open wallet” (unirse y abrir la billetera), permití el cambio a la BNB Smart Chain y confirmá la transacción. Es la única comisión. Esperá la confirmación y no envíes una segunda transacción; en su lugar tocá “Check again” (volver a comprobar).</p><span class="cp">Listo cuando se abre tu Vault con la ventana del e-mail.</span></div></li>
-    <li><div><h3>Confirmar el e-mail</h3><p>Ingresá tu dirección de e-mail habitual y escribí el PIN de cuatro dígitos que llega a tu casilla. Fijate también en la carpeta de spam.</p><span class="cp">Listo cuando la app confirma que el e-mail quedó verificado y te da la bienvenida a Vow.id.</span></div></li>
-    <li><div><h3>Asegurar el handle</h3><p>Ingresá el nombre que elegiste (de 3 a 30 letras minúsculas, números o guiones), tocá “Check” (comprobar) y después “Claim” (reclamar). El handle queda para siempre.</p><span class="cp">Listo cuando nombre@vow.id aparece en el resumen.</span></div></li>
-    <li><div><h3>Preparar la primera compra</h3><p>Abrí Member Rewards → Checklist, elegí tu país y los proveedores que realmente usás. En “Receipts &amp; MR rights” (comprobantes y derechos de MR) activá la opción “Collect MR rights” (reunir derechos de MR). Después poné tu nombre@vow.id como e-mail de la cuenta en Amazon. Empezá con un solo proveedor.</p><span class="cp">Listo cuando, después de tu próxima compra real, aparece una transacción en MR.</span></div></li>
+  <p class="sub">Dejá abierta una sola pestaña de Vow.id. Según el idioma configurado, los botones aparecen en inglés o en otro idioma. Esta guía usa los nombres en inglés.</p>
+  <ol class="tl steps">
+    <li><div class="card"><h3>Abrir desde el enlace de invitación</h3><p>La primera vez, abrí Vow.id con este botón. Si no, se te asigna un referidor al azar, y eso no se puede cambiar nunca más. Después leé el aviso de riesgos de arriba y elegí “Create Vow.id” (crear Vow.id). En la configuración de privacidad podés rechazar la publicidad.</p>
+<div class="refbox"><a class="btn" id="ref-go" href="https://vow.id/?ref=thilo24@vow.id" target="_blank" rel="noopener noreferrer">Abrir Vow.id con la invitación <svg class="i"><use href="#arrow"/></svg></a>
+<small>Tu referidor pasa a ser <b class="ref-name">thilo24</b>@vow.id. Para ser claros: esa persona puede participar de tus compras con pequeños derechos de descuento. Hoy nadie gana plata con esto. Si la página te la pasó otra persona, pedile el enlace correcto.</small></div><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando se abre la selección de billetera.</span></div></li>
+    <li><div class="card"><h3>Conectar la billetera</h3><p>Elegí tu billetera o WalletConnect y confirmá la conexión en la app de la billetera. En el celular, el navegador puede saltar a la app de la billetera. Después volvé a la misma pestaña del navegador.</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando aparece tu dirección con “Sign message to continue” (firmar el mensaje para continuar).</span></div></li>
+    <li><div class="card"><h3>Revisar el referidor y firmar el mensaje</h3><p>Revisá la línea verde que indica quién te recomendó. Si ahí figura <b class="ref-name">thilo24</b>, firmá el mensaje. La firma no cuesta nada y no mueve fondos.</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando aparece la pantalla “Join the Decentralised Affiliate Tree” (unirse al árbol de afiliados descentralizado).</span></div></li>
+    <li><div class="card"><h3>Unirse al árbol de afiliados</h3><p>Elegí “Join and open wallet” (unirse y abrir la billetera), permití el cambio a la BNB Smart Chain y confirmá la transacción. Es la única comisión. Esperá la confirmación y no envíes una segunda transacción; en su lugar tocá “Check again” (volver a comprobar).</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando se abre tu Vault con la ventana del e-mail.</span></div></li>
+    <li><div class="card"><h3>Confirmar el e-mail</h3><p>Ingresá tu dirección de e-mail habitual y escribí el PIN de cuatro dígitos que llega a tu casilla. Fijate también en la carpeta de spam.</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando la app confirma que el e-mail quedó verificado y te da la bienvenida a Vow.id.</span></div></li>
+    <li><div class="card"><h3>Asegurar el handle</h3><p>Ingresá el nombre que elegiste (de 3 a 30 letras minúsculas, números o guiones), tocá “Check” (comprobar) y después “Claim” (reclamar). El handle queda para siempre.</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando nombre@vow.id aparece en el resumen.</span></div></li>
+    <li><div class="card"><h3>Preparar la primera compra</h3><p>Abrí Member Rewards → Checklist, elegí tu país y los proveedores que realmente usás. En “Receipts &amp; MR rights” (comprobantes y derechos de MR) activá la opción “Collect MR rights” (reunir derechos de MR). Después poné tu nombre@vow.id como e-mail de la cuenta en Amazon. Empezá con un solo proveedor.</p><span class="cp"><svg class="i"><use href="#check"/></svg>Listo cuando, después de tu próxima compra real, aparece una transacción en MR.</span></div></li>
   </ol>
 </section>
 
 <section id="fragen">
+  <span class="kick">Para desplegar</span>
   <h2>Preguntas frecuentes</h2>
+  <p class="sub">Tocá un tema o usá el buscador de arriba.</p>
   <div id="faqlist"></div>
 </section>
 
 <section id="hilfe">
-  <h2>Si algo se traba</h2>
-  <div id="fixlist"></div>
+  <details class="fold"><summary><h2>Si algo se traba</h2></summary><div class="body"><div id="fixlist"></div></div></details>
 </section>
 
-<section id="quellen">
-  <h2>Fuentes oficiales y encuentros</h2>
-  <ul>
-    <li>Al pie de <a href="https://vow.id" target="_blank" rel="noopener noreferrer">vow.id</a> está la guía oficial del usuario en PDF en varios idiomas, además de los términos y condiciones y la política de privacidad.</li>
-    <li>Para los miembros Premium hay en la app una información oficial en diez puntos (edición del 22 de noviembre de 2026), con listas de cobertura bancaria para EE. UU. y la UE.</li>
-    <li>Arriba de cada página de Vow.id están los avisos de riesgo en “Read Legal &amp; Risk Disclosures”.</li>
-    <li>La comunidad ofrece encuentros informativos y técnicos por Zoom. Las fechas actuales y las grabaciones están en el <a href="https://kalender.digital/tln-allgemein" target="_blank" rel="noopener noreferrer">calendario de TLN</a>.</li>
-    <li>Para problemas con el banco, los comprobantes o los pagos, abajo en Vow.id está la opción “Contact” (contacto).</li>
+<section id="risiken">
+  <span class="kick">Bueno saberlo</span>
+  <h2>Antes de poner plata</h2>
+  <p class="sub">El registro y la acumulación de MR no cuestan nada. Recién ponés plata si comprás Premium o canjeás MR con VOW.</p>
+  <ul class="risk">
+    <li><svg class="i"><use href="#alert"/></svg><span>Nadie garantiza que una propuesta se apruebe, que un comercio acepte v$ ni que los v$ mantengan un valor determinado.</span></li>
+    <li><svg class="i"><use href="#alert"/></svg><span>El VOW que aportás al canjear se va de forma definitiva. No se devuelve.</span></li>
+    <li><svg class="i"><use href="#alert"/></svg><span>VOW y v$ son criptoactivos. Su cotización puede caer mucho, hasta la pérdida total.</span></li>
+    <li><svg class="i"><use href="#alert"/></svg><span>Las transacciones en la blockchain no se pueden deshacer.</span></li>
+    <li><svg class="i"><use href="#alert"/></svg><span>Vow.id no custodia fondos ni da asesoramiento de inversión. Esta página tampoco.</span></li>
   </ul>
 </section>
 
+<section id="weitergeben">
+  <details class="fold"><summary><h2>¿Vos también recomendás Vow.id?</h2></summary><div class="body aff">
+  <p>Entonces compartí esta página con <b>tu</b> enlace de invitación. Ingresá tu handle y recibís tus enlaces personales a las páginas. Quien entre por ahí te ve a vos como referidor en el paso 1.</p>
+  <div class="frow">
+    <div><label for="af-handle">Tu handle en Vow.id</label><input id="af-handle" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="p. ej. ana24"></div>
+    <div><label for="af-name">Tu nombre (para el mensaje a Thilo)</label><input id="af-name" autocomplete="off"></div>
+  </div>
+  <p class="err" id="af-err" role="status" hidden>Un handle tiene de 3 a 30 caracteres: letras minúsculas, números o guiones.</p>
+  <div class="out" id="af-out" hidden>
+    <div><b>Tu guía de inicio</b><div class="lk"><code id="af-l1"></code><button type="button" data-copy="af-l1">Copiar</button></div></div>
+    <div><b>Tus primeros pasos</b> (para quienes no tienen billetera)<div class="lk"><code id="af-l2"></code><button type="button" data-copy="af-l2">Copiar</button></div></div>
+    <a class="btn" id="af-wa" target="_blank" rel="noopener noreferrer">Avisarle a Thilo por WhatsApp <svg class="i"><use href="#arrow"/></svg></a>
+    <small>Thilo mantiene estas páginas y te tiene al tanto de las novedades. WhatsApp se abre con un mensaje ya escrito; vos elegís a Thilo y tocás Enviar. La página no guarda ni transmite nada.</small>
+  </div>
+  <ul>
+    <li>Compartí siempre tu enlace personal a la página. El enlace sin agregado lleva a la invitación de Thilo.</li>
+    <li>Escribiles solo a personas que conocés personalmente y aclarales que vas a ser su referidor.</li>
+    <li>No prometas ingresos, rendimientos ni cotizaciones. Qué funciona hoy y qué no está más arriba.</li>
+  </ul></div></details>
+</section>
+
 <section id="begriffe">
-  <h2>Glosario</h2>
+  <details class="fold"><summary><h2>Glosario</h2></summary><div class="body">
   <dl>
     <dt>BSC</dt><dd>Abreviatura de BNB Smart Chain, la red de Vow.id. En algunas apps también aparece como “BEP20”.</dd>
     <dt>KYC</dt><dd>Verificación de identidad con documento que exigen los servicios de compra y los exchanges.</dd>
@@ -226,19 +395,18 @@ section,.steps li,details,dt{scroll-margin-top:104px}
     <dt>Árbol de afiliados</dt><dd>El registro de recomendaciones en la blockchain. Cada miembro tiene ahí un lugar fijo.</dd>
     <dt>Verifier</dt><dd>En español, “verificadores”. Revisores independientes que aprueban o impugnan las propuestas de MR (VV y QVV).</dd>
     <dt>Plaid</dt><dd>El proveedor a través del cual los miembros Premium conectan su cuenta bancaria en modo de solo lectura.</dd>
-  </dl>
+  </dl></div></details>
 </section>
 
-<section id="risiken">
-  <h2>Lo que tenés que saber antes de poner plata</h2>
-  <p>El registro y la acumulación de MR no cuestan nada. Recién ponés plata si comprás Premium o canjeás MR con VOW.</p>
+<section id="quellen">
+  <details class="fold"><summary><h2>Fuentes oficiales y encuentros</h2></summary><div class="body">
   <ul>
-    <li>Nadie garantiza que una propuesta se apruebe, que un comercio acepte v$ ni que los v$ mantengan un valor determinado.</li>
-    <li>El VOW que aportás al canjear se va de forma definitiva. No se devuelve.</li>
-    <li>VOW y v$ son criptoactivos. Su cotización puede caer mucho, hasta la pérdida total.</li>
-    <li>Las transacciones en la blockchain no se pueden deshacer.</li>
-    <li>Vow.id no custodia fondos ni da asesoramiento de inversión. Esta página tampoco.</li>
-  </ul>
+    <li>Al pie de <a href="https://vow.id" target="_blank" rel="noopener noreferrer">vow.id</a> está la guía oficial del usuario en PDF en varios idiomas, además de los términos y condiciones y la política de privacidad.</li>
+    <li>Para los miembros Premium hay en la app una información oficial en diez puntos (edición del 22 de noviembre de 2026), con listas de cobertura bancaria para EE. UU. y la UE.</li>
+    <li>Arriba de cada página de Vow.id están los avisos de riesgo en “Read Legal &amp; Risk Disclosures”.</li>
+    <li>La comunidad ofrece encuentros informativos y técnicos por Zoom. Las fechas actuales y las grabaciones están en el <a href="https://kalender.digital/tln-allgemein" target="_blank" rel="noopener noreferrer">calendario de TLN</a>.</li>
+    <li>Para problemas con el banco, los comprobantes o los pagos, abajo en Vow.id está la opción “Contact” (contacto).</li>
+  </ul></div></details>
 </section>
 
 <footer>
@@ -246,7 +414,7 @@ section,.steps li,details,dt{scroll-margin-top:104px}
   <p>Cuando una respuesta se basa en experiencias de miembros y no en la documentación oficial, está aclarado. En caso de duda vale lo que muestra el propio vow.id.</p>
   <p>¿Tu pregunta no está? Escribile a la persona que te mandó esta página.</p>
 </footer>
-</div>
+</main>
 
 <script>
 const FAQ=[
@@ -266,7 +434,7 @@ const FAQ=[
 {c:"Dudas razonables",q:"Ya se prometió mucho. ¿Por qué iba a funcionar esta vez?",k:"promesas prometieron confianza confiar por qué esta vez funcionar serio escéptico esceptico dudas duda",a:`<p>Eso no te lo puede garantizar nadie, y esta página tampoco lo intenta.</p><p>Lo que podés comprobar por tu cuenta: el operador es una empresa británica registrada, los términos y condiciones y los avisos de riesgo son públicos, la app se puede probar gratis y las compras registradas aparecen como propuestas.</p><p>Lo que está abierto: la revisión de las propuestas todavía no funciona, nadie está obligado a aceptar v$ y el valor de VOW y de los v$ puede caer. Basá tu decisión en lo que ves, no en anuncios.</p>`},
 {c:"Dudas razonables",q:"Tengo liquidez en el pool de VOW y estoy en pérdida. ¿Qué cambia Vow.id en eso?",k:"liquidez pool pérdida perdida en rojo staking tresor tln invertí invertido cotización precio viejo posición",a:`<p>El registro no cambia nada en tu posición actual: ni el valor, ni los plazos, ni las condiciones. Vow.id es una oferta aparte para rewards por compras.</p><p>Para canjear MR necesitás VOW adicional, que se entrega de forma definitiva. Vow.id expresamente no promete ninguna cotización ni protección de valor, tampoco mediante la quema de tokens.</p><p>Esta página no puede responder preguntas sobre posiciones antiguas en pools o en el “Tresor”. De eso se ocupan los operadores de esos productos.</p>`},
 {c:"Dudas razonables",q:"¿Por qué no puedo pagar Premium con v$ o VOW?",k:"premium pagar v$ vow medio de pago por qué no token desconfianza",a:`<p>No hay una explicación oficial. Según los términos y condiciones, v$ y VOW no son medios de pago para Premium; se aceptan tarjeta, USDC y USDT. Una oferta por tiempo limitado para pagar con v$ terminó el 22 de noviembre de 2026.</p>`},
-{c:"Dudas razonables",q:"¿Y qué hago después con mis v$?",k:"v$ voucher dollar usar gastar comercio descuento después despues claim vowhotels vowchers hotel cambiar conservar cotización precio",a:`<p>Un v$ es el derecho a proponer 1 $ de descuento en bienes o servicios. Ningún comercio está obligado a aceptarlo.</p><p>La comunidad menciona dos caminos:</p><ul><li><b>Usarlos como descuento en Vow.Market.</b> El marketplace <a href="https://vow.market" target="_blank" rel="noopener noreferrer">vow.market</a> pertenece al mismo operador que Vow.id. Según el sitio, ahí 1 v$ cuenta como 1 $ de descuento, hasta el límite que figura en cada producto; en muchos productos es el 100 %. Por lo demás, se paga con USDT o USDC. Antes de hacer un pedido leé la información sobre envío y devoluciones.</li><li><b>Otros sitios del ecosistema:</b> <a href="https://vowhotels.com" target="_blank" rel="noopener noreferrer">vowhotels.com</a> (reservas de hoteles) y <a href="https://vowchers.com" target="_blank" rel="noopener noreferrer">vowchers.com</a> (vales de descuento). Según la comunidad, el canje ahí estaría disponible en breve. Vow.id expresamente no garantiza funciones que todavía no se publicaron.</li><li><b>Conservarlos o cambiarlos.</b> Los v$ son transferibles y se negocian en exchanges. El precio de mercado está muy por debajo de 1 $: el 22 de noviembre de 2026 eran unos 0,21 $ por v$. En números, un cambio conviene si recibís más de lo que aportaste en VOW al canjear, después de descontar las comisiones.</li></ul><p>Todo esto es sin garantía: los v$ no están respaldados por nada y no se pueden canjear por dinero, la cotización puede caer y un cambio supone que aparezca un comprador.</p>`},
+{c:"Dudas razonables",q:"¿Y qué hago después con mis v$?",k:"v$ voucher dollar usar gastar comercio descuento después despues claim vowhotels vowchers hotel cambiar conservar cotización precio",a:`<p>Un v$ es el derecho a proponer 1 $ de descuento en bienes o servicios. Ningún comercio está obligado a aceptarlo.</p><p>La comunidad menciona estos caminos:</p><ul><li><b>Usarlos como descuento en Vow.Market.</b> El marketplace <a href="https://vow.market" target="_blank" rel="noopener noreferrer">vow.market</a> pertenece al mismo operador que Vow.id. Según el sitio, ahí 1 v$ cuenta como 1 $ de descuento, hasta el límite que figura en cada producto; en muchos productos es el 100 %. Por lo demás, se paga con USDT o USDC. Antes de hacer un pedido leé la información sobre envío y devoluciones.</li><li><b>Otros sitios del ecosistema:</b> <a href="https://vowhotels.com" target="_blank" rel="noopener noreferrer">vowhotels.com</a> (reservas de hoteles) y <a href="https://vowchers.com" target="_blank" rel="noopener noreferrer">vowchers.com</a> (vales de descuento). Según la comunidad, el canje ahí estaría disponible en breve. Vow.id expresamente no garantiza funciones que todavía no se publicaron.</li><li><b>Conservarlos o cambiarlos.</b> Los v$ son transferibles y se negocian en exchanges. El precio de mercado está muy por debajo de 1 $: el 22 de noviembre de 2026 eran unos 0,21 $ por v$. En números, un cambio conviene si recibís más de lo que aportaste en VOW al canjear, después de descontar las comisiones.</li></ul><p>Todo esto es sin garantía: los v$ no están respaldados por nada y no se pueden canjear por dinero, la cotización puede caer y un cambio supone que aparezca un comprador.</p>`},
 
 {c:"¿Cómo se sostiene esto?",q:"¿De dónde sale la plata para los rewards? Nadie regala nada.",k:"de dónde donde sale plata dinero financiamiento financiación regalar regala trampa quién quien paga sostiene ingresos empresa descuentos",a:`<p>No se reparte dinero que ya exista. Ese es el punto en el que la palabra “cashback” lleva a confusión.</p><ul><li>Recibís MR. Son derechos a v$, no dinero.</li><li>Los v$ se generan de nuevo cuando ejercés MR y aportás VOW para eso.</li><li>Los v$ solo tienen valor si un comercio los acepta como descuento o si alguien los compra en un exchange.</li><li>El descuento lo absorbe el comercio que acepta v$. Renuncia voluntariamente a una parte de su precio, parecido a lo que pasa con un vale.</li></ul><p>La propia Vow habla de un experimento económico. Es una descripción acertada: todavía está por verse si de ahí surge un valor duradero.</p>`},
 {c:"¿Cómo se sostiene esto?",q:"¿Cómo puede ser posible el 100 % en la factura de luz?",k:"100 por ciento luz electricidad energía energia irreal cashback proveedor no gana nada factura boleta",a:`<p>Nadie te devuelve el 100 %, tampoco tu proveedor de electricidad. No participa en la oferta y gana con tu factura como siempre.</p><p>El 100 % son MR por el valor de la factura, no dinero. La cuenta para 100 $ de electricidad, con las cotizaciones del 22 de noviembre de 2026:</p><ul><li>Se te proponen 100 MR.</li><li>Para ejercerlos aportás VOW por un valor de unos 10 $.</li><li>Los 100 v$ valen unos 21 $ en el exchange.</li><li>Al cambiarlos quedan entonces unos 11 $, alrededor del 11 % de la factura, antes de comisiones.</li><li>Como descuento en un comercio que acepta v$ cuentan como 100 $, pero solo sobre sus productos y sus precios.</li></ul><p>Las cotizaciones varían y las tasas pueden cambiar.</p>`},
@@ -296,7 +464,7 @@ const FAQ=[
 
 {c:"Acumular rewards",q:"¿Por qué se retiene un recibo? ¿Tengo que aprobar cada comercio por separado?",k:"recibo retenido falta no llega aprobar comercio empresa discover reenvío verde rojo 30 días foto enviar entrega",a:`<p>Sí. Desde la edición 13 de la guía oficial (26 de noviembre de 2026), el reenvío de correos necesita tu aprobación por separado para cada comercio.</p><ul><li>Abrí el comercio en “Discover” y usá su ajuste de entrega de recibos. Verde significa aprobado; rojo, no aprobado.</li><li>Marcar un servicio en tu checklist no aprueba el reenvío.</li><li>El correo de un comercio que no aprobaste queda retenido y cifrado, sin análisis ni reenvío. Te llega una notificación que te pide aceptar ese comercio.</li><li>El correo retenido se guarda hasta 30 días. Aprobá el comercio y volvé a lanzar la entrega antes de que venza.</li></ul><p>Si un recibo falta por completo, podés usar la opción privada de enviar una foto y elegir el servicio. Una foto es material de revisión, no una acreditación automática.</p>`},
 {c:"Acumular rewards",q:"¿Cuántos MR recibo por una compra?",k:"cuánto cuanto cuántos porcentaje tasa monto 10 20 40 100 cálculo calculo ejemplo",a:`<p>Depende de la oferta y de tu plan. Free: según la categoría, hasta el 10 %, por ejemplo en marketplaces como Amazon, en telefonía celular, streaming y suscripciones de IA. Para energía, supermercados, cafeterías, estaciones de servicio y taxi no hay MR en la cuenta gratuita. Premium, datos al 25 de noviembre de 2026 para Alemania: 4,5 % en estaciones de servicio, del 15 al 20 % en construcción y hogar, perfumería y supermercados, 22,5 % en cafeterías, moda y delivery, 40 % en marketplaces, telefonía celular, streaming y suscripciones de IA, y hasta el 100 % en facturas de energía. El detalle completo está en “¿Qué comercios cuentan?”. Son valores máximos, no compromisos.</p><p>Ejemplo: una suscripción de 12,99 € con el 40 % da 5,20 € de premio, que convertidos a dólares estadounidenses son unos 5,8 MR. Por compra son posibles como máximo 500 MR. Las tasas reales figuran en tu checklist, en cada comercio.</p><p>Las tasas pueden cambiar en cualquier momento para compras futuras, incluso sin aviso. Los MR ya aprobados no se reducen por eso.</p>`},
-{c:"Acumular rewards",q:"¿Qué comercios cuentan? ¿También nafta, delivery, luz?",k:"comercios tiendas shops alemania argentina lista energía energia luz electricidad nafta combustible estación estacion de servicio estaciones uber delivery netflix supermercado supermercados cuáles cuales cuentan",a:`<p>La única lista confiable es la de Member Rewards → Checklist, después de elegir tu país. Las categorías son tiendas, energía, telefonía celular, internet, streaming, delivery, viajes y servicios de IA. Para Alemania se sumaron muchos proveedores de energía y empresas municipales de servicios.</p><p>Las tasas para Alemania, cotejadas con el código del programa de vow.id el 25 de noviembre de 2026. El primer valor corresponde a la cuenta gratuita; el segundo, a Premium:</p><ul><li><b>Marketplaces, 10 % y 40 %:</b> Amazon, eBay, Zalando, Temu, Shein, AliExpress, Etsy, ASOS, Vinted, Depop, Wish.</li><li><b>Telefonía celular, 10 % y 40 %:</b> Deutsche Telekom, O2, Vodafone, 1&amp;1, congstar, freenet.</li><li><b>Streaming, 10 % y 40 %:</b> Netflix, Amazon Prime Video, Spotify, YouTube Premium.</li><li><b>Suscripciones de IA, 10 % y 40 %:</b> ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity y otros.</li><li><b>Delivery, 10 % y 22,5 %:</b> Lieferando, Wolt, Flink, Uber Eats.</li><li><b>Moda y deporte, 10 % y 22,5 %:</b> About You, C&amp;A, Otto, Bonprix, Nike, Mango.</li><li><b>Perfumería y salud, 10 % y 20 %:</b> dm, Rossmann, Müller.</li><li><b>Electrónica, 8 % y 16 %:</b> MediaMarkt, Apple.</li><li><b>Construcción y hogar, 10 % y 15 %:</b> OBI, Hornbach.</li><li><b>Vuelos y trenes, 4,5 % y 10 %:</b> Ryanair, easyJet, Trainline.</li><li><b>Supermercados, solo Premium, 20 %:</b> Lidl, Aldi, Edeka, Rewe, Kaufland, Netto, Penny, Norma, Globus, Famila.</li><li><b>Cafeterías y comida rápida, solo Premium, 22,5 %:</b> Starbucks, Tchibo, Coffee Fellows, Balzac Coffee, Nordsee, Five Guys.</li><li><b>Energía, solo Premium, 100 %:</b> unos 150 proveedores, entre ellos E.ON, EnBW, Vattenfall, EWE, LichtBlick, Yello, eprimo, Tibber, Naturstrom y muchísimas empresas municipales de servicios (Stadtwerke).</li><li><b>Estaciones de servicio, solo Premium, 4,5 %:</b> Aral, Esso, JET, TotalEnergies, AVIA, HEM, Westfalen y otras.</li><li><b>Taxi y transporte de pasajeros, solo Premium, 18 %:</b> Uber, Bolt, FreeNow.</li></ul><p class="note"><b>Importante para la Argentina:</b> al 25 de noviembre de 2026, el catálogo de Vow.id no incluye supermercados, proveedores de energía, operadores de telefonía celular ni estaciones de servicio de la Argentina. En la app, la vinculación bancaria se ofrece solo para las regiones “UK &amp; Europe” y “USA”, así que no es de esperar que funcione con bancos argentinos. Lo que sí puede funcionar desde la Argentina son los servicios online internacionales que mandan un comprobante por e-mail, por ejemplo Amazon, AliExpress, Netflix, Spotify, YouTube Premium o ChatGPT (10 % en la cuenta gratuita, 40 % con Premium). Vow.id dice que se expande según la demanda: informá tu país y tus proveedores por “Contact” en la app. Pensalo dos veces antes de pagar Premium desde la Argentina: sus principales ventajas (energía, supermercados, vinculación bancaria) todavía no están disponibles ahí.</p><p>“Solo Premium” significa que en la cuenta gratuita la app muestra ahí una raya. Afecta sobre todo a las compras sin comprobante por e-mail, que se registran a través del banco vinculado. La lista se alarga continuamente y las tasas pueden cambiar en cualquier momento. Lo que vale es lo que muestra tu checklist en la app.</p><p>Hay miembros que cuentan que, en casos aislados, también se reconocen proveedores que no figuran en la lista y que algunos de los que figuran todavía no funcionan. Al hacer una compra, no des por hecho que cuenta.</p>`},
+{c:"Acumular rewards",q:"¿Qué comercios cuentan? ¿También nafta, delivery, luz?",k:"comercios tiendas shops alemania argentina lista energía energia luz electricidad nafta combustible estación estacion de servicio estaciones uber delivery netflix supermercado supermercados cuáles cuales cuentan",a:`<p>La única lista confiable es la de Member Rewards → Checklist, después de elegir tu país. Las categorías son tiendas, energía, telefonía celular, internet, streaming, delivery, viajes y servicios de IA. Para Alemania se sumaron muchos proveedores de energía y empresas municipales de servicios.</p><p>Las tasas para Alemania, cotejadas con el código del programa de vow.id el 25 de noviembre de 2026. El primer valor corresponde a la cuenta gratuita; el segundo, a Premium:</p><ul><li><b>Marketplaces, 10 % y 40 %:</b> Amazon, eBay, Zalando, Temu, Shein, AliExpress, Etsy, ASOS, Vinted, Depop, Wish.</li><li><b>Telefonía celular, 10 % y 40 %:</b> Deutsche Telekom, O2, Vodafone, 1&amp;1, congstar, freenet.</li><li><b>Streaming, 10 % y 40 %:</b> Netflix, Amazon Prime Video, Spotify, YouTube Premium.</li><li><b>Suscripciones de IA, 10 % y 40 %:</b> ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity y otros.</li><li><b>Delivery, 10 % y 22,5 %:</b> Lieferando, Wolt, Flink, Uber Eats.</li><li><b>Moda y deporte, 10 % y 22,5 %:</b> About You, C&amp;A, Otto, Bonprix, Nike, Mango.</li><li><b>Perfumería y salud, 10 % y 20 %:</b> dm, Rossmann, Müller.</li><li><b>Electrónica, 8 % y 16 %:</b> MediaMarkt, Apple.</li><li><b>Construcción y hogar, 10 % y 15 %:</b> OBI, Hornbach.</li><li><b>Vuelos y trenes, 4,5 % y 10 %:</b> Ryanair, easyJet, Trainline.</li><li><b>Supermercados, solo Premium, 20 %:</b> Lidl, Aldi, Edeka, Rewe, Kaufland, Netto, Penny, Norma, Globus, Famila.</li><li><b>Cafeterías y comida rápida, solo Premium, 22,5 %:</b> Starbucks, Tchibo, Coffee Fellows, Balzac Coffee, Nordsee, Five Guys.</li><li><b>Energía, solo Premium, 100 %:</b> unos 150 proveedores, entre ellos E.ON, EnBW, Vattenfall, EWE, LichtBlick, Yello, eprimo, Tibber, Naturstrom y muchísimas empresas municipales de servicios (Stadtwerke).</li><li><b>Estaciones de servicio, solo Premium, 4,5 %:</b> Aral, Esso, JET, TotalEnergies, AVIA, HEM, Westfalen y otras.</li><li><b>Taxi y transporte de pasajeros, solo Premium, 18 %:</b> Uber, Bolt, FreeNow.</li></ul><p><b>Importante para la Argentina:</b> al 25 de noviembre de 2026, el catálogo de Vow.id no incluye supermercados, proveedores de energía, operadores de telefonía celular ni estaciones de servicio de la Argentina. En la app, la vinculación bancaria se ofrece solo para las regiones “UK &amp; Europe” y “USA”, así que no es de esperar que funcione con bancos argentinos. Lo que sí puede funcionar desde la Argentina son los servicios online internacionales que mandan un comprobante por e-mail, por ejemplo Amazon, AliExpress, Netflix, Spotify, YouTube Premium o ChatGPT (10 % en la cuenta gratuita, 40 % con Premium). Vow.id dice que se expande según la demanda: informá tu país y tus proveedores por “Contact” en la app. Pensalo dos veces antes de pagar Premium desde la Argentina: sus principales ventajas (energía, supermercados, vinculación bancaria) todavía no están disponibles ahí.</p><p>“Solo Premium” significa que en la cuenta gratuita la app muestra ahí una raya. Afecta sobre todo a las compras sin comprobante por e-mail, que se registran a través del banco vinculado. La lista se alarga continuamente y las tasas pueden cambiar en cualquier momento. Lo que vale es lo que muestra tu checklist en la app.</p><p>Hay miembros que cuentan que, en casos aislados, también se reconocen proveedores que no figuran en la lista y que algunos de los que figuran todavía no funcionan. Al hacer una compra, no des por hecho que cuenta.</p>`},
 {c:"Acumular rewards",q:"¿Es seguro cambiar el e-mail de mi cuenta de Amazon?",k:"amazon email e-mail mail cambiar seguro riesgo cuenta acceso casilla",a:`<p>La dirección nombre@vow.id solo acepta mails de tiendas reconocidas. Los comprobantes se guardan cifrados y se reenvían a tu casilla habitual; los mails de seguridad se pasan sin analizarlos.</p><p>Hay dos cosas que tenés que saber: los textos de los comprobantes los analiza una IA de OpenAI en EE. UU. Y si alguna vez cerrás tu cuenta de Vow.id, antes tenés que reemplazar la dirección en cada tienda.</p>`},
 {c:"Acumular rewards",q:"¿Cómo convierto MR en v$?",k:"canjear claim reclamar ejercer convertir acuñar mint vow aporte 50",a:`<p>En cuanto los MR están “Active” (activos), se puede hacer clic en “Claim MR” (reclamar MR). Confirmás una transacción en tu billetera y aportás VOW.</p><p>El monto: VOW por el 50 % del valor de mercado actual de un v$, no el 50 % de un dólar. Ejemplo con la cotización del 22 de noviembre de 2026 (unos 0,21 $ por v$): por 8 MR recibís 8 v$ y entregás VOW por un valor de unos 0,83 $. Los 8 v$ tienen entonces un valor de mercado de unos 1,65 $, o cuentan como 8 $ de descuento en Vow.Market.</p><p>El aporte es definitivo. A eso se suma la comisión de red. Las cotizaciones cambian todos los días; la app te muestra el monto antes de confirmar.</p>`},
 {c:"Acumular rewards",q:"¿Qué tengo que tener en cuenta con los comprobantes?",k:"comprobante comprobantes recibo recibos factura buenas prácticas consejos reenviar reenvío reenvio forward remitente dirección nombre visible factura original guardar número de pedido apple google play foto enviar subir número de tarjeta tapar remitente faltante avisar spam entrega",a:`<p>Vow.id menciona en la app seis reglas para una entrega segura de comprobantes:</p><ul><li><b>Mantener verificada la dirección de reenvío.</b> Las copias de los comprobantes llegan a tu casilla habitual. Fijate también en la carpeta de spam.</li><li><b>Cambiar la dirección directamente en el servicio.</b> El comercio tiene que mandar el comprobante original por su cuenta a tu dirección @vow.id. Si reenviás un mail a mano, no cuenta como comprobante auténtico del comercio.</li><li><b>Revisar la dirección real del remitente.</b> Un nombre visible o una foto del comprobante no prueban quién mandó el mail.</li><li><b>Guardar la factura original.</b> El monto, la moneda, la fecha de compra y el número de pedido ayudan si falta un pago o aparece duplicado. Las facturas de Apple y Google Play pueden mostrar de qué servicio se trataba.</li><li><b>Nunca subir contraseñas ni códigos de inicio de sesión.</b> Tapá los números completos de tarjeta y los datos personales innecesarios antes de enviar una foto.</li><li><b>Avisar si falta un remitente.</b> Si Vow.id no reconoce un comercio, podés informarlo para que lo revisen. Un remitente reconocido también tiene que ser técnicamente auténtico, y el reconocimiento no garantiza MR.</li></ul>`},
@@ -354,14 +522,14 @@ const STOP=new Set("el la los las lo un una unos unas yo vos tu tus me mi mis te
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
 const txt=(t,c,s)=>{const e=document.createElement(t);if(c)e.className=c;e.textContent=s;return e};
 const plain=h=>h.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();
-function fill(list,box,pre,grouped){let cat="";list.forEach((x,i)=>{if(grouped&&x.c!==cat){cat=x.c;box.appendChild(el("div","cat",cat))}const d=el("details");d.id=pre+i;d.appendChild(el("summary",null,x.q));d.appendChild(el("div","a",x.a));box.appendChild(d);x._el=d})}
+function fill(list,box,pre,grouped){let cat="",host=box;list.forEach((x,i)=>{if(grouped&&x.c!==cat){cat=x.c;const g=el("details","group");const n=list.filter(y=>y.c===cat).length;const s=el("summary");s.appendChild(txt("span","gname",cat));s.appendChild(txt("span","gcount",n+" preguntas"));g.appendChild(s);host=el("div","glist");g.appendChild(host);box.appendChild(g);if(box.children.length===1)g.open=true}const d=el("details");d.id=pre+i;d.appendChild(el("summary",null,x.q));d.appendChild(el("div","a",x.a));host.appendChild(d);x._el=d})}
 fill(FAQ,document.getElementById("faqlist"),"faq-",true);fill(FIX,document.getElementById("fixlist"),"fix-",false);
 const INDEX=[];
 document.querySelectorAll(".steps li").forEach((st,i)=>{const h=st.querySelector("h3").textContent;INDEX.push({t:"Paso "+(i+1),q:h,k:"",a:st.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:st})});
 FAQ.forEach(x=>INDEX.push({t:"Pregunta",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 FIX.forEach(x=>INDEX.push({t:"Ayuda",q:x.q,k:x.k,a:plain(x.a),el:x._el}));
 document.querySelectorAll("#begriffe dt").forEach(dt=>INDEX.push({t:"Término",q:dt.textContent,k:"",a:dt.nextElementSibling.textContent,el:dt}));
-["wahl","kurz","bereit","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Sección",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
+["wahl","kurz","fakten","stand","bereit","quellen","risiken"].forEach(id=>{const sc=document.getElementById(id);const h=sc.querySelector("h2").textContent;INDEX.push({t:"Sección",q:h,k:"",a:sc.textContent.replace(h,"").replace(/\s+/g," ").trim(),el:sc})});
 INDEX.forEach(x=>{x._q=x.q.toLowerCase();x._a=x.a.toLowerCase()});
 const input=document.getElementById("q"),panel=document.getElementById("results"),bar0=document.getElementById("searchbar");
 const SUGGEST=["Cómo sigo","Leer mails","Pending","Costos","BNB","Banco","Premium","Usar v$","Dudas"];
@@ -409,7 +577,7 @@ const has=(text,term)=>{if(term.length>4&&!term.includes(" "))return text.includ
 function concepts(v){const q=" "+v.toLowerCase().trim()+" ";const cs=tokens(v).map(t=>[t]);SYN.forEach(g=>{if(g.some(t=>has(q,t)))cs.push(g)});return cs}
 function scoreOf(x,cs,boost){let sc=0;for(const c of cs){let best=0;for(const t of c){let v=0;if(has(x._q,t))v+=3;if(has(x.k,t))v+=2;if(has(x._a,t))v+=1;if(x.t==="Término"&&x._q===t&&boost.has(t))v+=6;if(v>best)best=v}sc+=best}return sc}
 function snippet(x,toks){const a=x.a;let pos=-1;for(const t of toks){pos=x._a.indexOf(t);if(pos>=0)break}const from=Math.max(0,(pos<0?0:pos)-40);return (from>0?"… ":"")+a.slice(from,from+110).trim()+(a.length>from+110?" …":"")}
-function go(x){panel.hidden=true;const d=x.el;if(d.tagName==="DETAILS")d.open=true;const inner=d.closest("details");if(inner)inner.open=true;
+function go(x){panel.hidden=true;const d=x.el;if(d.tagName==="DETAILS")d.open=true;for(let p=d.parentElement;p;p=p.parentElement)if(p.tagName==="DETAILS")p.open=true;const kid=d.querySelector(":scope>details.fold");if(kid)kid.open=true;
   const calm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;d.scrollIntoView({block:"start",behavior:calm?"auto":"smooth"});
   d.classList.add("hit");setTimeout(()=>d.classList.remove("hit"),2200);input.blur()}
 function show(){const cs=concepts(input.value),toks=[...new Set(cs.flat())];panel.textContent="";
@@ -430,4 +598,51 @@ function pick(v,save){for(const key in YN){const on=key===v;YN[key][0].setAttrib
   if(save){try{if(v)localStorage.setItem("vowstart-wallet",v);else localStorage.removeItem("vowstart-wallet")}catch(e){}}}
 for(const key in YN)YN[key][0].addEventListener("click",()=>pick(YN[key][0].getAttribute("aria-pressed")==="true"?null:key,true));
 try{const v=localStorage.getItem("vowstart-wallet");if(v==="ja"||v==="nein")pick(v,false)}catch(e){}
+</script>
+<script>
+(function(){
+  var DEF="thilo24", RE=/^[a-z0-9-]{3,30}$/;
+  var START="https://claude.ai/artifact/Y9SLosjzH2eKPsJrvABFfv", EIN="https://claude.ai/artifact/A6BYrGaJfk3u94CfXBrc2t";
+  function fromHash(){ var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()); return m?m[1]:""; }
+  var ref=fromHash();
+  try{ if(ref) sessionStorage.setItem("vowid-ref",ref); else ref=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
+  if(!RE.test(ref)) ref=DEF;
+  function apply(){
+    document.getElementById("ref-go").href="https://vow.id/?ref="+ref+"@vow.id";
+    [].forEach.call(document.querySelectorAll(".ref-name"),function(n){ n.textContent=ref; });
+    [].forEach.call(document.querySelectorAll('a[href^="'+EIN+'"]'),function(a){ a.href=EIN+(ref===DEF?"":"#ref-"+ref); });
+  }
+  apply();
+  window.addEventListener("hashchange",function(){ var r=fromHash(); if(r){ ref=r; try{sessionStorage.setItem("vowid-ref",r);}catch(e){} apply(); } });
+
+  var h=document.getElementById("af-handle"), nm=document.getElementById("af-name"), out=document.getElementById("af-out"), err=document.getElementById("af-err");
+  function build(){
+    var v=h.value.trim().toLowerCase().replace(/@vow\.id$/,"");
+    var ok=RE.test(v);
+    out.hidden=!ok; err.hidden=ok||!v;
+    if(!ok) return;
+    var l1=START+"#ref-"+v, l2=EIN+"#ref-"+v;
+    document.getElementById("af-l1").textContent=l1;
+    document.getElementById("af-l2").textContent=l2;
+    var t="Hola Thilo, desde ahora comparto las páginas de Vow.id con mi enlace de invitación.\n"+(nm.value.trim()?"Nombre: "+nm.value.trim()+"\n":"")+"Mi handle: "+v+"@vow.id\nMi guía de inicio: "+l1;
+    document.getElementById("af-wa").href="https://wa.me/?text="+encodeURIComponent(t);
+  }
+  h.addEventListener("input",build); nm.addEventListener("input",build);
+  [].forEach.call(document.querySelectorAll("[data-copy]"),function(b){
+    b.addEventListener("click",function(){
+      var c=document.getElementById(b.dataset.copy), txt=c.textContent;
+      function sel(){ var r=document.createRange(); r.selectNodeContents(c); var s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent="Seleccionado: copialo ahora"; }
+      try{ navigator.clipboard.writeText(txt).then(function(){ b.textContent="Copiado"; },sel); }catch(e){ sel(); }
+      setTimeout(function(){ b.textContent="Copiar"; },2500);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()), r=m?m[1]:"";
+  try{ if(!r) r=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
+  if(!/^[a-z0-9-]{3,30}$/.test(r)) return;
+  [].forEach.call(document.querySelectorAll(".lang a"),function(a){ a.href=a.href.split("#")[0]+"#ref-"+r; });
+})();
 </script>
