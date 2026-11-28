@@ -1,0 +1,252 @@
+<title>Vow.id starter guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<style>
+/* Layout: one narrow reading column for phones; a question box on top, then current status, start checklist, numbered registration route, searchable FAQ, fixes, glossary, risks. */
+:root{
+  --bg:#F2F5F4; --surface:#FFFFFF; --fg:#13222A; --muted:#55666E; --line:#D5DEDC;
+  --accent:#0A6B6B; --accent-soft:#DDEEEC; --warn:#9A5B00; --warn-soft:#FBEFD9; --ok:#1B7A4B;
+  --display:"Space Grotesk","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0E171B; --surface:#162228; --fg:#E3ECEB; --muted:#9BADB2; --line:#2A3A41;
+  --accent:#56C7BC; --accent-soft:#17343A; --warn:#F0B55A; --warn-soft:#33290F; --ok:#5FCB92; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.4rem;font-weight:600}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lead{font-size:1.06rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:12px}
+section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
+section ul{margin:0;padding-left:20px}
+.ask{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ask label{font-family:var(--display);font-weight:600}
+.ask input{width:100%;font:inherit;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg)}
+.ask input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ask small{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fact{border-top:2px solid var(--accent);padding-top:8px}
+.fact b{display:block;font-family:var(--display);font-size:1.15rem}
+.fact span{font-size:.88rem;color:var(--muted)}
+.note{background:var(--warn-soft);color:var(--fg);border-radius:10px;padding:12px 14px;font-size:.94rem}
+.note b{color:var(--warn)}
+.status{background:var(--accent-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.status b{color:var(--accent)}
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.check label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.check input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.check span{min-width:0}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;color:var(--accent);background:var(--accent-soft);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.steps div{min-width:0;display:flex;flex-direction:column;gap:4px}
+.steps .cp{font-size:.86rem;color:var(--ok);font-weight:500}
+.cat{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-family:var(--display);font-weight:700;flex:none}
+details[open] summary::after{content:"–"}
+details .a{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px;color:var(--fg)}
+details .a ul{margin:0;padding-left:20px}
+#faqlist,#fixlist{display:flex;flex-direction:column;gap:8px}
+#hits{font-size:.9rem;color:var(--muted)}
+dl{margin:0;display:grid;grid-template-columns:minmax(90px,max-content) 1fr;gap:8px 16px}
+dt{font-family:var(--display);font-weight:600}
+dd{margin:0;min-width:0;color:var(--muted)}
+footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:420px){ dl{grid-template-columns:1fr;gap:2px 0} dd{margin-bottom:8px} }
+
+/* Search: a large field that stays at the top while reading; results open as a panel below it and jump to the matching step, question, term or section. */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;order:-2;background:var(--bg);padding-block:10px;margin-block:-10px}
+.field{position:relative}
+.field svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.field input{width:100%;font:inherit;font-size:1.1rem;padding:16px 18px 16px 50px;border-radius:14px;border:2px solid var(--accent);background:var(--surface);color:var(--fg)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgb(0 0 0 / .2);max-height:min(62vh,540px);overflow:auto;padding:8px;display:flex;flex-direction:column;gap:2px}
+.res{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:2px 10px;text-align:left;font:inherit;background:none;border:0;border-radius:10px;padding:10px;color:var(--fg);cursor:pointer}
+.res:hover,.res:focus-visible{background:var(--accent-soft)}
+.typ{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:4px}
+.res b{font-weight:600}
+.res small{grid-column:2;color:var(--muted);font-size:.86rem}
+.results p{padding:8px 10px;color:var(--muted);font-size:.9rem}
+.results .chips{padding:0 10px 8px}
+.hit{outline:3px solid var(--accent);outline-offset:3px}
+section,.steps li,details,dt{scroll-margin-top:104px}
+
+/* Wallet switch: two large buttons; the chosen one opens a panel with the next steps. Nothing is hidden for readers who skip it. */
+.choice{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.choice .lead{font-size:1rem}
+.yn{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.yn button{font:inherit;font-weight:600;padding:14px 16px;border-radius:12px;border:2px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;text-align:center}
+.yn button:hover{background:var(--accent-soft)}
+.yn button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.panel{background:var(--accent-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.panel ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+</style>
+
+<div class="wrap">
+<div class="searchbar" id="searchbar">
+  <div class="field">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <label for="q" class="vh">Search this guide</label>
+    <input id="q" type="search" placeholder="Search this guide, e.g. seed phrase" autocomplete="off" aria-controls="results">
+    <div class="results" id="results" hidden></div>
+  </div>
+</div>
+<header>
+  <span class="eyebrow">Unofficial starter guide · As of 25 November 2026</span>
+  <h1>Setting up Vow.id without the rush</h1>
+  <p class="lead">You have received an invitation to Vow.id. Here you will find answers to the questions that almost always come up at the start, the way through sign-up, and a candid assessment of what already works today and what does not yet.</p>
+</header>
+
+<section id="wahl" class="choice">
+  <h2>Do you already have a crypto wallet?</h2>
+  <p class="lead">Tap what applies to you and I will show you the right starting point. You can also simply read on.</p>
+  <div class="yn" role="group" aria-label="Do you already have a crypto wallet?">
+    <button type="button" id="w-ja" aria-pressed="false" aria-controls="p-ja">Yes, I have a wallet</button>
+    <button type="button" id="w-nein" aria-pressed="false" aria-controls="p-nein">No, not yet</button>
+  </div>
+  <div class="panel" id="p-ja" hidden>
+    <p><b>Good, then you can start right away.</b> These are your next points:</p>
+    <ol>
+      <li><a href="#bereit">Have these ready</a>: wallet, a little BNB, invitation link, email inbox.</li>
+      <li><a href="#schritte">Sign-up in seven steps</a>, about ten minutes.</li>
+      <li><a href="#fragen">Frequently asked questions</a>, starting with “I've signed up. What happens next?”.</li>
+    </ol>
+    <p>Check two things first: your wallet can handle the BNB Smart Chain, and it is the wallet you want to keep permanently. Your Vow.id stays tied to it forever.</p>
+  </div>
+  <div class="panel" id="p-nein" hidden>
+    <p><b>Then the wallet comes first.</b> Allow about half an hour for it. In brief:</p>
+    <ol>
+      <li>Install a wallet app from the official source, for example Trust Wallet or MetaMask.</li>
+      <li>Create a new wallet and write the seed phrase down by hand on paper. Never photograph it, never share it.</li>
+      <li>Get a small amount of BNB into the wallet, on the BNB Smart Chain network.</li>
+    </ol>
+    <p>Each of these steps is explained one by one in the <a href="{{KOMPLETT_URL}}#teil1" target="_blank" rel="noopener noreferrer">Vow.id complete guide</a>. It takes you from your first wallet to a finished sign-up.</p>
+    <p>Once your wallet is set up, continue here at <a href="#bereit">Have these ready</a>.</p>
+  </div>
+</section>
+
+<section id="kurz">
+  <h2>The essentials first</h2>
+  <p>Vow.id is a web app that you log in to with your wallet. You provide proof of real purchases, for example at Amazon, and are proposed Member Rewards (MR) for them. Approved MR can be converted into v$ with a contribution in VOW; v$ are digital discount vouchers.</p>
+  <div class="facts">
+    <div class="fact"><b>€0</b><span>is what sign-up costs. You only pay a small BNB network fee.</span></div>
+    <div class="fact"><b>0.002 BNB</b><span>is the minimum that must be in the wallet (BNB Smart Chain).</span></div>
+    <div class="fact"><b>Forever</b><span>is how long wallet, referrer and handle are fixed. None of them can be changed later.</span></div>
+    <div class="fact"><b>Not cashback</b><span>MR are not money. To redeem them you add VOW worth half the market value of a v$.</span></div>
+  </div>
+  <div class="status">
+    <p><b>What works today:</b> sign-up, the receipt address, bank linking for Premium and the wallet scan. Purchases are recorded and shown as MR proposals.</p>
+    <p><b>What is not running yet:</b> the review of proposals by independent verifiers. According to a notice from Vow.id, it is waiting for a smart contract that is to be deployed “shortly”. Until then MR stay on “Pending” and cannot be redeemed.</p>
+    <p>Vow.id is labelled as a beta. Not every receipt and not every bank is recognised yet.</p>
+  </div>
+  <p class="note"><b>Security first:</b> Nobody needs your seed phrase, your private key, your email PIN or your bank code. Not even the person who invited you. Anyone who asks for them is trying to defraud you.</p>
+</section>
+
+<section id="bereit">
+  <h2>Have these ready</h2>
+  <ul class="check" id="check">
+    <li><label><input type="checkbox" id="c1"><span>The wallet you want to keep <b>permanently</b>, with its seed phrase stored safely.</span></label></li>
+    <li><label><input type="checkbox" id="c2"><span>At least 0.002 BNB on the BNB Smart Chain in this wallet.</span></label></li>
+    <li><label><input type="checkbox" id="c3"><span>The invitation link from the person who invited you. Open Vow.id for the first time through this link.</span></label></li>
+    <li><label><input type="checkbox" id="c4"><span>Your normal email inbox, which you can open right now.</span></label></li>
+    <li><label><input type="checkbox" id="c5"><span>A name you would like for your handle (it becomes name@vow.id).</span></label></li>
+  </ul>
+</section>
+
+<section id="schritte">
+  <h2>Sign-up in seven steps</h2>
+  <p class="lead">Expect it to take about ten minutes. Keep only one Vow.id tab open while you do it. The app follows the language you have chosen, so the button labels depend on your setting; this guide uses the English labels.</p>
+  <ol class="steps">
+    <li><div><h3>Open via the invitation link</h3><p>Open the link from your invitation in the browser, read the risk notice at the top and choose “Create Vow.id”. In the privacy settings you can decline advertising.</p><span class="cp">Done when the wallet selection opens.</span></div></li>
+    <li><div><h3>Connect your wallet</h3><p>Choose your wallet or WalletConnect and confirm the connection in the wallet app. On a phone the browser may jump to the wallet app. Afterwards go back to the same browser tab.</p><span class="cp">Done when your address appears with “Sign message to continue”.</span></div></li>
+    <li><div><h3>Check the referrer and sign the message</h3><p>Check the green line “Referred by …”. If the right name is shown there, sign the message. The signature costs nothing and moves no funds.</p><span class="cp">Done when the “Join the Decentralised Affiliate Tree” screen appears.</span></div></li>
+    <li><div><h3>Join the affiliate tree</h3><p>Choose “Join and open wallet”, allow the switch to the BNB Smart Chain and confirm the transaction. This is the only fee. Wait for the confirmation and do not send a second transaction; press “Check again” instead.</p><span class="cp">Done when your Vault opens with the email window.</span></div></li>
+    <li><div><h3>Confirm your email</h3><p>Enter your normal email address and type in the four-digit PIN from your inbox. Check your spam folder too.</p><span class="cp">Done at “Email verified – Welcome to Vow.id”.</span></div></li>
+    <li><div><h3>Secure your handle</h3><p>Enter the name you want (3–30 lowercase letters, digits or hyphens), press “Check” and then “Claim”. The handle stays forever.</p><span class="cp">Done when name@vow.id is shown in the overview.</span></div></li>
+    <li><div><h3>Prepare your first purchase</h3><p>Open Member Rewards → Checklist, choose your country and the providers you really use. Under “Receipts &amp; MR rights”, switch on “Collect MR rights”. Then enter your name@vow.id as the account email at Amazon. Start with one provider.</p><span class="cp">Done when a transaction appears under MR after your next real purchase.</span></div></li>
+  </ol>
+</section>
+
+<section id="fragen">
+  <h2>Frequently asked questions</h2>
+  <div id="faqlist"></div>
+</section>
+
+<section id="hilfe">
+  <h2>If something gets stuck</h2>
+  <div id="fixlist"></div>
+</section>
+
+<section id="quellen">
+  <h2>Official sources and sessions</h2>
+  <ul>
+    <li>At the very bottom of <a href="https://vow.id" target="_blank" rel="noopener noreferrer">vow.id</a> you will find the official user guide as a PDF in several languages, along with the terms and conditions and the privacy policy.</li>
+    <li>For Premium members there is an official ten-point disclosure in the app (edition of 22 November 2026), with bank coverage lists for the USA and the EU.</li>
+    <li>At the top of every Vow.id page the risk notices are under “Read Legal &amp; Risk Disclosures”.</li>
+    <li>The community offers information and tech sessions via Zoom. Current dates and recordings are in the <a href="https://kalender.digital/tln-allgemein" target="_blank" rel="noopener noreferrer">TLN calendar</a>.</li>
+    <li>For problems with bank, receipts or payments, there is the “Contact” item at the bottom of Vow.id.</li>
+  </ul>
+</section>
+
+<section id="begriffe">
+  <h2>Terms</h2>
+  <dl>
+    <dt>BSC</dt><dd>Short for BNB Smart Chain, the network Vow.id runs on. Also called “BEP20” in some apps.</dd>
+    <dt>KYC</dt><dd>Identity check with an ID document, required by purchase services and exchanges.</dd>
+    <dt>DEX</dt><dd>Decentralised exchange such as PancakeSwap, where you swap tokens directly from your wallet.</dd>
+    <dt>2FA</dt><dd>Two-step sign-in: in addition to the wallet, a code from an authenticator app.</dd>
+    <dt>T&amp;Cs</dt><dd>Vow.id's terms and conditions, called “Terms and conditions” on the site.</dd>
+    <dt>MR</dt><dd>Member Rewards. A free, non-transferable entry in a smart contract, permanently tied to your wallet.</dd>
+    <dt>Pending MR</dt><dd>Shown as “Pending” in the app. A proposal, not yet an approved reward. Has no monetary value and can be rejected.</dd>
+    <dt>Approved MR</dt><dd>Shown as “Active” in the app. Approved by three independent verifiers. Redeemable for 60 days, after which they expire.</dd>
+    <dt>Exercise</dt><dd>The official term for redeeming: converting approved MR into v$ against a voluntary VOW contribution.</dd>
+    <dt>v$</dt><dd>Voucher Dollar. A transferable right to propose or accept a $1 discount. Not money and not redeemable for money.</dd>
+    <dt>VOW</dt><dd>The token you contribute when redeeming MR.</dd>
+    <dt>BNB</dt><dd>The currency for network fees on the BNB Smart Chain.</dd>
+    <dt>Handle</dt><dd>Your name at Vow.id, and at the same time your receipt address name@vow.id.</dd>
+    <dt>Vault</dt><dd>Your data area in Vow.id for contact details, addresses and settings.</dd>
+    <dt>Affiliate tree</dt><dd>The referral directory on the blockchain. Every member has a fixed place in it.</dd>
+    <dt>Verifier</dt><dd>Independent reviewers who approve or challenge MR proposals (VV and QVV).</dd>
+    <dt>Plaid</dt><dd>The service provider through which Premium members connect their bank account in read-only mode.</dd>
+  </dl>
+</section>
+
+<section id="risiken">
+  <h2>What you should know before you put money in</h2>
+  <p>Signing up and collecting MR cost nothing. You only put money in when you buy Premium or redeem MR with VOW.</p>
+  <ul>
+    <li>Nobody guarantees that a proposal will be approved, that a merchant will accept v$ or that v$ will keep any particular value.</li>
+    <li>VOW that you contribute when redeeming is gone for good. It is not refunded.</li>
+    <li>VOW and v$ are crypto-assets. Their price can fall sharply, up to a total loss.</li>
+    <li>Transactions on the blockchain cannot be reversed.</li>
+    <li>Vow.id does not hold funds in custody and gives no investment advice. Neither does this page.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>This page is a private, unofficial guide and does not come from Vow.id or N888 LIMITED. It summarises the terms and conditions and the privacy policy of vow.id (as of 20 November 2026), the “New User Overview” (edition 11 of 21 November 2026) and the disclosure for Premium members (edition of 22 November 2026). The choice of questions follows what new users actually ask in practice.</p>
+  <p>Where an answer is based on members' experience rather than on the official documents, it says so. In case of doubt, what vow.id itself displays is what applies.</p>
+  <p>Your question is not here? Write to the person who sent you this page.</p>
+</footer>
+</div>
+
+<script>
+const FAQ=[
