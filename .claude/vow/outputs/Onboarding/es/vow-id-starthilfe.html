@@ -198,6 +198,12 @@ footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padd
 .trail .t1 i{background:var(--s1)}.trail .t2 i{background:var(--s2)}.trail .t3 i{background:var(--s3)}
 .trail [aria-current]{background:var(--pop);color:var(--on-pop)}
 .trail a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
+
+/* Sprachwechsel: vier Pillen unter der Seitenleiste im Kopf; die aktive Sprache ist hell hinterlegt. */
+.lang{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.78rem;font-weight:600}
+.lang>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:4px 12px;border-radius:99px;text-decoration:none;color:var(--hero-fg);border:1.5px solid rgb(255 255 255 / .38)}
+.lang [aria-current]{background:var(--hero-fg);color:var(--hero-a);border-color:transparent}
+.lang a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
@@ -220,6 +226,7 @@ footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padd
 
 <div class="hero"><div class="in">
 <div class="trail" role="navigation" aria-label="Las tres páginas"><a class="t1" href="https://claude.ai/artifact/7CcjNomFvJ9kN2tKJFhSUL" target="_blank" rel="noopener noreferrer"><i>1</i>Primeros pasos</a><span class="t2" aria-current="page"><i>2</i>Guía de inicio</span><a class="t3" href="https://claude.ai/artifact/3Frx3eLGf4YFnFCwjv36Wo" target="_blank" rel="noopener noreferrer"><i>3</i>Consulta</a></div>
+<div class="lang" role="navigation" aria-label="Idioma"><a href="https://claude.ai/artifact/Upk3Ss3EjvSHM7x6WyFwnG" hreflang="de" lang="de" target="_blank" rel="noopener noreferrer">Deutsch</a><a href="https://claude.ai/artifact/CN88827jTmW1GysVr9ogFe" hreflang="en" lang="en" target="_blank" rel="noopener noreferrer">English</a><span aria-current="true" lang="es">Español</span><a href="https://claude.ai/artifact/Y9SLosjzH2eKPsJrvABFfv" hreflang="es-AR" lang="es-AR" target="_blank" rel="noopener noreferrer">Argentina</a></div>
   <span class="eyebrow">Guía de inicio no oficial · Actualizada el 28/11/2026</span>
   <h1>Configura Vow.id <em>con calma</em></h1>
   <p>Siete pasos para registrarte. Y, con franqueza, lo que ya funciona hoy y lo que todavía no.</p>
@@ -629,5 +636,13 @@ try{const v=localStorage.getItem("vowstart-wallet");if(v==="ja"||v==="nein")pick
       setTimeout(function(){ b.textContent="Copiar"; },2500);
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var m=/^#ref-([a-z0-9-]{3,30})$/.exec(String(location.hash).toLowerCase()), r=m?m[1]:"";
+  try{ if(!r) r=sessionStorage.getItem("vowid-ref")||""; }catch(e){}
+  if(!/^[a-z0-9-]{3,30}$/.test(r)) return;
+  [].forEach.call(document.querySelectorAll(".lang a"),function(a){ a.href=a.href.split("#")[0]+"#ref-"+r; });
 })();
 </script>
